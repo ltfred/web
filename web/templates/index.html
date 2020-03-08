@@ -225,9 +225,6 @@
                                         href="des.html">设计神器</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-101"
-                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-101">
-                            <a href="index1.html">工作室</a></li>
                         <li id="menu-item-102"
                             class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-102">
                             <a href="tech-2.html">技术栈</a>
@@ -305,36 +302,32 @@
 
         <div class="content-area">
             <main class="site-main">
-
                 <div class="section bgcolor-fff pt-0">
                     <div class="module slider center owl autoplay">
-                        <article class="post lazyload visible post-429 type-post status-publish format-standard has-post-thumbnail hentry category-des category-tool tag-ps tag-121 tag-81 tag-110"
-                                data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/10/9a322723443bb87.jpg">
+                        {% for carousel in carousel_article%}
+                        <article class="post lazyload visible post-429 type-post status-publish format-standard has-post-thumbnail hentry category-des category-tool tag-ps tag-121 tag-81 tag-110" data-bg="{{carousel.article.cover}}">
                             <div class="entry-wrapper">
                                 <header class="entry-header white">
                                     <div class="entry-meta">
                                         <span class="meta-author">
-                                            <a href="aliwen.html"><img alt='文猪儿' data-src='static/picture/1.png' class='lazyload avatar avatar-40 photo ' height='40' width='40'>文猪儿            </a>
+                                            <a href="aliwen.html"><img alt='' data-src='static/picture/1.png' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{carousel.article.author.nickname}}</a>
                                         </span>
                                         <span class="meta-category">
-                                            <a href="des.html" rel="category"><i class="dot"></i>设计神器</a>
-                                            <a href="tool.html" rel="category"><i class="dot"></i>软件工具</a>
+                                            <a href="des.html" rel="category"><i class="dot"></i>{{carousel.article.category1}}</a>
+                                            <a href="tool.html" rel="category"><i class="dot"></i>{{carousel.article.category2}}</a>
                                         </span>
                                     </div>
-
-                                    <h2 class="entry-title">号外！号外！号外！全网首发破解版 2020 Photoshop</h2></header>
-                                    <div class="entry-excerpt u-text-format">
-                                    新功能介绍 1、人工智能抠图，智能选区
-                                    可能有人说一键抠图早就不是什么新鲜的功能呢，但是我们实现这个操作大多数都是去弄一些额外的插件（这些插件多多少少都有一些瑕疵，毕竟不是adobe自己生产的），而这次更新完全是属于ps自带的功能，非常完美...
-                                    </div>
+                                    <h2 class="entry-title">{{carousel.article.title}}</h2></header>
+                                    <div class="entry-excerpt u-text-format">{{carousel.article.content}}</div>
                                     <div class="entry-footer">
-                                    <a href="429.html"><time datetime="2019-10-24T15:29:51+08:00"><i class="fa fa-clock-o"></i>2019年10月24日</time></a>
-                                    <a href="429.html"><span><i class="fa fa-eye"></i> 117</span></a>
-                                    <a href="429.html"><span><i class="fa fa-comments-o"></i> 0</span></a>
+                                    <a href=""><time datetime="2019-10-24T15:29:51+08:00"><i class="fa fa-clock-o"></i>{{carousel.article.create_time | date:'Y年m月d日'}}</time></a>
+                                    <a href=""><span><i class="fa fa-eye"></i>{{carousel.article.view_count}}</span></a>
+                                    <a href=""><span><i class="fa fa-comments-o"></i> 0</span></a>
                                 </div>
                             </div>
                             <a class="u-permalink" href="429.html"></a>
                         </article>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="section text-center pb-0">
@@ -348,7 +341,6 @@
                     <div class="container">
                         <div class="module category-boxes owl">
                             <div class="category-box">
-
                                 <div class="entry-thumbnails">
                                     <div class="big thumbnail">
                                         <h3 class="entry-title">办公文档</h3>
@@ -456,31 +448,16 @@
                                                             </div>
                                                             <h2 class="entry-title"><a href="javascript:;" rel="bookmark">{{article.title}}</a></h2>
                                                         </header>
-                                                        <div class="entry-excerpt u-text-format">
-                                                            人生里，有些时光逝去了，就再无消息，再无痕迹。可有些时光，无论逝去多久，都鲜活得...
-                                                        </div>
+                                                        <div class="entry-excerpt u-text-format">{{article.content}}</div>
                                                         <div class="entry-footer">
-                                                            <a href="javascript:;"><time datetime="2019-07-25T13:51:09+08:00"><i class="fa fa-clock-o"></i> {{article.create_time| date:'Y-m-d' }}</time></a>
-                                                            <a href="javascript:;"><span><i class="fa fa-eye"></i> {{article.view_count}}</span></a>
-                                                            <a href="javascript:;"><span><i class="fa fa-comments-o"></i> 2</span></a>
+                                                            <a href=""><time datetime="2019-07-25T13:51:09+08:00"><i class="fa fa-clock-o"></i> {{article.create_time| date:'Y年m月d日' }}</time></a>
+                                                            <a href=""><span><i class="fa fa-eye"></i> {{article.view_count}}</span></a>
+                                                            <a href=""><span><i class="fa fa-comments-o"></i>{{article.comment_count}}</span></a>
                                                         </div>
                                                     </div>
                                                 </article>
                                             </div>
                                             {% endfor %}
-                                        </div>
-
-                                        <nav class="navigation posts-navigation" role="navigation">
-                                            <h2 class="screen-reader-text">文章导航</h2>
-                                            <div class="nav-links">
-                                                <div class="nav-next"><a href="index.html">上一页</a></div>
-                                            </div>
-                                        </nav>
-                                        <div class="infinite-scroll-status">
-                                            <div class="infinite-scroll-request"></div>
-                                        </div>
-                                        <div class="infinite-scroll-action">
-                                            <div class="infinite-scroll-button button">加载更多</div>
                                         </div>
                                     </main>
                                 </div>
@@ -497,11 +474,11 @@
                                 <div class="uposts">
                                     <div class="codesign-list lazyload visible"
                                          data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/07/20662b13cbaa324.jpg">
-                                        <h4 class="codeisgn-h4"><i class="fa fa-circle-o"></i> <a href="design.html">我爱设计
-                                            &gt;</a></h4>
+                                        <h4 class="codeisgn-h4"><i class="fa fa-circle-o"></i> <a href="design.html">技术分享&gt;</a></h4>
                                         <span class="codesign-esc"><p>好的东西值得描述内容</p></span>
                                         <div class="codesign-cover"></div>
                                     </div>
+
                                     <div class="hentry"><h2 class="title"><span class="post-num num-1">1</span><a
                                             href="263.html" title="【免费下载】手握手机PSD分成">【免费下载】手握手机PSD分成</a></h2>
                                         <div class="meta"><span>热度(230)</span></div>
@@ -563,9 +540,7 @@
                                         <div class="entry-excerpt u-text-format">20个高分辨率女性手拿着iPhone X和Google Pixel 3 XL在透...</div>
                                         <div class="entry-footer">
                                             <a href="263.html">
-                                                <time datetime="2019-08-12T15:25:31+08:00"><i class="fa fa-clock-o"></i>
-                                                    2019年8月12日
-                                                </time>
+                                                <time datetime="2019-08-12T15:25:31+08:00"><i class="fa fa-clock-o"></i>2019年8月12日</time>
                                             </a>
                                             <a href="263.html"><span><i class="fa fa-eye"></i> 230</span></a>
                                             <a href="263.html"><span><i class="fa fa-comments-o"></i> 2</span></a>

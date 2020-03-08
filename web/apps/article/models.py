@@ -15,6 +15,7 @@ class ArticleDetail(BaseModel):
     view_count = models.IntegerField(verbose_name='浏览量', default=0)
     digg_count = models.IntegerField(verbose_name='点赞数', default=0)
     comment_count = models.IntegerField(verbose_name='评论数', default=0)
+    des = models.TextField(verbose_name='文章简介')
 
 
     class Meta:
