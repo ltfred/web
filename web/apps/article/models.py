@@ -43,6 +43,17 @@ class ArticleCategory(BaseModel):
     def __str__(self):
         return self.name
 
+    @classmethod
+    def get_categories(cls):
+        parent_category = cls.objects.filter(parent__isnull=True)
+        categories = []
+        for category in parent_category:
+            sub_categories = cls.objects.filter(parent=category)
+            categories.append({
+            'category': category,
+            'sub_categories': sub_categories
+            })
+        return categories
 
 class ArticleComment(BaseModel):
     pass

@@ -10,14 +10,7 @@ class IndexView(View):
 
         new_articles = ArticleDetail.objects.all()[0:8]
         carousel_article = Carousel.objects.filter(is_active=True)
-        parent_category = ArticleCategory.objects.filter(parent__isnull=True)
-        categories = []
-        for category in parent_category:
-            sub_categories = ArticleCategory.objects.filter(parent=category)
-            categories.append({
-                'category': category,
-                'sub_categories': sub_categories
-            })
+        categories = ArticleCategory.get_categories()
         data = {
             'new_articles': new_articles,
             'carousel_article': carousel_article,

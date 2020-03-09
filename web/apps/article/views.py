@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views import View
 from django.views.generic import TemplateView
 
-from article.models import ArticleDetail
+from article.models import ArticleDetail, ArticleCategory
 
 
 class ArticleDetailView(View):
@@ -19,7 +19,11 @@ class ArticleDetailView(View):
             'markdown.extensions.codehilite',
             'markdown.extensions.toc'
         ])
+        categories = ArticleCategory.get_categories()
 
-        context = {"article": article}
+        context = {
+            "article": article,
+            'categories': categories
+        }
 
         return render(request, 'article_detail.html', context)

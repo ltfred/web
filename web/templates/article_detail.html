@@ -9,12 +9,10 @@
 
     <title>优雅的用PHP来实现解析抖音无水印视频！-Aliwen小栈</title>
 
-    <link rel='stylesheet' id='poi-player-css' href="{% static 'static/css/poi-2.0.5.css'%}" type='text/css'
-          media='all'>
+    <link rel='stylesheet' id='poi-player-css' href="{% static 'static/css/poi-2.0.5.css'%}" type='text/css' media='all'>
     <link rel='stylesheet' id='caozhuti-style-css' href="{% static 'css/style-4.9.css'%}" type='text/css' media='all'>
     <link rel='stylesheet' id='external-css' href="{% static 'css/external-4.9.css'%}" type='text/css' media='all'>
-    <link rel='stylesheet' id='sweetalert2-css' href="{% static 'css/sweetalert2.min-4.9.css'%}" type='text/css'
-          media='all'>
+    <link rel='stylesheet' id='sweetalert2-css' href="{% static 'css/sweetalert2.min-4.9.css'%}" type='text/css' media='all'>
     <link rel='stylesheet' id='app-css' href="{% static 'css/app-4.9.css'%}" type='text/css' media='all'>
     <link rel='stylesheet' id='diy-css' href="{% static 'css/diy-4.9.css'%}" type='text/css' media='all'>
     <link rel='stylesheet' id='fancybox-css' href="{% static 'css/jquery.fancybox.min-4.9.css'%}" type='text/css' media='all'>
@@ -43,141 +41,29 @@
 <body class="post-template-default single single-post postid-131 single-format-standard  navbar-sticky_transparent navbar-slide sidebar-right pagination-infinite_button">
 
 <div class="site">
-
     <header class="site-header">
         <div class="container">
             <div class="navbar">
                 <div class="logo-wrapper">
                     <a href="../../../../Downloads/网站模板/aliwen/index.html">
-                        <img class="logo regular tap-logo"
-                             src="../../../../Downloads/网站模板/aliwen/static/picture/d72c2fe0ed4f457.png" data-dark=""
-                             alt="Aliwen小栈">
+                        <img class="logo regular tap-logo" src="/static/picture/d72c2fe0ed4f457.png" data-dark="" alt="Aliwen小栈">
                     </a>
                 </div>
                 <div class="sep"></div>
-
                 <nav class="main-menu hidden-xs hidden-sm hidden-md">
                     <ul id="menu-menu-1" class="nav-list u-plain-list">
-                        <li id="menu-item-34"
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-34">
-                            <a href="../../../../Downloads/网站模板/aliwen/index.html">首页</a></li>
-                        <li id="menu-item-85"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85">
-                            <a href="../../../../Downloads/网站模板/aliwen/sygs.html">诗与故事</a>
+                        <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-34"><a href="/">首页</a></li>
+                        {% for category in categories %}
+                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="sygs.html">{{category.category.name}}</a>
                             <ul class="sub-menu">
-                                <li id="menu-item-86"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a
-                                        href="../../../../Downloads/网站模板/aliwen/wyfq.html">文艺奋青</a></li>
-                                <li id="menu-item-87"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-87"><a
-                                        href="../../../../Downloads/网站模板/aliwen/tral.html">旅游攻略</a></li>
-                                <li id="menu-item-88"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-88"><a
-                                        href="../../../../Downloads/网站模板/aliwen/life-2.html">生活腔调</a></li>
+                                {% for sub_category in category.sub_categories%}
+                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="wyfq.html">{{sub_category}}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li id="menu-item-89"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-89">
-                            <a href="../../../../Downloads/网站模板/aliwen/zpxs.html">作品欣赏</a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-90"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-90"><a
-                                        href="../../../../Downloads/网站模板/aliwen/ui.html">UI设计</a></li>
-                                <li id="menu-item-94"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-94"><a
-                                        href="../../../../Downloads/网站模板/aliwen/new.html">新媒体</a></li>
-                                <li id="menu-item-91"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-91"><a
-                                        href="../../../../Downloads/网站模板/aliwen/bgwd.html">办公文档</a></li>
-                                <li id="menu-item-95"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-95"><a
-                                        href="../../../../Downloads/网站模板/aliwen/dstb.html">电商淘宝</a></li>
-                                <li id="menu-item-92"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-92"><a
-                                        href="../../../../Downloads/网站模板/aliwen/adver.html">广告设计</a></li>
-                                <li id="menu-item-93"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-93"><a
-                                        href="../../../../Downloads/网站模板/aliwen/chpt.html">插画配图</a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-234"
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-234"><a
-                                href="javascript:;">杂货铺</a></li>
-                        <li id="menu-item-146"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-146">
-                            <a href="../../../../Downloads/网站模板/aliwen/tool.html">软件工具</a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-147"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-147"><a
-                                        href="../../../../Downloads/网站模板/aliwen/work.html">办公文档</a></li>
-                                <li id="menu-item-148"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-148"><a
-                                        href="../../../../Downloads/网站模板/aliwen/ide.html">开发IDE</a></li>
-                                <li id="menu-item-149"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-149"><a
-                                        href="../../../../Downloads/网站模板/aliwen/camera.html">摄影工具</a></li>
-                                <li id="menu-item-150"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-150"><a
-                                        href="../../../../Downloads/网站模板/aliwen/show.html">翻墙通道</a></li>
-                                <li id="menu-item-151"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-151"><a
-                                        href="../../../../Downloads/网站模板/aliwen/des.html">设计神器</a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-101"
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-101">
-                            <a href="../../../../Downloads/网站模板/aliwen/index1.html">工作室</a></li>
-                        <li id="menu-item-102"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor menu-item-has-children menu-item-102">
-                            <a href="../../../../Downloads/网站模板/aliwen/tech-2.html">技术栈</a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-105"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-105"><a
-                                        href="../../../../Downloads/网站模板/aliwen/design.html">我爱设计</a></li>
-                                <li id="menu-item-103"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-103"><a
-                                        href="../../../../Downloads/网站模板/aliwen/qdkf.html">前端开发</a></li>
-                                <li id="menu-item-104"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-104">
-                                    <a href="../../../../Downloads/网站模板/aliwen/htcx.html">后台程序</a></li>
-                                <li id="menu-item-107"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-107"><a
-                                        href="../../../../Downloads/网站模板/aliwen/databases.html">玩数据库</a></li>
-                                <li id="menu-item-106"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-106"><a
-                                        href="../../../../Downloads/网站模板/aliwen/server.html">操服务器</a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-108"
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-108">
-                            <a href="../../../../Downloads/网站模板/aliwen/index1.html">小程序</a></li>
-                        <li id="menu-item-109"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-109">
-                            <a href="../../../../Downloads/网站模板/aliwen/zmz.html">造梦者</a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-115"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-115"><a
-                                        href="../../../../Downloads/网站模板/aliwen/time.html">时间轴</a></li>
-                                <li id="menu-item-223"
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-223"><a
-                                        href="../../../../Downloads/网站模板/aliwen/index2.html">音悦台</a></li>
-                                <li id="menu-item-113"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-113"><a
-                                        href="../../../../Downloads/网站模板/aliwen/navb.html">我的导航</a></li>
-                                <li id="menu-item-236"
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-236"><a
-                                        href="../../../../Downloads/网站模板/aliwen/index3.html">会员电影</a></li>
-                                <li id="menu-item-114"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-114"><a
-                                        href="../../../../Downloads/网站模板/aliwen/apple.html">我的果园</a></li>
-                                <li id="menu-item-111"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-111"><a
-                                        href="../../../../Downloads/网站模板/aliwen/fuck.html">关注我们</a></li>
-                            </ul>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </nav>
-
                 <div class="main-search">
                     <form method="get" class="search-form inline" action="https://ww.aliwen.vip/">
                         <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..."
@@ -208,30 +94,22 @@
                 <div class="content-column col-lg-9">
                     <div class="content-area">
                         <main class="site-main">
-
                             <article id="post-131" class="article-content">
                                 <div class="container">
-
-                                    <div id="crumbs">首页 &raquo; <a href="../../../../Downloads/网站模板/aliwen/tech-2.html">技术分享</a>
-                                        &raquo; <a href="../../../../Downloads/网站模板/aliwen/htcx.html">后台程序</a> &raquo;
-                                        <span>优雅的用PHP来实现解析抖音无水印视频！</span></div>
+                                    <div id="crumbs">首页 &raquo; <a href="../../../../Downloads/网站模板/aliwen/tech-2.html">{{article.category1.name}}</a>&raquo; <a href="../../../../Downloads/网站模板/aliwen/htcx.html">{{article.category2.name}}</a> &raquo;<span>{{article.title}}</span></div>
                                     <div class="cao_entry_header">
-
                                         <header class="entry-header">
-                                            <h1 class="entry-title"><a href="" rel="bookmark">优雅的用PHP来实现解析抖音无水印视频！</a>
-                                            </h1></header>
+                                            <h1 class="entry-title"><a href="" rel="bookmark">{{article.title}}</a></h1>
+                                        </header>
                                     </div>
                                 </div>
-
                                 <div class="container">
                                     <div class="entry-wrapper">
                                         <div class="entry-content u-text-format u-clearfix">
                                             <div id="output_wrapper_id" class="output_wrapper"
                                                  style="font-size: 16px; color: #3e3e3e; line-height: 1.6; word-spacing: 0px; letter-spacing: 0px; font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;">
-                                                <blockquote
-                                                        style="line-height: inherit; display: block; padding: 15px 15px 15px 1rem; font-size: 0.9em; margin: 1em 0px; color: #819198; border-left: 6px solid #dce6f0; background: #f2f7fb; overflow: auto; word-wrap: normal; word-break: normal;">
-                                                    <p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 0px;">
-                                                        很多时候你在douyin里看到了一个短视频，想复制下来自己编辑文字来发布，可是视频里的水印却是原者的。这个时候你想把水印去掉，你要如何做呢？这里提供PHP实现去除水印的主要方法，其实很简单。</p>
+                                                <blockquote style="line-height: inherit; display: block; padding: 15px 15px 15px 1rem; font-size: 0.9em; margin: 1em 0px; color: #819198; border-left: 6px solid #dce6f0; background: #f2f7fb; overflow: auto; word-wrap: normal; word-break: normal;">
+                                                    <p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 0px; text-indent: 20px">{{article.des}}</p>
                                                 </blockquote>
                                             </div>
                                             <div>{{article.content | safe}}</div>
@@ -249,7 +127,7 @@
                                                         <svg class="wb-icon wbsico-like">
                                                             <use xlink:href="#wbsico-like"></use>
                                                         </svg>
-                                                        <span>赞(2)</span></a>
+                                                        <span>赞({{article.digg_count}})</span></a>
                                                     <div class="com-popover pst-c pst-fixed wb-dialog-df wb-ppo-donate"
                                                          id="J_ppoDonate">
                                                         <div class="bd" id="J_tabBoxDWQ">
@@ -283,12 +161,9 @@
                                             </div>
                                         </div>
                                         <div class="entry-tags">
-                                            <a href="../../../../Downloads/网站模板/aliwen/php.html" rel="tag">
-                                                PHP </a>
-                                            <a href="../../../../Downloads/网站模板/aliwen/后台程序.html" rel="tag">
-                                                后台程序 </a>
-                                            <a href="../../../../Downloads/网站模板/aliwen/技术.html" rel="tag">
-                                                技术 </a>
+                                            {% for label in article.labels.all %}
+                                            <a href="../../../../Downloads/网站模板/aliwen/php.html" rel="tag">{{label.name}}</a>
+                                            {% endfor %}
                                         </div>
                                         <div class="article-copyright">
                                             Aliwen一个90后小青年，热爱生活和旅游，喜欢冒险。爱自己，你要活得无可替代并精彩绝伦，世界那么大不如去看看它，人活着不只有眼前的苟且，还有诗和远方，以爱与青春为名，陪你一路成长，不失初心，不忘初衷!<br><a
@@ -388,10 +263,10 @@
                         </div>
                         <div id="media_image-2" class="widget widget_media_image"><h5 class="widget-title">关注我们</h5><img
                                 width="747" height="1024"
-                                src="../../../../Downloads/网站模板/aliwen/static/picture/fde8a2f3eb87afa-747x1024.jpg"
+                                src="static/picture/fde8a2f3eb87afa-747x1024.jpg"
                                 class="image wp-image-144  attachment-large size-large" alt=""
                                 style="max-width: 100%; height: auto;"
-                                srcset="../../../../Downloads/网站模板/aliwen/static/picture/fde8a2f3eb87afa-747x1024.jpg 747w, static/picture/fde8a2f3eb87afa-219x300.jpg 219w, static/picture/fde8a2f3eb87afa-768x1053.jpg 768w, static/picture/fde8a2f3eb87afa.jpg 1080w"
+                                srcset="static/picture/fde8a2f3eb87afa-747x1024.jpg 747w, static/picture/fde8a2f3eb87afa-219x300.jpg 219w, static/picture/fde8a2f3eb87afa-768x1053.jpg 768w, static/picture/fde8a2f3eb87afa.jpg 1080w"
                                 sizes="(max-width: 747px) 100vw, 747px"></div>
                         <div id="linkcat-89" class="widget widget_links"><h5 class="widget-title">友情链接</h5>
                             <ul class='xoxo blogroll'>
@@ -421,133 +296,32 @@
                             <article class="post">
                                 <div class="entry-media">
                                     <div class="placeholder" style="padding-bottom: 66.666666666667%;">
-                                        <a href="../../../../Downloads/网站模板/aliwen/242.html">
-                                            <img class="lazyload" data-src="static/picture/b7b69c2e8283e651.jpg"
-                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                                 alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="entry-wrapper">
-
-                                    <header class="entry-header">
-                                        <div class="entry-meta">
-                  <span class="meta-author">
-            <a href="../../../../Downloads/网站模板/aliwen/aliwen.html">
-              <img alt='文猪儿' data-src='static/picture/1.png' class='lazyload avatar avatar-40 photo ' height='40'
-                   width='40'>文猪儿            </a>
-          </span>
-                                        </div>
-
-                                        <h4 class="entry-title"><a href="../../../../Downloads/网站模板/aliwen/242.html"
-                                                                   rel="bookmark">PHP使用百度API实现人脸识别的功能！</a></h4></header>
-                                    <div class="entry-excerpt u-text-format">
-                                        <p>1.注册百度开发者账号。 https://login.bce.baidu.com/?account=
-                                            注册登录成功后，进入控制台，在左边的导航栏找到产品-》人工智能-》人脸识别： 创建应用。创建应用成功后拿到应用的API Key和Secret Key
-                                            2.接口调用-获取access token 调用人脸识别接口前需要获取access token，示例代码： function execCurl($u [&hellip;]</p>
-                                    </div>
-                                    <div class="entry-footer">
-                                        <a href="../../../../Downloads/网站模板/aliwen/242.html">
-                                            <time datetime="2019-08-11T09:21:31+08:00"><i class="fa fa-clock-o"></i>
-                                                2019年8月11日
-                                            </time>
-                                        </a>
-                                        <a href="../../../../Downloads/网站模板/aliwen/242.html"><span><i
-                                                class="fa fa-eye"></i> 102</span></a>
-                                        <a href="../../../../Downloads/网站模板/aliwen/242.html"><span><i
-                                                class="fa fa-comments-o"></i> 0</span></a>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-lg-6">
-                            <article class="post">
-                                <div class="entry-media">
-                                    <div class="placeholder" style="padding-bottom: 66.666666666667%;">
-                                        <a href="../../../../Downloads/网站模板/aliwen/247.html">
-                                            <img class="lazyload" data-src="static/picture/c1cd2837dfa5503.jpg"
-                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                                 alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="entry-wrapper">
-
-                                    <header class="entry-header">
-                                        <div class="entry-meta">
-                  <span class="meta-author">
-            <a href="../../../../Downloads/网站模板/aliwen/aliwen.html">
-              <img alt='文猪儿' data-src='static/picture/1.png' class='lazyload avatar avatar-40 photo ' height='40'
-                   width='40'>文猪儿            </a>
-          </span>
-                                        </div>
-
-                                        <h4 class="entry-title"><a href="../../../../Downloads/网站模板/aliwen/247.html"
-                                                                   rel="bookmark">PHP+JS实现极验-拖动滑块验证码验证表单</a></h4>
-                                    </header>
-                                    <div class="entry-excerpt u-text-format">
-                                        <p>应用场景
-                                            现在很多网站，比如淘宝，京东等都改用使用极验拖动验证码实现登录，这种方式比传统的验证码方式有更好的体验，减少用户输入的错误，也同样能起到防盗刷的功能。现在很多极验都是第三方的，也很多都是收费的。今天在这里给大家分享自己用原生php实现的一个极验的代码。用原生php的好处就是以后你要嵌套到什么框架，可以直接用核心代码，改一改就好了。
-                                            极验拖动动画图 代码文件截图: 代码实现 html文件: [&hellip;]</p>
-                                    </div>
-                                    <div class="entry-footer">
-                                        <a href="../../../../Downloads/网站模板/aliwen/247.html">
-                                            <time datetime="2019-08-11T09:31:56+08:00"><i class="fa fa-clock-o"></i>
-                                                2019年8月11日
-                                            </time>
-                                        </a>
-                                        <a href="../../../../Downloads/网站模板/aliwen/247.html"><span><i
-                                                class="fa fa-eye"></i> 121</span></a>
-                                        <a href="../../../../Downloads/网站模板/aliwen/247.html"><span><i
-                                                class="fa fa-comments-o"></i> 0</span></a>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-lg-6">
-                            <article class="post">
-                                <div class="entry-media">
-                                    <div class="placeholder" style="padding-bottom: 66.666666666667%;">
                                         <a href="../../../../Downloads/网站模板/aliwen/261.html">
-                                            <img class="lazyload" data-src="static/picture/ce08becc73195df.jpg"
-                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                                                 alt="">
+                                            <img class="lazyload" data-src="static/picture/ce08becc73195df.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="entry-wrapper">
-
                                     <header class="entry-header">
                                         <div class="entry-meta">
-                  <span class="meta-author">
-            <a href="../../../../Downloads/网站模板/aliwen/aliwen.html">
-              <img alt='文猪儿' data-src='static/picture/1.png' class='lazyload avatar avatar-40 photo ' height='40'
-                   width='40'>文猪儿            </a>
-          </span>
+                                            <span class="meta-author">
+                                                <a href="../../../../Downloads/网站模板/aliwen/aliwen.html">
+                                                    <img alt='文猪儿' data-src='static/picture/1.png' class='lazyload avatar avatar-40 photo ' height='40' width='40'>文猪儿
+                                                </a>
+                                            </span>
                                         </div>
 
-                                        <h4 class="entry-title"><a href="../../../../Downloads/网站模板/aliwen/261.html"
-                                                                   rel="bookmark">P++ 是 PHP 的新分支？</a></h4></header>
-                                    <div class="entry-excerpt u-text-format">
-                                        <p>这是对 internals@ 提出的想法进行阐释的 FAQ。对讨论中反复提到的问题进行解答。 注意: P++ 是临时名称，可能会更改。 关于这个项目
+                                        <h4 class="entry-title"><a href="../../../../Downloads/网站模板/aliwen/261.html" rel="bookmark">P++ 是 PHP 的新分支？</a></h4></header>
+                                        <div class="entry-excerpt u-text-format"><p>这是对 internals@ 提出的想法进行阐释的 FAQ。对讨论中反复提到的问题进行解答。 注意: P++ 是临时名称，可能会更改。 关于这个项目
                                             将长文邮件浓缩成几点： 1、目前，关于 PHP 有两个大的思想流派。第一个是认为 PHP 应该是简单的，带有强烈 BC
                                             偏见和强调简单性的语言，而另一种，更加喜欢 PHP 是一门静态的语言，减少包袱和更多高级/复杂的功能。 2、这并没有对错之分。两种
                                             [&hellip;]</p>
-                                    </div>
-                                    <div class="entry-footer">
-                                        <a href="../../../../Downloads/网站模板/aliwen/261.html">
-                                            <time datetime="2019-07-12T14:12:46+08:00"><i class="fa fa-clock-o"></i>
-                                                2019年7月12日
-                                            </time>
-                                        </a>
-                                        <a href="../../../../Downloads/网站模板/aliwen/261.html"><span><i
-                                                class="fa fa-eye"></i> 87</span></a>
-                                        <a href="../../../../Downloads/网站模板/aliwen/261.html"><span><i
-                                                class="fa fa-comments-o"></i> 0</span></a>
-
-                                    </div>
+                                        </div>
+                                        <div class="entry-footer">
+                                        <a href="../../../../Downloads/网站模板/aliwen/261.html"><time datetime="2019-07-12T14:12:46+08:00"><i class="fa fa-clock-o"></i>2019年7月12日</time></a>
+                                        <a href="../../../../Downloads/网站模板/aliwen/261.html"><span><i class="fa fa-eye"></i> 87</span></a>
+                                        <a href="../../../../Downloads/网站模板/aliwen/261.html"><span><i class="fa fa-comments-o"></i> 0</span></a>
+                                        </div>
                                 </div>
                             </article>
                         </div>
@@ -581,7 +355,7 @@
                         <div class="widget--content">
                             <div class="footer--logo mb-20">
                                 <img class="tap-logo"
-                                     src="../../../../Downloads/网站模板/aliwen/static/picture/d72c2fe0ed4f457.png"
+                                     src="/static/picture/d72c2fe0ed4f457.png"
                                      data-dark="" alt="Aliwen小栈">
                             </div>
                             <p class="mb-10">
@@ -620,7 +394,7 @@
                             <h5 style='text-align:center'>微信公众号</h5>
                         </div>
                         <div class="widget--content">
-                            <img src="../../../../Downloads/网站模板/aliwen/static/picture/ca3af5e69a6da7d.jpg">
+                            <img src="/static/picture/ca3af5e69a6da7d.jpg">
                         </div>
                     </div>
 
@@ -630,7 +404,7 @@
                             <h5 style='text-align:center'>博客小程序</h5>
                         </div>
                         <div class="widget--content">
-                            <img src="../../../../Downloads/网站模板/aliwen/static/picture/44c6c370fd18593.jpg">
+                            <img src="/static/picture/44c6c370fd18593.jpg">
                         </div>
                     </div>
 
@@ -740,26 +514,16 @@
     <div class="off-canvas">
         <div class="canvas-close"><i class="mdi mdi-close"></i></div>
         <div class="logo-wrapper">
-            <a href="../../../../Downloads/网站模板/aliwen/index.html">
-                <img class="logo regular" src="../../../../Downloads/网站模板/aliwen/static/picture/d72c2fe0ed4f457.png"
-                     alt="Aliwen小栈">
-            </a>
+            <a href="../../../../Downloads/网站模板/aliwen/index.html"><img class="logo regular" src="/static/picture/d72c2fe0ed4f457.png" alt="Aliwen小栈"></a>
         </div>
         <div class="mobile-menu hidden-lg hidden-xl"></div>
         <aside class="widget-area">
         </aside>
     </div>
-    <script>
-        console.log("version：RiPro_v1.8.0");
-        console.log("SQL 请求数：81");
-        console.log("页面生成耗时： 0.52280");
-    </script>
-
-
-    <script type='text/javascript' src='../../../../Downloads/网站模板/aliwen/static/js/player-base.min-2.0.5.js'></script>
-    <script type='text/javascript' src='../../../../Downloads/网站模板/aliwen/static/js/poi.min-2.0.5.js'></script>
-    <script type='text/javascript' src='../../../../Downloads/网站模板/aliwen/static/js/sweetalert2.min-4.9.js'></script>
-    <script type='text/javascript' src='../../../../Downloads/网站模板/aliwen/static/js/plugins-4.9.js'></script>
+    <script type='text/javascript' src='/static/js/player-base.min-2.0.5.js'></script>
+    <script type='text/javascript' src='/static/js/poi.min-2.0.5.js'></script>
+    <script type='text/javascript' src='/static/js/sweetalert2.min-4.9.js'></script>
+    <script type='text/javascript' src='/static/js/plugins-4.9.js'></script>
     <script type='text/javascript'>
         /* <![CDATA[ */
         var caozhuti = {
@@ -771,19 +535,16 @@
         };
         /* ]]> */
     </script>
-    <script type='text/javascript' src='../../../../Downloads/网站模板/aliwen/static/js/app-4.9.js'></script>
-    <script type='text/javascript'
-            src='../../../../Downloads/网站模板/aliwen/static/js/jquery.fancybox.min-4.9.js'></script>
-    <script type='text/javascript' src='../../../../Downloads/网站模板/aliwen/static/js/comment-reply.min-4.9.js'></script>
-    <script type='text/javascript' src='../../../../Downloads/网站模板/aliwen/static/js/wbp_front-1.1.0.js'></script>
-    <script async="async" type='text/javascript'
-            src='../../../../Downloads/网站模板/aliwen/static/js/form-4.0.1.js'></script>
-    <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank"
-          href="../../../../Downloads/网站模板/aliwen/static/css/sweetalert.min.css">
-    <script src="../../../../Downloads/网站模板/aliwen/static/js/sweetalert.min.js"></script>
-    <script>document.body.oncopy = function () {
-        swal("复制成功！", "转载请务必保留原文链接，申明来源，谢谢合作！！", "success");
-    };</script>
+    <script type='text/javascript' src='/static/js/app-4.9.js'></script>
+    <script type='text/javascript' src='/static/js/jquery.fancybox.min-4.9.js'></script>
+    <script type='text/javascript' src='/static/js/comment-reply.min-4.9.js'></script>
+    <script type='text/javascript' src='/static/js/wbp_front-1.1.0.js'></script>
+    <script async="async" type='text/javascript' src='/static/js/form-4.0.1.js'></script>
+    <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="/static/css/sweetalert.min.css">
+    <script src="/static/js/sweetalert.min.js"></script>
+<!--    <script>document.body.oncopy = function () {-->
+<!--        swal("复制成功！", "转载请务必保留原文链接，申明来源，谢谢合作！！", "success");};-->
+<!--    </script>-->
     <script>
         (function () {
             var bp = document.createElement('script');
@@ -797,61 +558,7 @@
             s.parentNode.insertBefore(bp, s);
         })();
     </script>
-    <script>
-        !function (e, t, a) {
-            function r() {
-                for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
-                requestAnimationFrame(r)
-            }
-
-            function n() {
-                var t = "function" == typeof e.onclick && e.onclick;
-                e.onclick = function (e) {
-                    t && t(),
-                        o(e)
-                }
-            }
-
-            function o(e) {
-                var a = t.createElement("div");
-                a.className = "heart",
-                    s.push({
-                        el: a,
-                        x: e.clientX - 5,
-                        y: e.clientY - 5,
-                        scale: 1,
-                        alpha: 1,
-                        color: c()
-                    }),
-                    t.body.appendChild(a)
-            }
-
-            function i(e) {
-                var a = t.createElement("style");
-                a.type = "text/css";
-                try {
-                    a.appendChild(t.createTextNode(e))
-                } catch (t) {
-                    a.styleSheet.cssText = e
-                }
-                t.getElementsByTagName("head")[0].appendChild(a)
-            }
-
-            function c() {
-                return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-            }
-
-            var s = [];
-            e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame ||
-                function (e) {
-                    setTimeout(e, 1e3 / 60)
-                },
-                i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),
-                n(),
-                r()
-        }(window, document);
-    </script>
-
+    <script type='text/javascript' src='/static/js/mouse.js'></script>
 </div>
 </body>
 </html>
