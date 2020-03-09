@@ -159,108 +159,16 @@
 
                 <nav class="main-menu hidden-xs hidden-sm hidden-md">
                     <ul id="menu-menu-1" class="nav-list u-plain-list">
-                        <li id="menu-item-34"
-                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34">
-                            <a href="index.html">首页</a></li>
-                        <li id="menu-item-85"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85">
-                            <a href="sygs.html">诗与故事</a>
+                        <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="index.html">首页</a></li>
+                        {% for category in categories %}
+                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="sygs.html">{{category.category.name}}</a>
                             <ul class="sub-menu">
-                                <li id="menu-item-86"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a
-                                        href="wyfq.html">文艺奋青</a></li>
-                                <li id="menu-item-87"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-87"><a
-                                        href="tral.html">旅游攻略</a></li>
-                                <li id="menu-item-88"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-88"><a
-                                        href="life-2.html">生活腔调</a></li>
+                                {% for sub_category in category.sub_categories%}
+                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="wyfq.html">{{sub_category}}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li id="menu-item-89"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-89">
-                            <a href="zpxs.html">作品欣赏</a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-90" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-90"><a href="ui.html">UI设计</a></li>
-                                <li id="menu-item-94" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-94"><a href="new.html">新媒体</a></li>
-                                <li id="menu-item-91" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-91"><a href="bgwd.html">办公文档</a></li>
-                                <li id="menu-item-95" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-95"><a href="dstb.html">电商淘宝</a></li>
-                                <li id="menu-item-92" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-92"><a href="adver.html">广告设计</a></li>
-                                <li id="menu-item-93" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-93"><a href="chpt.html">插画配图</a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-234"
-                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-234"><a
-                                href="javascript:;">杂货铺</a></li>
-                        <li id="menu-item-146"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-146">
-                            <a href="tool.html">软件工具</a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-147"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-147"><a
-                                        href="work.html">办公文档</a></li>
-                                <li id="menu-item-148"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-148"><a
-                                        href="ide.html">开发IDE</a></li>
-                                <li id="menu-item-149"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-149"><a
-                                        href="camera.html">摄影工具</a></li>
-                                <li id="menu-item-150"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-150"><a
-                                        href="show.html">翻墙通道</a></li>
-                                <li id="menu-item-151"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-151"><a
-                                        href="des.html">设计神器</a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-102"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-102">
-                            <a href="tech-2.html">技术栈</a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-105"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-105"><a
-                                        href="design.html">我爱设计</a></li>
-                                <li id="menu-item-103"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-103"><a
-                                        href="qdkf.html">前端开发</a></li>
-                                <li id="menu-item-104"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-104"><a
-                                        href="htcx.html">后台程序</a></li>
-                                <li id="menu-item-107"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-107"><a
-                                        href="databases.html">玩数据库</a></li>
-                                <li id="menu-item-106"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-106"><a
-                                        href="server.html">操服务器</a></li>
-                            </ul>
-                        </li>
-                        <li id="menu-item-108"
-                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-108">
-                            <a href="index1.html">小程序</a></li>
-                        <li id="menu-item-109"
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-109">
-                            <a href="zmz.html">造梦者</a>
-                            <ul class="sub-menu">
-                                <li id="menu-item-115"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-115"><a
-                                        href="time.html">时间轴</a></li>
-                                <li id="menu-item-223"
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-223"><a
-                                        href="index2.html">音悦台</a></li>
-                                <li id="menu-item-113"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-113"><a
-                                        href="navb.html">我的导航</a></li>
-                                <li id="menu-item-236"
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-236"><a
-                                        href="index3.html">会员电影</a></li>
-                                <li id="menu-item-114"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-114"><a
-                                        href="apple.html">我的果园</a></li>
-                                <li id="menu-item-111"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-111"><a
-                                        href="fuck.html">关注我们</a></li>
-                            </ul>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </nav>
 
