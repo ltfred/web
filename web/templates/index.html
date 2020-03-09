@@ -301,8 +301,9 @@
                                             <a href="aliwen.html"><img alt='' data-src='static/picture/1.png' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{carousel.article.author.nickname}}</a>
                                         </span>
                                         <span class="meta-category">
-                                            <a href="des.html" rel="category"><i class="dot"></i>{{carousel.article.category1}}</a>
-                                            <a href="tool.html" rel="category"><i class="dot"></i>{{carousel.article.category2}}</a>
+                                            {% for label in carousel.article.labels.all %}
+                                            <a href="des.html" rel="category"><i class="dot"></i>{{label.name}}</a>
+                                            {% endfor %}
                                         </span>
                                     </div>
                                     <h2 class="entry-title">{{carousel.article.title}}</h2></header>
@@ -430,8 +431,9 @@
                                                         <header class="entry-header">
                                                             <div class="entry-meta">
                                                                 <span class="meta-category">
-                                                                    <a href="life.html" rel="category"><i class="dot"></i>{{article.category1}}</a>
-                                                                    <a href="life-2.html" rel="category"><i class="dot"></i>{{article.category2}}</a>
+                                                                    {% for label in article.labels.all %}
+                                                                    <a href="life.html" rel="category"><i class="dot"></i>{{ label.name }}</a>
+                                                                    {% endfor %}
                                                                 </span>
                                                             </div>
                                                             <h2 class="entry-title"><a href="/article/detail/{{article.id}}" rel="bookmark">{{article.title}}</a></h2>

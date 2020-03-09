@@ -18,6 +18,7 @@ class ArticleDetail(BaseModel):
     digg_count = models.IntegerField(verbose_name='点赞数', default=0)
     comment_count = models.IntegerField(verbose_name='评论数', default=0)
     des = models.TextField(verbose_name='文章简介')
+    labels = models.ManyToManyField('ArticleLabel', related_name='labels')
 
 
     class Meta:
@@ -32,7 +33,7 @@ class ArticleDetail(BaseModel):
 
 class ArticleCategory(BaseModel):
     name = models.CharField(verbose_name='分类名', max_length=20, help_text='20字以内')
-    parent = models.ForeignKey('self', verbose_name='父级分类', null=True, on_delete=models.PROTECT)
+    parent = models.ForeignKey('self', verbose_name='父级分类', null=True, blank=True, on_delete=models.PROTECT)
 
     class Meta:
         db_table = 'article_category'
@@ -45,3 +46,12 @@ class ArticleCategory(BaseModel):
 
 class ArticleComment(BaseModel):
     pass
+
+
+class ArticleLabel(BaseModel):
+    name = models.CharField(verbose_name='文章标签', max_length=20)
+
+    class Meta:
+        db_table = 'labels'
+        verbose_name = '文章标签'
+        verbose_name_plural = verbose_name
