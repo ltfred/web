@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+from mdeditor.fields import MDTextField
+
 from user.models import Users
 from web.utils.base_mode import BaseModel
 
@@ -11,7 +13,7 @@ class ArticleDetail(BaseModel):
     category1 = models.ForeignKey('ArticleCategory', on_delete=models.PROTECT, related_name='category1')
     category2 = models.ForeignKey('ArticleCategory', on_delete=models.PROTECT, related_name='category2')
     cover = models.URLField(verbose_name='文章封面')
-    content = models.TextField(verbose_name='文章内容')
+    content = MDTextField(verbose_name='文章内容')
     view_count = models.IntegerField(verbose_name='浏览量', default=0)
     digg_count = models.IntegerField(verbose_name='点赞数', default=0)
     comment_count = models.IntegerField(verbose_name='评论数', default=0)
