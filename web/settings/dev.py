@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'index',
     'article',
     'user',
+    'mdeditor',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 AUTH_USER_MODEL = 'user.users'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  #uploads必须存在，且在项目目录下
+MEDIA_URL = '/media/'   #你上传的文件和图片会默认存在/uploads/editor下

@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -11,11 +11,11 @@
 
     <link rel='stylesheet' id='poi-player-css' href="{% static 'css/poi-2.0.5.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='caozhuti-style-css' href="{% static 'css/style-4.9.css' %}" type='text/css' media='all'>
-    <link rel='stylesheet' id='external-css' href='static/css/external-4.9.css' type='text/css' media='all'>
-    <link rel='stylesheet' id='sweetalert2-css' href='static/css/sweetalert2.min-4.9.css' type='text/css' media='all'>
-    <link rel='stylesheet' id='app-css' href='static/css/app-4.9.css' type='text/css' media='all'>
-    <link rel='stylesheet' id='diy-css' href='static/css/diy-4.9.css' type='text/css' media='all'>
-    <script type='text/javascript' src='static/js/jquery-2.2.4.min-2.2.4.js'></script>
+    <link rel='stylesheet' id='external-css' href="{% static 'css/external-4.9.css' %}" type='text/css' media='all'>
+    <link rel='stylesheet' id='sweetalert2-css' href="{% static 'css/sweetalert2.min-4.9.css' %}" type='text/css' media='all'>
+    <link rel='stylesheet' id='app-css' href="{% static 'css/app-4.9.css' %}" type='text/css' media='all'>
+    <link rel='stylesheet' id='diy-css' href="{% static 'css/diy-4.9.css' %}" type='text/css' media='all'>
+    <script type='text/javascript' src="{% static 'js/jquery-2.2.4.min-2.2.4.js' %}"></script>
 
 
     <style>
@@ -181,24 +181,12 @@
                             class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-89">
                             <a href="zpxs.html">作品欣赏</a>
                             <ul class="sub-menu">
-                                <li id="menu-item-90"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-90"><a
-                                        href="ui.html">UI设计</a></li>
-                                <li id="menu-item-94"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-94"><a
-                                        href="new.html">新媒体</a></li>
-                                <li id="menu-item-91"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-91"><a
-                                        href="bgwd.html">办公文档</a></li>
-                                <li id="menu-item-95"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-95"><a
-                                        href="dstb.html">电商淘宝</a></li>
-                                <li id="menu-item-92"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-92"><a
-                                        href="adver.html">广告设计</a></li>
-                                <li id="menu-item-93"
-                                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-93"><a
-                                        href="chpt.html">插画配图</a></li>
+                                <li id="menu-item-90" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-90"><a href="ui.html">UI设计</a></li>
+                                <li id="menu-item-94" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-94"><a href="new.html">新媒体</a></li>
+                                <li id="menu-item-91" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-91"><a href="bgwd.html">办公文档</a></li>
+                                <li id="menu-item-95" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-95"><a href="dstb.html">电商淘宝</a></li>
+                                <li id="menu-item-92" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-92"><a href="adver.html">广告设计</a></li>
+                                <li id="menu-item-93" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-93"><a href="chpt.html">插画配图</a></li>
                             </ul>
                         </li>
                         <li id="menu-item-234"
@@ -318,14 +306,14 @@
                                         </span>
                                     </div>
                                     <h2 class="entry-title">{{carousel.article.title}}</h2></header>
-                                    <div class="entry-excerpt u-text-format">{{carousel.article.content}}</div>
+                                    <div class="entry-excerpt u-text-format">{{carousel.article.des}}</div>
                                     <div class="entry-footer">
                                     <a href=""><time datetime="2019-10-24T15:29:51+08:00"><i class="fa fa-clock-o"></i>{{carousel.article.create_time | date:'Y年m月d日'}}</time></a>
                                     <a href=""><span><i class="fa fa-eye"></i>{{carousel.article.view_count}}</span></a>
                                     <a href=""><span><i class="fa fa-comments-o"></i> 0</span></a>
                                 </div>
                             </div>
-                            <a class="u-permalink" href="429.html"></a>
+                            <a class="u-permalink" href="/article/detail/{{carousel.article.id}}"></a>
                         </article>
                         {% endfor %}
                     </div>
@@ -433,12 +421,12 @@
                                                     <div class="entry-media">
                                                         <div class="placeholder"
                                                              style="padding-bottom: 66.666666666667%;">
-                                                            <a href="javascript:;"><img class="lazyload" data-src="{{article.cover}}" src="{{article.cover}}" alt="">
+                                                            <a href="/article/detail/{{article.id}}"><img class="lazyload" data-src="{{article.cover}}" src="{{article.cover}}" alt="">
                                                             </a>
                                                         </div>
                                                     </div>
                                                     <div class="entry-wrapper">
-                                                        <a class="grid_author_avt" href="javascript:;"><div class="grid_author_bggo avatar bg-cover" style="background-image: url(static/image/1.png);"></div></a>
+                                                        <a class="grid_author_avt" href="javascript:;"><div class="grid_author_bggo avatar bg-cover" style="background-image: url(../static/image/1.png);"></div></a>
                                                         <header class="entry-header">
                                                             <div class="entry-meta">
                                                                 <span class="meta-category">
@@ -446,13 +434,13 @@
                                                                     <a href="life-2.html" rel="category"><i class="dot"></i>{{article.category2}}</a>
                                                                 </span>
                                                             </div>
-                                                            <h2 class="entry-title"><a href="javascript:;" rel="bookmark">{{article.title}}</a></h2>
+                                                            <h2 class="entry-title"><a href="/article/detail/{{article.id}}" rel="bookmark">{{article.title}}</a></h2>
                                                         </header>
-                                                        <div class="entry-excerpt u-text-format">{{article.content}}</div>
+                                                        <div class="entry-excerpt u-text-format">{{article.des}}</div>
                                                         <div class="entry-footer">
-                                                            <a href=""><time datetime="2019-07-25T13:51:09+08:00"><i class="fa fa-clock-o"></i> {{article.create_time| date:'Y年m月d日' }}</time></a>
-                                                            <a href=""><span><i class="fa fa-eye"></i> {{article.view_count}}</span></a>
-                                                            <a href=""><span><i class="fa fa-comments-o"></i>{{article.comment_count}}</span></a>
+                                                            <a href="javascript:;"><time datetime="2019-07-25T13:51:09+08:00"><i class="fa fa-clock-o"></i> {{article.create_time| date:'Y年m月d日' }}</time></a>
+                                                            <a href="javascript:;"><span><i class="fa fa-eye"></i> {{article.view_count}}</span></a>
+                                                            <a href="javascript:;"><span><i class="fa fa-comments-o"></i>{{article.comment_count}}</span></a>
                                                         </div>
                                                     </div>
                                                 </article>
