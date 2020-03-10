@@ -55,8 +55,6 @@ class ArticleCategory(BaseModel):
             })
         return categories
 
-class ArticleComment(BaseModel):
-    pass
 
 
 class ArticleLabel(BaseModel):
