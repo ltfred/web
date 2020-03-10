@@ -1,9 +1,8 @@
 import markdown
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import TemplateView
 
-from article.models import ArticleDetail, ArticleCategory
+from article.models import ArticleDetail, ArticleCategory, ArticleLabel
 
 
 class ArticleDetailView(View):
@@ -20,10 +19,14 @@ class ArticleDetailView(View):
             'markdown.extensions.toc'
         ])
         categories = ArticleCategory.get_categories()
-
+        related_articles = ArticleDetail.objects.filter(category2=article.category2)[0:4]
+        labels_and_count = ArticleLabel.get_labels()
         context = {
             "article": article,
-            'categories': categories
+            'categories': categories,
+            'related_articles': related_articles,
+            'labels_and_count': labels_and_count
+
         }
 
         return render(request, 'article_detail.html', context)

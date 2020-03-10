@@ -121,34 +121,29 @@
                                                             <use xlink:href="#wbsico-donate"></use>
                                                         </svg>
                                                         <span>打赏</span></a>
-                                                    <a class="wb-btn wb-btn-ctrl wb-btn-outlined wb-btn-like"
-                                                       data-api="https://ww.aliwen.vip/wp-admin/admin-ajax.php"
-                                                       data-post_id="131">
+                                                    <a class="wb-btn wb-btn-ctrl wb-btn-outlined wb-btn-like" data-api="https://ww.aliwen.vip/wp-admin/admin-ajax.php" data-post_id="131">
                                                         <svg class="wb-icon wbsico-like">
                                                             <use xlink:href="#wbsico-like"></use>
                                                         </svg>
                                                         <span>赞({{article.digg_count}})</span></a>
-                                                    <div class="com-popover pst-c pst-fixed wb-dialog-df wb-ppo-donate"
-                                                         id="J_ppoDonate">
+                                                    <div class="com-popover pst-c pst-fixed wb-dialog-df wb-ppo-donate" id="J_ppoDonate">
                                                         <div class="bd" id="J_tabBoxDWQ">
                                                             <div class="tab-navs">
-
-                                                                <div class="tab-nav-item item-weixin current">
-                                                                    <span>微信</span></div>
-                                                                <div class="tab-nav-item item-alipay"><span>支付宝</span>
-                                                                </div>
+                                                                <div class="tab-nav-item item-weixin current"><span>微信</span></div>
+                                                                <div class="tab-nav-item item-alipay"><span>支付宝</span></div>
                                                             </div>
                                                             <div class="tab-conts">
                                                                 <div class="tab-cont current">
-                                                                    <div class="pic"><img
-                                                                            src="../../../../Downloads/网站模板/aliwen/static/picture/536f868c09cfbc8.jpg"
-                                                                            alt="微信二维码图片"></div>
+                                                                    <div class="pic">
+                                                                        <img src="/static/picture/536f868c09cfbc8.jpg" alt="微信二维码图片">
+                                                                    </div>
                                                                     <p>用<span class="hl">微信</span>扫描二维码打赏</p></div>
                                                                 <div class="tab-cont">
-                                                                    <div class="pic"><img
-                                                                            src="../../../../Downloads/网站模板/aliwen/static/picture/e35cf7b66449df5.jpg"
-                                                                            alt="支付宝二维码图片"></div>
-                                                                    <p>用<span class="hl">支付宝</span>扫描二维码打赏</p></div>
+                                                                    <div class="pic">
+                                                                        <img src="/static/picture/e35cf7b66449df5.jpg" alt="支付宝二维码图片">
+                                                                    </div>
+                                                                    <p>用<span class="hl">支付宝</span>扫描二维码打赏</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <a class="wb-ppo-close">
@@ -167,8 +162,8 @@
                                         </div>
                                         <div class="article-copyright">
                                             Aliwen一个90后小青年，热爱生活和旅游，喜欢冒险。爱自己，你要活得无可替代并精彩绝伦，世界那么大不如去看看它，人活着不只有眼前的苟且，还有诗和远方，以爱与青春为名，陪你一路成长，不失初心，不忘初衷!<br><a
-                                                href="../../../../Downloads/网站模板/aliwen/index.html">Aliwen小栈</a> &raquo;
-                                            <a href="">优雅的用PHP来实现解析抖音无水印视频！</a></div>
+                                                href="/">Aliwen小栈</a> &raquo;
+                                            <a href="">{{article.title}}</a></div>
 
                                         <div class="author-box">
                                             <div class="author-image">
@@ -186,12 +181,10 @@
 
                                             </div>
                                             <div class="poster-share-ico">
-                                                <a class="btn-bigger-cover" data-nonce="1f34e61648" data-id="131"
-                                                   data-action="create-bigger-image" id="bigger-cover"
-                                                   href="javascript:;" title="分享·海报"><i
-                                                        class="fa fa-paper-plane"></i></a>
+                                                <a class="btn-bigger-cover" data-nonce="1f34e61648" data-id="131" data-action="create-bigger-image" id="bigger-cover" href="javascript:;" title="分享·海报">
+                                                    <i class="fa fa-paper-plane"></i>
+                                                </a>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -200,51 +193,44 @@
 
                             <div class="bottom-area">
                                 <div id="comments" class="comments-area">
-
-
                                     <div id="respond" class="comment-respond">
-                                        <h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow"
-                                                                                                        id="cancel-comment-reply-link"
-                                                                                                        href="#respond"
-                                                                                                        style="display:none;">取消回复</a></small>
+                                        <h3 id="reply-title" class="comment-reply-title">发表评论 <small><a rel="nofollow" id="cancel-comment-reply-link" href="#respond" style="display:none;">取消回复</a></small>
                                         </h3>
-                                        <form action="https://ww.aliwen.vip/wp-comments-post.php" method="post"
-                                              id="commentform" class="comment-form" novalidate="">
-                                            <p class="comment-form-comment"><textarea id="comment" name="comment"
-                                                                                      rows="8"
-                                                                                      aria-required="true"></textarea>
+                                        <form action="https://ww.aliwen.vip/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate="">
+                                            <p class="comment-form-comment">
+                                                <textarea id="comment" name="comment" rows="8" aria-required="true"></textarea>
                                             </p>
                                             <div class="row comment-author-inputs">
-                                                <div class="col-md-4 input"><p class="comment-form-author"><label
-                                                        for="author">昵称*</label><input id="author" name="author"
-                                                                                       type="text" value="" size="30"
-                                                                                       aria-required='true'></p></div>
-                                                <div class="col-md-4 input"><p class="comment-form-email"><label
-                                                        for="email">E-mail*</label><input id="email" name="email"
-                                                                                          type="text" value="" size="30"
-                                                                                          aria-required='true'></p>
+                                                <div class="col-md-4 input">
+                                                    <p class="comment-form-author">
+                                                        <label for="author">昵称*</label>
+                                                        <input id="author" name="author" type="text" value="" size="30" aria-required='true'>
+                                                    </p>
                                                 </div>
-                                                <div class="col-md-4 input"><p class="comment-form-url"><label
-                                                        for="url">网站</label><input id="url" name="url" type="text"
-                                                                                   value="" size="30"></p></div>
+                                                <div class="col-md-4 input">
+                                                    <p class="comment-form-email">
+                                                        <label for="email">E-mail*</label>
+                                                        <input id="email" name="email" type="text" value="" size="30" aria-required='true'>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 input">
+                                                    <p class="comment-form-url">
+                                                        <label for="url">网站</label>
+                                                        <input id="url" name="url" type="text" value="" size="30">
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <p class="comment-form-cookies-consent"><input
-                                                    id="wp-comment-cookies-consent" name="wp-comment-cookies-consent"
-                                                    type="checkbox" value="yes"> <label
-                                                    for="wp-comment-cookies-consent">下次发表评论时，请在此浏览器中保存我的姓名、电子邮件和网站</label>
+                                            <p class="comment-form-cookies-consent">
+                                                <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes">
+                                                <label for="wp-comment-cookies-consent">下次发表评论时，请在此浏览器中保存我的姓名、电子邮件和网站</label>
                                             </p>
-                                            <p class="form-submit"><input name="submit" type="submit" id="submit"
-                                                                          class="button" value="发表评论"> <input
-                                                    type='hidden' name='comment_post_ID' value='131'
-                                                    id='comment_post_ID'>
-                                                <input type='hidden' name='comment_parent' id='comment_parent'
-                                                       value='0'>
+                                            <p class="form-submit">
+                                                <input name="submit" type="submit" id="submit" class="button" value="发表评论">
+                                                <input type='hidden' name='comment_post_ID' value='131' id='comment_post_ID'>
+                                                <input type='hidden' name='comment_parent' id='comment_parent' value='0'>
                                             </p>
-                                            <p style="display: none;"><input type="hidden" id="akismet_comment_nonce"
-                                                                             name="akismet_comment_nonce"
-                                                                             value="c526d477d3"></p>
-                                            <p style="display: none;"><input type="hidden" id="ak_js" name="ak_js"
-                                                                             value="5"></p></form>
+                                            <p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="c526d477d3"></p>
+                                            <p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="5"></p></form>
                                     </div><!-- #respond -->
                                 </div>
                             </div>
@@ -263,25 +249,23 @@
                         </div>
                         <div id="media_image-2" class="widget widget_media_image"><h5 class="widget-title">关注我们</h5><img
                                 width="747" height="1024"
-                                src="static/picture/fde8a2f3eb87afa-747x1024.jpg"
+                                src="/static/picture/fde8a2f3eb87afa-747x1024.jpg"
                                 class="image wp-image-144  attachment-large size-large" alt=""
                                 style="max-width: 100%; height: auto;"
-                                srcset="static/picture/fde8a2f3eb87afa-747x1024.jpg 747w, static/picture/fde8a2f3eb87afa-219x300.jpg 219w, static/picture/fde8a2f3eb87afa-768x1053.jpg 768w, static/picture/fde8a2f3eb87afa.jpg 1080w"
+                                srcset="/static/picture/fde8a2f3eb87afa-747x1024.jpg 747w, /static/picture/fde8a2f3eb87afa-219x300.jpg 219w, /static/picture/fde8a2f3eb87afa-768x1053.jpg 768w, /static/picture/fde8a2f3eb87afa.jpg 1080w"
                                 sizes="(max-width: 747px) 100vw, 747px"></div>
-                        <div id="linkcat-89" class="widget widget_links"><h5 class="widget-title">友情链接</h5>
+                        <div id="linkcat-89" class="widget widget_links">
+                            <h5 class="widget-title">友情链接</h5>
                             <ul class='xoxo blogroll'>
-                                <li><a href="../../../../Downloads/网站模板/aliwen/index.html" rel="me" target="_blank">Aliwen小栈</a>
-                                </li>
-                                <li><a href="javascript:;" target="_blank">Cherish blog</a></li>
                                 <li><a href="javascript:;">IT界的搬砖工</a></li>
-                                <li><a href="javascript:;" target="_blank">杨青青</a></li>
-                                <li><a href="javascript:;" target="_blank">沧澜小栈</a></li>
-                                <li><a href="javascript:;" target="_blank">清墨的橘</a></li>
-                                <li><a href="javascript:;">爱记忆</a></li>
-                                <li><a href="javascript:;" title="https://www.xvue.cn/blog/blog_avatar.jpg"
-                                       target="_blank">程序员小鸿</a></li>
-
                             </ul>
+                        </div>
+                        <div id="tag_cloud-2" class="widget widget_tag_cloud"><h5 class="widget-title">标签云</h5>
+                            <div class="tagcloud">
+                                {% for label in labels_and_count %}
+                                <a href="#" class="tag-cloud-link tag-link-106 tag-link-position-1" style="font-size: 8pt;" aria-label="JS (1个项目)">{{label.label_name}}<span class="tag-link-count"> ({{label.article_count}})</span></a>
+                                {% endfor %}
+                            </div>
                         </div>
                     </aside>
                 </div>
@@ -292,12 +276,13 @@
                 <div class="related-posts">
                     <h3 class="u-border-title">相关推荐</h3>
                     <div class="row">
+                        {% for article in related_articles %}
                         <div class="col-lg-6">
                             <article class="post">
                                 <div class="entry-media">
                                     <div class="placeholder" style="padding-bottom: 66.666666666667%;">
                                         <a href="../../../../Downloads/网站模板/aliwen/261.html">
-                                            <img class="lazyload" data-src="static/picture/ce08becc73195df.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                                            <img class="lazyload" data-src="{{article.cover}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -305,37 +290,31 @@
                                     <header class="entry-header">
                                         <div class="entry-meta">
                                             <span class="meta-author">
-                                                <a href="../../../../Downloads/网站模板/aliwen/aliwen.html">
-                                                    <img alt='文猪儿' data-src='static/picture/1.png' class='lazyload avatar avatar-40 photo ' height='40' width='40'>文猪儿
-                                                </a>
+                                                <a href="../../../../Downloads/网站模板/aliwen/aliwen.html"><img alt='' data-src='{{article.author.avatar}}' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{article.author.nickname}}</a>
                                             </span>
                                         </div>
-
-                                        <h4 class="entry-title"><a href="../../../../Downloads/网站模板/aliwen/261.html" rel="bookmark">P++ 是 PHP 的新分支？</a></h4></header>
-                                        <div class="entry-excerpt u-text-format"><p>这是对 internals@ 提出的想法进行阐释的 FAQ。对讨论中反复提到的问题进行解答。 注意: P++ 是临时名称，可能会更改。 关于这个项目
-                                            将长文邮件浓缩成几点： 1、目前，关于 PHP 有两个大的思想流派。第一个是认为 PHP 应该是简单的，带有强烈 BC
-                                            偏见和强调简单性的语言，而另一种，更加喜欢 PHP 是一门静态的语言，减少包袱和更多高级/复杂的功能。 2、这并没有对错之分。两种
-                                            [&hellip;]</p>
+                                        <h4 class="entry-title"><a href="../../../../Downloads/网站模板/aliwen/261.html" rel="bookmark">{{article.title}}</a></h4></header>
+                                        <div class="entry-excerpt u-text-format"><p>{{article.des}}</p>
                                         </div>
                                         <div class="entry-footer">
-                                        <a href="../../../../Downloads/网站模板/aliwen/261.html"><time datetime="2019-07-12T14:12:46+08:00"><i class="fa fa-clock-o"></i>2019年7月12日</time></a>
-                                        <a href="../../../../Downloads/网站模板/aliwen/261.html"><span><i class="fa fa-eye"></i> 87</span></a>
-                                        <a href="../../../../Downloads/网站模板/aliwen/261.html"><span><i class="fa fa-comments-o"></i> 0</span></a>
+                                        <a href="javascript:;"><time datetime="2019-07-12T14:12:46+08:00"><i class="fa fa-clock-o"></i>{{article.create_time | date:'Y年m月d日'}}</time></a>
+                                        <a href="javascript:;"><span><i class="fa fa-eye"></i>{{article.view_count}}</span></a>
+                                        <a href="javascript:;"><span><i class="fa fa-comments-o"></i>{{article.comment_count}}</span></a>
                                         </div>
                                 </div>
                             </article>
                         </div>
+                        {%  endfor %}
                     </div>
                 </div>
             </div>
         </div>
 
-
     </div><!-- end sitecoent -->
 
 
     <div class="module parallax">
-        <img class="jarallax-img lazyload" data-srcset="static/picture/006a9a6fef68d47.jpg" data-sizes="auto"
+        <img class="jarallax-img lazyload" data-srcset="/static/picture/006a9a6fef68d47.jpg" data-sizes="auto"
              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
         <div class="container">
             <h4 class="entry-title">

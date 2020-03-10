@@ -66,3 +66,15 @@ class ArticleLabel(BaseModel):
         db_table = 'labels'
         verbose_name = '文章标签'
         verbose_name_plural = verbose_name
+
+    @classmethod
+    def get_labels(cls):
+        labels_and_count = []
+        labels = cls.objects.all()
+        for label in labels:
+            count = label.labels.all().count()
+            labels_and_count.append({
+                'label_name': label.name,
+                'article_count': count
+            })
+        return labels_and_count
