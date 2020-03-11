@@ -1,4 +1,5 @@
 import markdown
+from django.db.models import Q
 from django.shortcuts import render
 from django.views import View
 
@@ -13,7 +14,7 @@ class ArticleDetailView(View):
             article = ArticleDetail.objects.get(id=article_id)
         except:
             raise
-        article.content = markdown.markdown(article.content, extensions=[
+        article.content = markdown.markdown(article.content.replace("\r\n", '  \n'), extensions=[
             'markdown.extensions.extra',
             'markdown.extensions.codehilite',
             'markdown.extensions.toc'
@@ -30,3 +31,16 @@ class ArticleDetailView(View):
         }
 
         return render(request, 'article_detail.html', context)
+
+
+class ArticleCategoryView(View):
+
+    def get(self, request, category_id):
+
+        article = ArticleDetail.objects.filter(Q(category1_id=category_id) | Q(category2_id=category_id))
+
+        context = {
+            'articles': article
+        }
+
+        return render(request, 'category_article.html', context=context)
