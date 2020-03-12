@@ -38,9 +38,13 @@ class ArticleCategoryView(View):
     def get(self, request, category_id):
 
         article = ArticleDetail.objects.filter(Q(category1_id=category_id) | Q(category2_id=category_id))
+        category = ArticleCategory.objects.get(id=category_id)
+        categories = ArticleCategory.get_categories()
 
         context = {
-            'articles': article
+            'articles': article,
+            'category': category,
+            'categories': categories,
         }
 
         return render(request, 'category_article.html', context=context)
