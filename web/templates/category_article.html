@@ -50,7 +50,7 @@ s.parentNode.insertBefore(hm, s);
 
           <nav class="main-menu hidden-xs hidden-sm hidden-md">
               <ul id="menu-menu-1" class="nav-list u-plain-list">
-                  <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="index.html">首页</a></li>
+                  <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="/">首页</a></li>
                   {% for category in categories %}
                   <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="/article/category/{{category.category.id}}">{{category.category.name}}</a>
                       <ul class="sub-menu">
@@ -85,7 +85,6 @@ s.parentNode.insertBefore(hm, s);
 <div class="header-gap"></div><div class="term-bar lazyload visible" data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/06/5a6bc8dc6090d98.gif">
   <h1 class="term-title">分类：{{category.name}}</h1></div>
     <div class="site-content">
-    
 
   <div class="container">
     <div class="filter--content">
@@ -94,25 +93,29 @@ s.parentNode.insertBefore(hm, s);
         <div class="form-box search-properties mb-0">
             <!-- 一级分类 -->
             <div class="filter-item">
-                <ul class="filter-tag"><span><i class="fa fa-folder-open-o"></i> 分类：</span><li><a href="zpxs.html" class="on">作品欣赏</a></li><li><a href="study.html" class="">学习</a></li><li><a href="tech.html" class="">技术</a></li><li><a href="tech-2.html" class="">技术分享</a></li><li><a href="life.html" class="">生活</a></li><li><a href="sygs.html" class="">诗与故事</a></li><li><a href="tool.html" class="">软件工具</a></li><li><a href="okl.html" class="">随笔</a></li></ul>            </div>
-
+                <ul class="filter-tag"><span><i class="fa fa-folder-open-o"></i> 分类：</span>
+                    {% for par_category in categories %}
+                        <li><a href="zpxs.html">{{par_category.category}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
                         <!-- 二级分类 -->
 			<div class="filter-item">
-                <ul class="filter-tag"><span><i class="fa fa-long-arrow-right"></i> 更多：</span><li><a href="ui.html">UI设计</a></li><li><a href="bgwd.html">办公文档</a></li><li><a href="adver.html">广告设计</a></li><li><a href="chpt.html">插画配图</a></li><li><a href="new.html">新媒体</a></li><li><a href="dstb.html">电商淘宝</a></li></ul>            </div>
-                        <!-- 相关标签 -->
-			<div class="filter-item">
-				<ul class="filter-tag"><span><i class="fa fa-tags"></i> 标签：</span><li><a href="#">暂无相关标签</a></li></ul>			</div>
-            
-            <!-- 快速筛选 -->
-            <div class="filter-item">
-                <ul class="filter-tag"><span><i class="fa fa-filter"></i> 价格：</span><li><a href="javascript:;" class="">免费</a></li><li><a href="javascript:;" class="">付费</a></li><li><a href="javascript:;" class="">VIP免费</a></li><li><a href="javascript:;" class="">VIP优惠</a></li></ul>            </div>
+                <ul class="filter-tag"><span><i class="fa fa-long-arrow-right"></i> 更多：</span>
+                    {% for sub_category in sub_categories %}
+                    <li><a href="ui.html">{{sub_category}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
 
             <!-- 排序 -->
             <div class="filter-item">
-                <ul class="filter-tag"><span><i class="fa fa-sort-alpha-desc"></i> 排序：</span><li><a href="zpxs-date.html" class="">发布日期</a></li><li><a href="zpxs-id.html" class="">ID</a></li><li><a href="" class="on">标题</a></li><li><a href="zpxs-modified.html" class="">修改时间</a></li><li><a href="zpxs-comment_count.html" class="">评论数量</a></li><li><a href="zpxs-rand.html" class="">随机</a></li></ul>            </div>
-
-
-
+                <ul class="filter-tag"><span><i class="fa fa-sort-alpha-desc"></i> 排序：</span>
+                    <li><a href="zpxs-date.html" class="">发布日期</a></li>
+                    <li><a href="zpxs-comment_count.html" class="">热度</a></li>
+                    <li><a href="zpxs-rand.html" class="">随机</a></li>
+                </ul>
+            </div>
             <!-- .row end -->
         </div>
         <!-- .form-box end -->
@@ -120,112 +123,41 @@ s.parentNode.insertBefore(hm, s);
 </div>    <div class="row">
       <div class="col-lg-12">
         <div class="content-area">
-          <main class="site-main">
-                          <div class="row posts-wrapper">
-                
+          <main class="site-main"><div class="row posts-wrapper">
+
+ {% for article in articles %}
 <div class="col-sm-6 col-md-4 col-lg-3">
   <article id="post-118" class="post post-grid post-118 type-post status-publish format-standard has-post-thumbnail hentry category-ui category-adver category-design tag-ui tag-81">
       <div class="entry-media">
-    <div class="placeholder" style="padding-bottom: 66.666666666667%;">
-      <a href="118.html">
-        <img class="lazyload" data-src="static/picture/5a6bc8dc6090d98.gif" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">  
-      </a>
-    </div>
+        <div class="placeholder" style="padding-bottom: 66.666666666667%;">
+            <a href="118.html"><img class="lazyload" data-src="static/picture/5a6bc8dc6090d98.gif" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt=""></a>
+        </div>
       </div>
-    <div class="entry-wrapper">
-              <a class="grid_author_avt" href="118.html"><div class="grid_author_bggo avatar bg-cover" style="background-image: url(static/image/1.png);"></div> </a>
-            
-  <header class="entry-header">          <div class="entry-meta">
-                  <span class="meta-category">
-                          <a href="ui.html" rel="category">
-                  <i class="dot"></i>UI设计              </a>
-                          <a href="adver.html" rel="category">
-                  <i class="dot"></i>广告设计              </a>
-                          <a href="design.html" rel="category">
-                  <i class="dot"></i>我爱设计              </a>
-                      </span>
-              </div>
+      <div class="entry-wrapper">
+        <a class="grid_author_avt" href="118.html"><div class="grid_author_bggo avatar bg-cover" style="background-image: url(static/image/1.png);"></div> </a>
+            <header class="entry-header">
+                <div class="entry-meta">
+                    <span class="meta-category">
+                      <a href="ui.html" rel="category"><i class="dot"></i>UI设计              </a>
+                      <a href="adver.html" rel="category"><i class="dot"></i>广告设计              </a>
+                      <a href="design.html" rel="category"><i class="dot"></i>我爱设计              </a>
+                    </span>
+                </div>
     
-    <h2 class="entry-title"><a href="118.html" rel="bookmark">星巴克杯子图标UI设计</a></h2>  </header>             <div class="entry-excerpt u-text-format">一个简单的星巴克杯子图标UI，喜欢就点赞！ 需要下载源文件的朋友，请关注Aliw...</div>
-            <div class="entry-footer">
-    <a href="118.html">
-    <time datetime="2019-06-25T13:20:10+08:00"><i class="fa fa-clock-o"></i> 2019年6月25日</time>
-  </a>
-      <a href="118.html"><span><i class="fa fa-eye"></i> 367</span></a>
-      <a href="118.html"><span><i class="fa fa-comments-o"></i> 0</span></a>
-    
-</div>    </div>
+                <h2 class="entry-title"><a href="118.html" rel="bookmark">{{article.title}}</a></h2>
+                </header>
+                <div class="entry-excerpt u-text-format">{{article.des}}</div>
+                <div class="entry-footer">
+                    <a href="118.html"><time datetime="2019-06-25T13:20:10+08:00"><i class="fa fa-clock-o"></i> {{article.create_time| date:'Y年m月d日' }}</time></a>
+                    <a href="118.html"><span><i class="fa fa-eye"></i> {{article.view_count}}</span></a>
+                    <a href="118.html"><span><i class="fa fa-comments-o"></i> {{article.digg_count}}</span></a>
+                </div>
+      </div>
   </article>
 </div>
+{% endfor %}
 
-<div class="col-sm-6 col-md-4 col-lg-3">
-  <article id="post-175" class="post post-grid post-175 type-post status-publish format-standard has-post-thumbnail hentry category-ui category-design tag-ui tag-81">
-      <div class="entry-media">
-    <div class="placeholder" style="padding-bottom: 66.666666666667%;">
-      <a href="175.html">
-        <img class="lazyload" data-src="static/picture/4028831c1dc6b37.gif" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">  
-      </a>
-    </div>
-      </div>
-    <div class="entry-wrapper">
-              <a class="grid_author_avt" href="175.html"><div class="grid_author_bggo avatar bg-cover" style="background-image: url(static/image/1.png);"></div> </a>
-            
-  <header class="entry-header">          <div class="entry-meta">
-                  <span class="meta-category">
-                          <a href="ui.html" rel="category">
-                  <i class="dot"></i>UI设计              </a>
-                          <a href="design.html" rel="category">
-                  <i class="dot"></i>我爱设计              </a>
-                      </span>
-              </div>
-    
-    <h2 class="entry-title"><a href="175.html" rel="bookmark">5分钟，教你打造3D螺旋曲线动效！</a></h2>  </header>             <div class="entry-excerpt u-text-format">先说说我做这个动效的初心，是有天我在YunOS上看到了下面这套牛逼的动效（@tc...</div>
-            <div class="entry-footer">
-    <a href="175.html">
-    <time datetime="2018-03-28T14:59:45+08:00"><i class="fa fa-clock-o"></i> 2018年3月28日</time>
-  </a>
-      <a href="175.html"><span><i class="fa fa-eye"></i> 145</span></a>
-      <a href="175.html"><span><i class="fa fa-comments-o"></i> 0</span></a>
-    
-</div>    </div>
-  </article>
-</div>
-
-<div class="col-sm-6 col-md-4 col-lg-3">
-  <article id="post-263" class="post post-grid post-263 type-post status-publish format-image has-post-thumbnail hentry category-ui category-adver category-design category-tech tag-ui tag-81 post_format-post-format-image">
-      <div class="entry-media">
-    <div class="placeholder" style="padding-bottom: 66.666666666667%;">
-      <a href="263.html">
-        <img class="lazyload" data-src="static/picture/20662b13cbaa324.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">  
-      </a>
-    </div>
-      </div>
-    <div class="entry-wrapper">
-              <a class="grid_author_avt" href="263.html"><div class="grid_author_bggo avatar bg-cover" style="background-image: url(static/image/1.png);"></div> </a>
-            
-  <header class="entry-header">          <div class="entry-meta">
-                  <span class="meta-category">
-                          <a href="ui.html" rel="category">
-                  <i class="dot"></i>UI设计              </a>
-                          <a href="adver.html" rel="category">
-                  <i class="dot"></i>广告设计              </a>
-                          <a href="design.html" rel="category">
-                  <i class="dot"></i>我爱设计              </a>
-                      </span>
-              </div>
-    
-    <h2 class="entry-title"><a href="263.html" rel="bookmark">【免费下载】手握手机PSD分成</a></h2>  </header>             <div class="entry-excerpt u-text-format">20个高分辨率女性手拿着iPhone X和Google Pixel 3 XL在透...</div>
-            <div class="entry-footer">
-    <a href="263.html">
-    <time datetime="2019-08-12T15:25:31+08:00"><i class="fa fa-clock-o"></i> 2019年8月12日</time>
-  </a>
-      <a href="263.html"><span><i class="fa fa-eye"></i> 230</span></a>
-      <a href="263.html"><span><i class="fa fa-comments-o"></i> 2</span></a>
-    
-</div>    </div>
-  </article>
-</div>
-              </div>
+                          </div>
               
   <div class="infinite-scroll-status">
     <div class="infinite-scroll-request"></div>
@@ -242,13 +174,12 @@ s.parentNode.insertBefore(hm, s);
 
 	
 	<div class="module parallax">
-		<img class="jarallax-img lazyload" data-srcset="static/picture/006a9a6fef68d47.jpg" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+		<img class="jarallax-img lazyload" data-srcset="/static/picture/006a9a6fef68d47.jpg" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
 		<div class="container">
-			<h4 class="entry-title">
-				提供最优质的资源集合			</h4>
-							<a class="button" href="index1.html">立即查看</a>
-										<a class="button transparent" href="javascript:;">联系作者</a>
-					</div>
+			<h4 class="entry-title">提供最优质的资源集合			</h4>
+            <a class="button" href="index1.html">立即查看</a>
+            <a class="button transparent" href="javascript:;">联系作者</a>
+        </div>
 	</div>
 		
 
@@ -260,7 +191,7 @@ s.parentNode.insertBefore(hm, s);
         <div class="col-xs-12 col-sm-6 col-md-3 widget--about">
             <div class="widget--content">
                 <div class="footer--logo mb-20">
-                    <img class="tap-logo" src="static/picture/d72c2fe0ed4f457.png" data-dark="" alt="Aliwen小栈">
+                    <img class="tap-logo" src="/static/picture/d72c2fe0ed4f457.png" data-dark="" alt="Aliwen小栈">
                 </div>
                 <p class="mb-10">Aliwen一个90后小青年，热爱生活和旅游，喜欢冒险。爱自己，你要活得无可替代并精彩绝伦，世界那么大不如去看看它，人活着不只有眼前的苟且，还有诗和远方，以爱与青春为名，陪你一路成长，不失初心，不忘初衷!</p>
             </div>

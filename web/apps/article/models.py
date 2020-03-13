@@ -55,6 +55,10 @@ class ArticleCategory(BaseModel):
             })
         return categories
 
+    @classmethod
+    def get_sub_categories(cls):
+        sub_categories = cls.objects.filter(parent__isnull=False)
+        return sub_categories
 
 
 class ArticleLabel(BaseModel):
