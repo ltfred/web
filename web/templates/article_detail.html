@@ -24,7 +24,7 @@
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
     <script src="{% static 'js/html5shiv.js'%}"></script>
-    <script src="{% static 'js/respond.min.js'%}"></script>
+    <script > hljs.initHighlightingOnLoad();</script>
     <![endif]-->
     <!-- ww.aliwen.vip Baidu tongji analytics -->
     <script>
@@ -112,7 +112,7 @@
                                                     <p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 0px; text-indent: 20px">{{article.des}}</p>
                                                 </blockquote>
                                             </div>
-                                            <div >{{article.content | safe}}</div>
+                                            <div>{{article.content | safe}}</div>
                                             <div class="wbp-cbm">
                                                 <div class="ctrl-item">
                                                     <a class="wb-btn wb-btn-ctrl wb-btn-outlined" id="J_ppoDonateBtn"

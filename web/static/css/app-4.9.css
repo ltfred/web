@@ -4502,6 +4502,7 @@ body:not(.canvas-visible) .off-canvas {
     background-color: #fff;
     word-wrap: break-word;
     padding: 20px;
+
 }
 
 .article-content img {
@@ -4515,7 +4516,9 @@ body:not(.canvas-visible) .off-canvas {
     border: none;
     background: #03152a;
     color: #b3b3b3;
-    font: 12px/20px 'courier new'
+    font: 13px/22px 'courier new';
+    /*font: 13px/22px 'Monaco';*/
+    border-radius: 4px;
 }
 
 .article-content blockquote {
