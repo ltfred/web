@@ -1,5 +1,6 @@
 import markdown
 from django.db.models import Q
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 
@@ -50,3 +51,13 @@ class ArticleCategoryView(View):
         }
 
         return render(request, 'category_article.html', context=context)
+
+
+class ArticleStarView(View):
+
+    def post(self, request, article_id):
+
+        article_obj = ArticleDetail.objects.get(id=article_id)
+        article_obj.digg_count += 1
+        article_obj.save()
+        return HttpResponse('success')
