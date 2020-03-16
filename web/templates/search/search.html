@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+
+    <title>{{category.name}}</title>
+    <link rel='stylesheet' id='poi-player-css' href="{% static 'css/poi-2.0.5.css' %}" type='text/css' media='all'>
+    <link rel='stylesheet' id='caozhuti-style-css' href="{% static 'css/style-4.9.css' %}" type='text/css' media='all'>
+    <link rel='stylesheet' id='external-css' href="{% static 'css/external-4.9.css' %}" type='text/css' media='all'>
+    <link rel='stylesheet' id='sweetalert2-css' href="{% static 'css/sweetalert2.min-4.9.css' %}" type='text/css' media='all'>
+    <link rel='stylesheet' id='app-css' href="{% static 'css/app-4.9.css' %}" type='text/css' media='all'>
+    <link rel='stylesheet' id='diy-css' href="{% static 'css/diy-4.9.css' %}" type='text/css' media='all'>
+    <script type='text/javascript' src="{% static 'js/jquery-2.2.4.min-2.2.4.js' %}"></script>
+    <meta name="keywords" content="作品欣赏">
+    <meta name="description" content="作品欣赏">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="static/js/html5shiv.js"></script>
+    <script src="static/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="archive category category-zpxs category-51  hfeed navbar-sticky_transparent navbar-slide sidebar-none pagination-infinite_button">
+
+<div class="site">
+
+    <header class="site-header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo-wrapper">
+                    <a href="index.html">
+                        <img class="logo regular tap-logo" src="/static/picture/d72c2fe0ed4f457.png" data-dark="" alt="Aliwen小栈">
+                    </a>
+                </div>
+                <div class="sep"></div>
+
+                <nav class="main-menu hidden-xs hidden-sm hidden-md">
+                    <ul id="menu-menu-1" class="nav-list u-plain-list">
+                        <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="/">首页</a></li>
+                        {% for category in categories %}
+                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="/article/category/{{category.category.id}}">{{category.category.name}}</a>
+                            <ul class="sub-menu">
+                                {% for sub_category in category.sub_categories%}
+                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="/article/category/{{sub_category.id}}">{{sub_category}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+
+                <div class="main-search">
+                    <form method="get" class="search-form inline" action="https://ww.aliwen.vip/">
+                        <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="s" required="required">
+                        <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
+                    </form>        <div class="search-close navbar-button"><i class="mdi mdi-close"></i></div>
+                </div>
+
+                <div class="actions">
+                    <!-- user -->
+                    <div class="login-btn navbar-button"><i class="mdi mdi-account"></i> 登录</div>
+                    <!-- user end -->
+                    <div class="search-open navbar-button"><i class="mdi mdi-magnify"></i></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-gap"></div><div class="term-bar lazyload visible" data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/06/5a6bc8dc6090d98.gif">
+    <h1 class="term-title">分类：{{category.name}}</h1></div>
+    <div class="site-content">
+
+        <div class="container">
+            <div class="filter--content">
+                <form class="mb-0" method="get" action="https://ww.aliwen.vip">
+                    <input type="hidden" name="s">
+                    <div class="form-box search-properties mb-0">
+                        <!-- 一级分类 -->
+                        <div class="filter-item">
+                            <ul class="filter-tag"><span><i class="fa fa-folder-open-o"></i> 分类：</span>
+                                {% for par_category in categories %}
+                                <li><a href="/article/category/{{par_category.category.id}}">{{par_category.category}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <!-- 二级分类 -->
+                        <div class="filter-item">
+                            <ul class="filter-tag"><span><i class="fa fa-long-arrow-right"></i> 更多：</span>
+                                {% for sub_category in sub_categories %}
+                                <li><a href="/article/category/{{sub_category.id}}">{{sub_category}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <!-- 排序 -->
+                        <div class="filter-item">
+                            <ul class="filter-tag"><span><i class="fa fa-sort-alpha-desc"></i> 排序：</span>
+                                <li><a href="/article/category/{{category.id}}?q=time" class="">发布日期</a></li>
+                                <li><a href="/article/category/{{category.id}}?q=hot" class="">热度</a></li>
+                            </ul>
+                        </div>
+                        <!-- .row end -->
+                    </div>
+                    <!-- .form-box end -->
+                </form>
+            </div>    <div class="row">
+            <div class="col-lg-12">
+                <div class="content-area">
+                    <main class="site-main"><div class="row posts-wrapper">
+
+                        {% for article in page %}
+                        <div class="col-sm-6 col-md-4 col-lg-3">
+                            <article id="post-118" class="post post-grid post-118 type-post status-publish format-standard has-post-thumbnail hentry category-ui category-adver category-design tag-ui tag-81">
+                                <div class="entry-media">
+                                    <div class="placeholder" style="padding-bottom: 66.666666666667%;">
+                                        <a href="/article/detail/{{article.object.id}}"><img src="{{article.object.cover}}" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="entry-wrapper">
+                                    <a class="grid_author_avt" href="/article/detail/{{article.id}}"><div class="grid_author_bggo avatar bg-cover" style="background-image: url(../../static/image/1.png);"></div> </a>
+                                    <header class="entry-header">
+                                        <div class="entry-meta">
+                    <span class="meta-category">
+                      <a href="ui.html" rel="category"><i class="dot"></i>UI设计              </a>
+                      <a href="adver.html" rel="category"><i class="dot"></i>广告设计              </a>
+                      <a href="design.html" rel="category"><i class="dot"></i>我爱设计              </a>
+                    </span>
+                                        </div>
+
+                                        <h2 class="entry-title"><a href="118.html" rel="bookmark">{{article.object.title}}</a></h2>
+                                    </header>
+                                    <div class="entry-excerpt u-text-format">{{article.object.des}}</div>
+                                    <div class="entry-footer">
+                                        <a href="118.html"><time datetime="2019-06-25T13:20:10+08:00"><i class="fa fa-clock-o"></i> {{article.object.create_time| date:'Y年m月d日' }}</time></a>
+                                        <a href="118.html"><span><i class="fa fa-eye"></i> {{article.object.view_count}}</span></a>
+                                        <a href="118.html"><span><i class="fa fa-comments-o"></i> {{article.object.digg_count}}</span></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                        {% if not page %}
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="content-area">
+                                    <main class="site-main">
+                                        <div class="col-12 _404">
+                                            <div class="_404-inner">
+                                                <h1 class="entry-title">暂无内容</h1>
+                                                <div class="entry-content">抱歉，没有找到您需要的文章，可以搜索看看</div>
+                                                <form method="get" class="search-form inline" action="https://ww.aliwen.vip/">
+                                                    <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
+                                                    <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div class="module parallax">
+                            <img class="jarallax-img lazyload" data-srcset="/static/picture/006a9a6fef68d47.jpg" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                            <div class="container">
+                                <h4 class="entry-title">提供最优质的资源集合			</h4>
+                                <a class="button" href="index1.html">立即查看</a>
+                                <a class="button transparent" href="javascript:;">联系作者</a>
+                            </div>
+                        </div>
+
+
+                        <footer class="site-footer">
+                            <div class="container">
+
+                                <div class="footer-widget">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-3 widget--about">
+                                            <div class="widget--content">
+                                                <div class="footer--logo mb-20">
+                                                    <img class="tap-logo" src="/static/picture/d72c2fe0ed4f457.png" data-dark="" alt="Aliwen小栈">
+                                                </div>
+                                                <p class="mb-10">Aliwen一个90后小青年，热爱生活和旅游，喜欢冒险。爱自己，你要活得无可替代并精彩绝伦，世界那么大不如去看看它，人活着不只有眼前的苟且，还有诗和远方，以爱与青春为名，陪你一路成长，不失初心，不忘初衷!</p>
+                                            </div>
+                                        </div>
+                                        <!-- .col-md-2 end -->
+                                        <div class="col-xs-12 col-sm-3 col-md-2 col-md-offset-1 widget--links">
+                                            <div class="widget--title">
+                                                <h5>本站导航</h5>
+                                            </div>
+                                            <div class="widget--content">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li><a href="#">关于我们</a></li>
+                                                    <li><a href="#">充值说明</a></li>
+                                                    <li><a href="#">下载说明</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- .col-md-2 end -->
+                                        <div class="col-xs-12 col-sm-3 col-md-2 widget--links">
+                                            <div class="widget--title">
+                                                <h5>更多介绍</h5>
+                                            </div>
+                                            <div class="widget--content">
+                                                <ul class="list-unstyled mb-0">
+                                                    <li><a href="#">隐私协议</a></li>
+                                                    <li><a href="#">权限说明</a></li>
+                                                    <li><a href="#">账户中心</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <!-- .col-md-2 end -->
+                                        <div class="col-xs-12 col-sm-3 col-md-2 widget--links">
+                                            <div class="widget--title">
+                                                <h5 style='text-align:center'>微信公众号</h5>
+                                            </div>
+                                            <div class="widget--content">
+                                                <img src="static/picture/ca3af5e69a6da7d.jpg">
+                                            </div>
+                                        </div>
+
+                                        <!-- .col-md-2 end -->
+                                        <div class="col-xs-12 col-sm-3 col-md-2 widget--links">
+                                            <div class="widget--title">
+                                                <h5 style='text-align:center'>博客小程序</h5>
+                                            </div>
+                                            <div class="widget--content">
+                                                <img src="static/picture/44c6c370fd18593.jpg">
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>						  <div class="site-info">
+                                © Aliwen小栈   ww.aliwen.vip			  </div>
+                            </div>
+                        </footer>
+
+                        <div class="rollbar"><div class="rollbar-item" etap="to_top"><i class="fa fa-angle-up"></i></div></div>
+
+                        <div class="dimmer"></div>
+
+
+
+
+
+                        <div id="popup-signup" class="popup-signup fade" style="display: none;">
+                            <div class="register-login-modal" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+
+
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#login" data-toggle="login">登录</a>
+                                            </li>
+                                            <li><a href="#signup" data-toggle="signup">注册</a>
+                                            </li>
+                                        </ul>
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="login">
+                                                <div class="signup-form-container text-center">
+                                                    <form class="mb-0">
+                                                        <div class="open-oauth  text-center"><a href="qq.html" class="btn btn-qq"><i class="fa fa-qq"></i></a><a href="weixin.html" class="btn btn-weixin"><i class="fa fa-weixin"></i></a><a href="weibo.html" class="btn btn-weibo"><i class="fa fa-weibo"></i></a></div><div class="or-text"><span>or</span></div>                                                                            <div class="form-group">
+                                                        <input type="text" class="form-control" name="username" placeholder="*用户名或邮箱">
+                                                    </div>
+                                                        <!-- .form-group end -->
+                                                        <div class="form-group">
+                                                            <input type="password" class="form-control" name="password" placeholder="*密码">
+                                                        </div>
+                                                        <button type="button" class="go-login btn btn--primary btn--block">登录</button>
+                                                        <a href="#" class="forget-password">忘记密码?</a>
+                                                    </form>
+                                                    <!-- form  end -->
+                                                </div>
+                                                <!-- .signup-form end -->
+                                            </div>
+                                            <div class="tab-pane fade in" id="signup">
+                                                <form class="mb-0">
+                                                    <div class="open-oauth  text-center"><a href="qq.html" class="btn btn-qq"><i class="fa fa-qq"></i></a><a href="weixin.html" class="btn btn-weixin"><i class="fa fa-weixin"></i></a><a href="weibo.html" class="btn btn-weibo"><i class="fa fa-weibo"></i></a></div><div class="or-text"><span>or</span></div>                                                                    <div class="form-group">
+                                                    <input type="text" class="form-control" name="user_name" placeholder="输入英文用户名">
+                                                </div>
+                                                    <!-- .form-group end -->
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" name="user_email" placeholder="绑定邮箱">
+                                                    </div>
+                                                    <!-- .form-group end -->
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control" name="user_pass" placeholder="密码最小长度为6">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="password" class="form-control" name="user_pass2" placeholder="再次输入密码">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" name="captcha" placeholder="邮箱验证码">
+                                                            <span class="input-group-btn">
+                                            <button class="go-captcha_email btn btn--secondary" type="button">发送验证码</button>
+                                          </span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" class="go-register btn btn--primary btn--block">立即注册</button>
+
+                                                </form>
+                                                <!-- form  end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+                        </div>
+
+
+                        <div class="off-canvas">
+                            <div class="canvas-close"><i class="mdi mdi-close"></i></div>
+                            <div class="logo-wrapper">
+                                <a href="index.html">
+                                    <img class="logo regular" src="static/picture/d72c2fe0ed4f457.png" alt="Aliwen小栈">
+                                </a>
+                            </div>
+                            <div class="mobile-menu hidden-lg hidden-xl"></div>
+                            <aside class="widget-area">
+                            </aside>
+                        </div>
+
+                        <script type='text/javascript' src='static/js/player-base.min-2.0.5.js'></script>
+                        <script type='text/javascript' src='static/js/poi.min-2.0.5.js'></script>
+                        <script type='text/javascript' src='static/js/sweetalert2.min-4.9.js'></script>
+                        <script type='text/javascript' src='static/js/plugins-4.9.js'></script>
+                        <script type='text/javascript' src='static/js/app-4.9.js'></script>
+                        <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="static/css/sweetalert.min.css"><script src="static/js/sweetalert.min.js"></script><script>document.body.oncopy = function() { swal("复制成功！", "转载请务必保留原文链接，申明来源，谢谢合作！！","success");};</script>
+
+
+
+                </div></body>
+</html>

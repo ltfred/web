@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('index.urls')),
     path("article/", include('article.urls')),
-    path('mdeditor/', include('mdeditor.urls'))
+    path('mdeditor/', include('mdeditor.urls')),
+    path(r'search', include('haystack.urls')),
 ]

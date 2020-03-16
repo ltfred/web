@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'index',
     'article',
     'user',
@@ -146,3 +147,14 @@ AUTH_USER_MODEL = 'user.users'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  #uploads必须存在，且在项目目录下
 MEDIA_URL = '/media/'   #你上传的文件和图片会默认存在/uploads/editor下
+
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'article.whoosh_cn_backend.WhooshEngine',
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    },
+}
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
