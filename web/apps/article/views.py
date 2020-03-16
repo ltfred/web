@@ -37,14 +37,19 @@ class ArticleDetailView(View):
 class ArticleCategoryView(View):
 
     def get(self, request, category_id):
-
-        article = ArticleDetail.objects.filter(Q(category1_id=category_id) | Q(category2_id=category_id))
+        q = request.GET.get('q')
+        articles = ArticleDetail.objects.filter(Q(category1_id=category_id) | Q(category2_id=category_id))
+        if q:
+            if q == 'time':
+                articles = articles.order_by('-create_time')
+            elif q == 'hot':
+                articles = articles.order_by('-digg_count')
         category = ArticleCategory.objects.get(id=category_id)
         categories = ArticleCategory.get_categories()
         sub_categories = ArticleCategory.get_sub_categories()
 
         context = {
-            'articles': article,
+            'articles': articles,
             'category': category,
             'categories': categories,
             'sub_categories': sub_categories,
