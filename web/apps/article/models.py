@@ -69,6 +69,9 @@ class ArticleLabel(BaseModel):
         verbose_name = '文章标签'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.name
+
     @classmethod
     def get_labels(cls):
         labels_and_count = []

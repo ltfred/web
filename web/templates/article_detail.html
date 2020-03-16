@@ -5,11 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
 
-    <title>优雅的用PHP来实现解析抖音无水印视频！-Aliwen小栈</title>
-
-    <link rel='stylesheet' id='poi-player-css' href="{% static 'static/css/poi-2.0.5.css'%}" type='text/css' media='all'>
+    <title>{{article.title}}</title>
     <link rel='stylesheet' id='caozhuti-style-css' href="{% static 'css/style-4.9.css'%}" type='text/css' media='all'>
     <link rel='stylesheet' id='external-css' href="{% static 'css/external-4.9.css'%}" type='text/css' media='all'>
     <link rel='stylesheet' id='sweetalert2-css' href="{% static 'css/sweetalert2.min-4.9.css'%}" type='text/css' media='all'>
@@ -18,25 +15,15 @@
     <link rel='stylesheet' id='fancybox-css' href="{% static 'css/jquery.fancybox.min-4.9.css'%}" type='text/css' media='all'>
     <link rel="stylesheet" type="text/css" href="{% static 'css/monokai.css' %}">
     <script type='text/javascript' src="{% static 'js/jquery-2.2.4.min-2.2.4.js'%}"></script>
+    <script type='text/javascript' src="{% static 'js/axios-0.18.0.min.js'%}"></script>
+    <script type='text/javascript' src="{% static 'layer/layer.js'%}"></script>
     <script src="{% static 'js/csrf.js' %}"></script>
-    <meta name="keywords" content="PHP, 后台程序, 技术, 后台程序, 技术">
-    <meta name="description" content="很多时候你在douyin里看到了一个短视频，想复制下来自己编辑文字来发布，可是视频里的水印却是原者的。这个时候你想把水印去掉，你要如何做呢？这里提供PHP实现去除水印的主要方法，其实很简单。   使用方法： 在php后加上 ?url= 抖音的url 。 点击跳转后的网页一个是标题...">
+    <meta name="description" content="{{article.desc}}">
     <link rel='stylesheet' id='wbs-style-dwqr-css' href="{% static 'css/wbp_donate.css'%}" type='text/css' media='all'>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
     <script src="{% static 'js/html5shiv.js'%}"></script>
-    <script > hljs.initHighlightingOnLoad();</script>
     <![endif]-->
-    <!-- ww.aliwen.vip Baidu tongji analytics -->
-    <script>
-        var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?58b099fbb45377f761889db0aa3e3d98";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
 </head>
 
 <body class="post-template-default single single-post postid-131 single-format-standard  navbar-sticky_transparent navbar-slide sidebar-right pagination-infinite_button">
@@ -46,7 +33,7 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo-wrapper">
-                    <a href="../../../../Downloads/网站模板/aliwen/index.html">
+                    <a href="/">
                         <img class="logo regular tap-logo" src="/static/picture/d72c2fe0ed4f457.png" data-dark="" alt="Aliwen小栈">
                     </a>
                 </div>
@@ -79,8 +66,6 @@
                     <div class="login-btn navbar-button"><i class="mdi mdi-account"></i> 登录</div>
                     <!-- user end -->
                     <div class="search-open navbar-button"><i class="mdi mdi-magnify"></i></div>
-                    <div class="tap-dark navbar-button"><i class="mdi mdi-brightness-4"></i></div>
-                    <div class="burger"></div>
                 </div>
             </div>
         </div>
@@ -123,14 +108,12 @@
                                                         </svg>
                                                         <span>打赏</span></a>
                                                     <a class="wb-btn wb-btn-ctrl wb-btn-outlined wb-btn-like" onclick="validate_is_like(
-                    '{% url 'article:article_star' article.id %}',
+                     '{% url 'article:article_star' article.id %}',
                      {{ article.id }},
                      {{ article.digg_count }}
                      )">
-                                                        <svg class="wb-icon wbsico-like">
-                                                            <use xlink:href="#wbsico-like"></use>
-                                                        </svg>
-                                                        <span>赞({{article.digg_count}})</span></a>
+                                                        <span id="likes_number">赞({{article.digg_count}})</span>
+                                                    </a>
                                                     <div class="com-popover pst-c pst-fixed wb-dialog-df wb-ppo-donate" id="J_ppoDonate">
                                                         <div class="bd" id="J_tabBoxDWQ">
                                                             <div class="tab-navs">
@@ -440,50 +423,22 @@
     <div class="off-canvas">
         <div class="canvas-close"><i class="mdi mdi-close"></i></div>
         <div class="logo-wrapper">
-            <a href="../../../../Downloads/网站模板/aliwen/index.html"><img class="logo regular" src="/static/picture/d72c2fe0ed4f457.png" alt="Aliwen小栈"></a>
+            <a href="/"><img class="logo regular" src="/static/picture/d72c2fe0ed4f457.png" alt="Aliwen小栈"></a>
         </div>
         <div class="mobile-menu hidden-lg hidden-xl"></div>
         <aside class="widget-area">
         </aside>
     </div>
-    <script type='text/javascript' src='/static/js/player-base.min-2.0.5.js'></script>
     <script type='text/javascript' src='/static/js/poi.min-2.0.5.js'></script>
     <script type='text/javascript' src='/static/js/sweetalert2.min-4.9.js'></script>
     <script type='text/javascript' src='/static/js/plugins-4.9.js'></script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var caozhuti = {
-            "home_url": "https:\/\/ww.aliwen.vip",
-            "ajaxurl": "https:\/\/ww.aliwen.vip\/wp-admin\/admin-ajax.php",
-            "is_singular": "1",
-            "infinite_load": "\u52a0\u8f7d\u66f4\u591a",
-            "infinite_loading": "<i class=\"fa fa-spinner fa-spin\"><\/i> \u52a0\u8f7d\u4e2d..."
-        };
-        /* ]]> */
-    </script>
     <script type='text/javascript' src='/static/js/app-4.9.js'></script>
     <script type='text/javascript' src='/static/js/jquery.fancybox.min-4.9.js'></script>
-    <script type='text/javascript' src='/static/js/comment-reply.min-4.9.js'></script>
     <script type='text/javascript' src='/static/js/wbp_front-1.1.0.js'></script>
     <script async="async" type='text/javascript' src='/static/js/form-4.0.1.js'></script>
     <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="/static/css/sweetalert.min.css">
     <script src="/static/js/sweetalert.min.js"></script>
-<!--    <script>document.body.oncopy = function () {-->
-<!--        swal("复制成功！", "转载请务必保留原文链接，申明来源，谢谢合作！！", "success");};-->
-<!--    </script>-->
-    <script>
-        (function () {
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            } else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-    </script>
+    <script type='text/javascript' src='/static/js/mouse.js'></script>
     <script>
         // 点赞功能主函数
         function validate_is_like(url, id, likes) {
@@ -498,12 +453,13 @@
             // 检查当前文章是否已点赞。是则 status = true
             const status = check_status(storage_json_data, id);
             if (status) {
-                alert('已经点过赞了哟~')
+                layer.msg('已经点过赞了哟~');
                 // 点过赞则立即退出函数
                 return;
             } else {
                 // 用 Jquery 找到点赞数量，并 +1
-                $('span#likes_number').text(likes + 1).css('color', '#dc3545');
+                var starCount = likes + 1
+                $('span#likes_number').text('赞('+starCount+')');
             }
             // 用 ajax 向后端发送 post 请求
             $.post(
@@ -531,7 +487,7 @@
                             }
                         };
                     } else {
-                        alert("与服务器通信失败..过一会儿再试试呗~");
+                        layer.msg("与服务器通信失败..过一会儿再试试呗~");
                     }
 
                 }
@@ -553,7 +509,6 @@
             };
         };
     </script>
-    <script type='text/javascript' src='/static/js/mouse.js'></script>
 </div>
 </body>
 </html>
