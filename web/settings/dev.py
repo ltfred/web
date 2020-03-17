@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'article',
     'user',
     'mdeditor',
+    'link',
+
 ]
 
 MIDDLEWARE = [

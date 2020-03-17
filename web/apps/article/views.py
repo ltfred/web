@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.views import View
 
 from article.models import ArticleDetail, ArticleCategory, ArticleLabel
+from link.models import Link
 
 
 class ArticleDetailView(View):
@@ -23,11 +24,13 @@ class ArticleDetailView(View):
         categories = ArticleCategory.get_categories()
         related_articles = ArticleDetail.objects.filter(category2=article.category2)[0:4]
         labels_and_count = ArticleLabel.get_labels()
+        links = Link.objects.all()
         context = {
             "article": article,
             'categories': categories,
             'related_articles': related_articles,
-            'labels_and_count': labels_and_count
+            'labels_and_count': labels_and_count,
+            'links': links
 
         }
 

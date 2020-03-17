@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-app_name = 'web'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('index.urls')),
     path("article/", include('article.urls')),
     path('mdeditor/', include('mdeditor.urls')),
-    path(r'search', include('haystack.urls')),
+    path('search/', include('haystack.urls')),
+    path('link/', include('link.urls')),
+
 ]
