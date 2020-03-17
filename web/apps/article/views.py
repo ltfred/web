@@ -66,3 +66,19 @@ class ArticleStarView(View):
         article_obj.digg_count += 1
         article_obj.save()
         return HttpResponse('success')
+
+
+class LabelArticleView(View):
+
+    def get(self, request, label_id):
+        label_obj = ArticleLabel.objects.get(id=label_id)
+        label_articles = label_obj.labels.all()
+        categories = ArticleCategory.get_categories()
+
+        context = {
+            'label': label_obj,
+            'categories': categories,
+            'label_articles': label_articles
+        }
+
+        return render(request, 'label_article.html', context)
