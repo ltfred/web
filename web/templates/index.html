@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>Aliwen小栈-首页</title>
+    <title>首页</title>
     <link rel='stylesheet' id='caozhuti-style-css' href="{% static 'css/style-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='external-css' href="{% static 'css/external-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='sweetalert2-css' href="{% static 'css/sweetalert2.min-4.9.css' %}" type='text/css' media='all'>
@@ -399,7 +399,7 @@
                                 <article id="post-263" class="post post-list post-263 type-post status-publish format-image has-post-thumbnail hentry category-ui category-adver category-design category-tech tag-ui tag-81 post_format-post-format-image">
                                     <div class="entry-media">
                                         <div class="placeholder" style="padding-bottom: 66.666666666667%;">
-                                            <a href="263.html">
+                                            <a href="/article/detail/{{article.id}}">
                                                 <img class="lazyload" data-src="{{article.cover}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
                                             </a>
                                         </div>
@@ -408,7 +408,7 @@
                                         <header class="entry-header">
                                             <div class="entry-meta">
 									            <span class="meta-author">
-									                <a href="aliwen.html"><img alt='' data-src='{{article.author.avatar}}' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{article.author.nickname}}</a>
+									                <a href="#"><img alt='' data-src='{{article.author.avatar}}' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{article.author.nickname}}</a>
 									            </span>
                                                 <span class="meta-category">
                                                     {% for label in article.labels.all %}

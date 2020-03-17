@@ -73,7 +73,7 @@
     <div class="header-gap">
     </div>
     <div class="term-bar lazyload visible" data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/07/20662b13cbaa324.jpg">
-        <h1 class="term-title">分类：{{category.name}}</h1>
+        <h1 class="term-title">搜索：{{query}}</h1>
     </div>
     <div class="site-content">
         <div class="container">
@@ -122,20 +122,20 @@
                                     <article id="post-118" class="post post-grid post-118 type-post status-publish format-standard has-post-thumbnail hentry category-ui category-adver category-design tag-ui tag-81">
                                         <div class="entry-media">
                                             <div class="placeholder" style="padding-bottom: 66.666666666667%;">
-                                                <a href="{%" url 'article:detail' article.object.id %}><img src="{{article.object.cover}}" alt=""></a>
+                                                <a href="/article/detail/{{article.object.id}}"><img src="{{article.object.cover}}" alt=""></a>
                                             </div>
                                         </div>
                                         <div class="entry-wrapper">
-                                            <a class="grid_author_avt" href="{%" url 'article:detail' article.object.id %}>
+                                            <a class="grid_author_avt" href="/article/detail/{{article.object.id}}">
                                             <div class="grid_author_bggo avatar bg-cover" style="background-image: url(../../static/image/1.png);">
                                             </div>
                                             </a>
                                             <header class="entry-header">
                                                 <div class="entry-meta">
 										<span class="meta-category">
-										<a href="ui.html" rel="category"><i class="dot"></i>UI设计              </a>
-										<a href="adver.html" rel="category"><i class="dot"></i>广告设计              </a>
-										<a href="design.html" rel="category"><i class="dot"></i>我爱设计              </a>
+                                                    {% for label in article.object.labels.all %}
+												        <a href="/article/label/{{label.id}}" rel="category"><i class="dot"></i>{{ label.name }}</a>
+                                                    {% endfor %}
 										</span>
                                                 </div>
                                                 <h2 class="entry-title"><a href="118.html" rel="bookmark">{{article.object.title}}</a></h2>
@@ -169,8 +169,8 @@
                                     <div class="entry-content">
                                         抱歉，没有找到您需要的文章，可以搜索看看
                                     </div>
-                                    <form method="get" class="search-form inline" action="https://ww.aliwen.vip/">
-                                        <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="s" required="required">
+                                    <form method="get" class="search-form inline" action="/search">
+                                        <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
                                         <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
                                     </form>
                                 </div>
@@ -348,7 +348,7 @@
             <i class="mdi mdi-close"></i>
         </div>
         <div class="logo-wrapper">
-            <a href="index.html">
+            <a href="/">
                 <img class="logo regular" src="static/picture/d72c2fe0ed4f457.png" alt="Aliwen小栈">
             </a>
         </div>
