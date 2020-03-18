@@ -426,16 +426,15 @@
         <aside class="widget-area">
         </aside>
     </div>
-    <script type='text/javascript' src='/static/js/poi.min-2.0.5.js'></script>
-    <script type='text/javascript' src='/static/js/sweetalert2.min-4.9.js'></script>
-    <script type='text/javascript' src='/static/js/plugins-4.9.js'></script>
-    <script type='text/javascript' src='/static/js/app-4.9.js'></script>
-    <script type='text/javascript' src='/static/js/jquery.fancybox.min-4.9.js'></script>
-    <script type='text/javascript' src='/static/js/wbp_front-1.1.0.js'></script>
-    <script async="async" type='text/javascript' src='/static/js/form-4.0.1.js'></script>
-    <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="/static/css/sweetalert.min.css">
-    <script src="/static/js/sweetalert.min.js"></script>
-    <script type='text/javascript' src='/static/js/mouse.js'></script>
+    <script type='text/javascript' src="{% static 'js/sweetalert2.min-4.9.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/plugins-4.9.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/app-4.9.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/jquery.fancybox.min-4.9.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/wbp_front-1.1.0.js' %}"></script>
+    <script async="async" type='text/javascript' src="{% static 'js/form-4.0.1.js' %}"></script>
+    <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="{% static 'css/sweetalert.min.css' %}">
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/mouse.js' %}"></script>
     <script>
         // 点赞功能主函数
         function validate_is_like(url, id, likes) {

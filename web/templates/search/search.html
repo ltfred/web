@@ -357,13 +357,12 @@
         <aside class="widget-area">
         </aside>
     </div>
-    <script type='text/javascript' src='static/js/player-base.min-2.0.5.js'></script>
-    <script type='text/javascript' src='static/js/poi.min-2.0.5.js'></script>
-    <script type='text/javascript' src='static/js/sweetalert2.min-4.9.js'></script>
-    <script type='text/javascript' src='static/js/plugins-4.9.js'></script>
-    <script type='text/javascript' src='static/js/app-4.9.js'></script>
-    <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="static/css/sweetalert.min.css">
-    <script src="static/js/sweetalert.min.js"></script>
+    <script type='text/javascript' src="{% static 'js/sweetalert2.min-4.9.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/plugins-4.9.js' %}"></script>
+    <script type='text/javascript' src="{% static 'js/app-4.9.js' %}"></script>
+    <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="{% static 'css/sweetalert.min.css' %}">
+    <script src="{% static 'js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/mouse.js' %}"></script>
 </div>
 </body>
 </html>
