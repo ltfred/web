@@ -12,8 +12,8 @@
     <link rel='stylesheet' id='app-css' href="{% static 'css/app-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='diy-css' href="{% static 'css/diy-4.9.css' %}" type='text/css' media='all'>
     <script type='text/javascript' src="{% static 'js/jquery-2.2.4.min-2.2.4.js' %}"></script>
-    <meta name="keywords" content="广告设计">
-    <meta name="description" content="广告设计">
+    <link rel="stylesheet" href="{% static 'layui/css/layui.css' %}" media="all">
+    <script type='text/javascript' src="{% static 'layui/layui.js'%}"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. --><!--[if lt IE 9]>
     <script src="static/js/html5shiv.js"></script>
     <script src="static/js/respond.min.js"></script>
@@ -152,15 +152,10 @@
                                 </div>
                                 {% endfor %}
                             </div>
-                            <div class="infinite-scroll-status">
-                                <div class="infinite-scroll-request">
-                                </div>
-                            </div>
-                            <div class="infinite-scroll-action">
-                                <div class="infinite-scroll-button button">
-                                    加载更多
-                                </div>
-                            </div>
+<!--                            分页-->
+                            {% if articles %}
+                            <div id="test1" style="margin:0 auto;text-align: center"></div>
+                            {% endif %}
                             {% if not articles %}
                             <div class="col-12 _404">
                                 <div class="_404-inner">
@@ -362,6 +357,28 @@
     <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="{% static 'css/sweetalert.min.css' %}">
     <script src="{% static 'js/sweetalert.min.js' %}"></script>
     <script src="{% static 'js/mouse.js' %}"></script>
+    <script>
+layui.use('laypage', function(){
+  var laypage = layui.laypage;
+
+laypage.render({
+  elem: 'test1'
+    ,limit:12
+  ,count: {{total_page}} //数据总数，从服务端得到
+  ,jump: function(obj, first){
+    //obj包含了当前分页的所有参数，比如：
+    console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+    console.log(obj.limit); //得到每页显示的条数
+    //首次不执行
+    if(!first){
+      //do something
+        current_page = obj.curr
+        location.href = '/article/category/{{category.id}}?page=' + current_page
+    }
+  }
+});
+});
+</script>
 </div>
 </body>
 </html>

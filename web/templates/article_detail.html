@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/monokai.css' %}">
     <script type='text/javascript' src="{% static 'js/jquery-2.2.4.min-2.2.4.js'%}"></script>
     <script type='text/javascript' src="{% static 'js/axios-0.18.0.min.js'%}"></script>
-    <script type='text/javascript' src="{% static 'layer/layer.js'%}"></script>
+    <script type='text/javascript' src="{% static 'layui/layui.js'%}"></script>
     <script src="{% static 'js/csrf.js' %}"></script>
     <meta name="description" content="{{article.desc}}">
     <link rel='stylesheet' id='wbs-style-dwqr-css' href="{% static 'css/wbp_donate.css'%}" type='text/css' media='all'>
@@ -435,6 +435,13 @@
     <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="{% static 'css/sweetalert.min.css' %}">
     <script src="{% static 'js/sweetalert.min.js' %}"></script>
     <script src="{% static 'js/mouse.js' %}"></script>
+    <script>
+//一般直接写在一个js文件中
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+});
+</script>
     <script>
         // 点赞功能主函数
         function validate_is_like(url, id, likes) {

@@ -1,4 +1,5 @@
 import markdown
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
@@ -7,6 +8,7 @@ from haystack.views import SearchView
 
 from article.models import ArticleDetail, ArticleCategory, ArticleLabel
 from link.models import Link
+from web.utils.common import paginator_func
 
 
 class ArticleDetailView(View):
@@ -29,7 +31,6 @@ class ArticleDetailView(View):
             'related_articles': related_articles,
             'labels_and_count': ArticleLabel.get_labels(),
             'links': Link.objects.all()
-
         }
 
         return render(request, 'article_detail.html', context)
@@ -38,6 +39,8 @@ class ArticleDetailView(View):
 class ArticleCategoryView(View):
 
     def get(self, request, category_id):
+        page_num = request.GET.get('page')
+        page_num = page_num if page_num else 1
         q = request.GET.get('q')
         articles = ArticleDetail.objects.filter(Q(category1_id=category_id) | Q(category2_id=category_id))
         if q:
@@ -45,12 +48,14 @@ class ArticleCategoryView(View):
                 articles = articles.order_by('-create_time')
             elif q == 'hot':
                 articles = articles.order_by('-digg_count')
+        page_list, total_page = paginator_func(articles, page_num, 12)
         category = ArticleCategory.objects.get(id=category_id)
         context = {
-            'articles': articles,
+            'articles': page_list,
             'category': category,
             'categories': ArticleCategory.get_categories(),
             'sub_categories': ArticleCategory.get_sub_categories(),
+            'total_page': total_page
         }
 
         return render(request, 'category_article.html', context=context)
@@ -69,13 +74,16 @@ class ArticleStarView(View):
 class LabelArticleView(View):
 
     def get(self, request, label_id):
+        page_num = request.GET.get('page')
+        page_num = page_num if page_num else 1
         label_obj = ArticleLabel.objects.get(id=label_id)
         label_articles = label_obj.labels.all()
-
+        page_list, total_page = paginator_func(label_articles, page_num, 12)
         context = {
             'label': label_obj,
             'categories': ArticleCategory.get_categories(),
-            'label_articles': label_articles
+            'label_articles': page_list,
+            'total_page': total_page
         }
         return render(request, 'label_article.html', context)
 
