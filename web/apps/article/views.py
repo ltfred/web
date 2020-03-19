@@ -19,6 +19,8 @@ class ArticleDetailView(View):
             article = ArticleDetail.objects.get(id=article_id)
         except:
             raise
+        article.view_count += 1
+        article.save()
         article.content = markdown.markdown(article.content.replace("\r\n", '  \n'), extensions=[
             'markdown.extensions.extra',
             'markdown.extensions.codehilite',
