@@ -1,8 +1,9 @@
 import markdown
 from django.db.models import Q
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
+from haystack.views import SearchView
 
 from article.models import ArticleDetail, ArticleCategory, ArticleLabel
 from link.models import Link
@@ -21,16 +22,13 @@ class ArticleDetailView(View):
             'markdown.extensions.codehilite',
             'markdown.extensions.toc'
         ])
-        categories = ArticleCategory.get_categories()
         related_articles = ArticleDetail.objects.filter(category2=article.category2)[0:4]
-        labels_and_count = ArticleLabel.get_labels()
-        links = Link.objects.all()
         context = {
             "article": article,
-            'categories': categories,
+            'categories': ArticleCategory.get_categories(),
             'related_articles': related_articles,
-            'labels_and_count': labels_and_count,
-            'links': links
+            'labels_and_count': ArticleLabel.get_labels(),
+            'links': Link.objects.all()
 
         }
 
@@ -48,14 +46,11 @@ class ArticleCategoryView(View):
             elif q == 'hot':
                 articles = articles.order_by('-digg_count')
         category = ArticleCategory.objects.get(id=category_id)
-        categories = ArticleCategory.get_categories()
-        sub_categories = ArticleCategory.get_sub_categories()
-
         context = {
             'articles': articles,
             'category': category,
-            'categories': categories,
-            'sub_categories': sub_categories,
+            'categories': ArticleCategory.get_categories(),
+            'sub_categories': ArticleCategory.get_sub_categories(),
         }
 
         return render(request, 'category_article.html', context=context)
@@ -76,12 +71,21 @@ class LabelArticleView(View):
     def get(self, request, label_id):
         label_obj = ArticleLabel.objects.get(id=label_id)
         label_articles = label_obj.labels.all()
-        categories = ArticleCategory.get_categories()
 
         context = {
             'label': label_obj,
-            'categories': categories,
+            'categories': ArticleCategory.get_categories(),
             'label_articles': label_articles
         }
-
         return render(request, 'label_article.html', context)
+
+
+
+class MySearchView(SearchView):
+
+    template = 'search.html'
+
+    def extra_context(self):
+        content = super(MySearchView, self).extra_context()
+        content['categories'] = ArticleCategory.get_categories()
+        return content

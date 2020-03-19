@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{category.name}}-Aliwen小栈</title>
+    <title>{{query}}-Aliwen小栈</title>
     <link rel='stylesheet' id='caozhuti-style-css' href="{% static 'css/style-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='external-css' href="{% static 'css/external-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='sweetalert2-css' href="{% static 'css/sweetalert2.min-4.9.css' %}" type='text/css' media='all'>
@@ -23,8 +23,8 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo-wrapper">
-                    <a href="index.html">
-                        <img class="logo regular tap-logo" src="static/picture/d72c2fe0ed4f457.png" data-dark="" alt="Aliwen小栈">
+                    <a href="/">
+                        <img class="logo regular tap-logo" src="/static/picture/d72c2fe0ed4f457.png" data-dark="" alt="Aliwen小栈">
                     </a>
                 </div>
                 <div class="sep">
@@ -32,7 +32,7 @@
                 <nav class="main-menu hidden-xs hidden-sm hidden-md">
                     <ul id="menu-menu-1" class="nav-list u-plain-list">
                         <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="/">首页</a></li>
-                        {% for category in categories %}
+                                {% for category in categories %}
                         <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="/article/category/{{category.category.id}}">{{category.category.name}}</a>
                             <ul class="sub-menu">
                                 {% for sub_category in category.sub_categories%}
@@ -44,7 +44,7 @@
                     </ul>
                 </nav>
                 <div class="main-search">
-                    <form method="get" class="search-form inline" action="/search">
+                    <form method="get" class="search-form inline" action="/article/search">
                         <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
                         <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
                     </form>
@@ -77,41 +77,6 @@
     </div>
     <div class="site-content">
         <div class="container">
-            <div class="filter--content">
-                <form class="mb-0" method="get" action="https://ww.aliwen.vip">
-                    <input type="hidden" name="s">
-                    <div class="form-box search-properties mb-0">
-                        <!-- 一级分类 -->
-                        <div class="filter-item">
-                            <ul class="filter-tag">
-                                <span><i class="fa fa-folder-open-o"></i> 分类：</span>
-                                {% for par_category in categories %}
-                                <li><a href="/article/category/{{par_category.category.id}}">{{par_category.category}}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <!-- 二级分类 -->
-                        <div class="filter-item">
-                            <ul class="filter-tag">
-                                <span><i class="fa fa-long-arrow-right"></i> 更多：</span>
-                                {% for sub_category in sub_categories %}
-                                <li><a href="/article/category/{{sub_category.id}}">{{sub_category}}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <!-- 排序 -->
-                        <div class="filter-item">
-                            <ul class="filter-tag">
-                                <span><i class="fa fa-sort-alpha-desc"></i> 排序：</span>
-                                <li><a href="/article/category/{{category.id}}?q=time" class="">发布日期</a></li>
-                                <li><a href="/article/category/{{category.id}}?q=hot" class="">热度</a></li>
-                            </ul>
-                        </div>
-                        <!-- .row end -->
-                    </div>
-                    <!-- .form-box end -->
-                </form>
-            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="content-area">
@@ -169,7 +134,7 @@
                                     <div class="entry-content">
                                         抱歉，没有找到您需要的文章，可以搜索看看
                                     </div>
-                                    <form method="get" class="search-form inline" action="/search">
+                                    <form method="get" class="search-form inline" action="/article/search">
                                         <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
                                         <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
                                     </form>
@@ -357,13 +322,13 @@
         <aside class="widget-area">
         </aside>
     </div>
-    <script type='text/javascript' src='static/js/player-base.min-2.0.5.js'></script>
+    <script type='text/javascript' src="{% static 'js/get_categories.js' %}"></script>
     <script type='text/javascript' src='static/js/poi.min-2.0.5.js'></script>
     <script type='text/javascript' src='static/js/sweetalert2.min-4.9.js'></script>
     <script type='text/javascript' src='static/js/plugins-4.9.js'></script>
     <script type='text/javascript' src='static/js/app-4.9.js'></script>
     <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="static/css/sweetalert.min.css">
-    <script src="static/js/sweetalert.min.js"></script>
+    <script type='text/javascript' src="{% static '/js/sweetalert.min.js' %}"></script>
 </div>
 </body>
 </html>

@@ -22,7 +22,6 @@ urlpatterns = [
     path('', include('index.urls')),
     path("article/", include('article.urls')),
     path('mdeditor/', include('mdeditor.urls')),
-    path('search/', include('haystack.urls')),
     path('link/', include('link.urls')),
 
 ]
