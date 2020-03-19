@@ -48,7 +48,7 @@ class ArticleCategoryView(View):
                 articles = articles.order_by('-create_time')
             elif q == 'hot':
                 articles = articles.order_by('-digg_count')
-        page_list, total_page = paginator_func(articles, page_num, 12)
+        page_list, total_page = paginator_func(articles, page_num)
         category = ArticleCategory.objects.get(id=category_id)
         context = {
             'articles': page_list,
@@ -78,7 +78,7 @@ class LabelArticleView(View):
         page_num = page_num if page_num else 1
         label_obj = ArticleLabel.objects.get(id=label_id)
         label_articles = label_obj.labels.all()
-        page_list, total_page = paginator_func(label_articles, page_num, 12)
+        page_list, total_page = paginator_func(label_articles, page_num)
         context = {
             'label': label_obj,
             'categories': ArticleCategory.get_categories(),
