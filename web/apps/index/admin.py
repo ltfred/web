@@ -1,3 +1,9 @@
 from django.contrib import admin
+from index.models import Carousel
 
-# Register your models here.
+
+class CarouselAdmin(admin.ModelAdmin):
+    list_display = ('article', 'is_active')
+
+
+admin.site.register(Carousel, CarouselAdmin)
