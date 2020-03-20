@@ -35,10 +35,10 @@
                     <ul id="menu-menu-1" class="nav-list u-plain-list">
                         <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="/">首页</a></li>
                         {% for category in categories %}
-                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="/article/category/{{category.category.id}}">{{category.category.name}}</a>
+                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="{% url 'article:category_article' category.category.id %}">{{category.category.name}}</a>
                             <ul class="sub-menu">
                                 {% for sub_category in category.sub_categories%}
-                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="/article/category/{{sub_category.id}}">{{sub_category}}</a></li>
+                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="{% url 'article:category_article' sub_category.id %}">{{sub_category}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
@@ -79,41 +79,21 @@
     </div>
     <div class="site-content">
         <div class="container">
-<!--            <div class="filter&#45;&#45;content">-->
-<!--                <form class="mb-0" method="get" action="https://ww.aliwen.vip">-->
-<!--                    <input type="hidden" name="s">-->
-<!--                    <div class="form-box search-properties mb-0">-->
-<!--                        &lt;!&ndash; 一级分类 &ndash;&gt;-->
-<!--                        <div class="filter-item">-->
-<!--                            <ul class="filter-tag">-->
-<!--                                <span><i class="fa fa-folder-open-o"></i> 分类：</span>-->
-<!--                                {% for par_category in categories %}-->
-<!--                                <li><a href="/article/category/{{par_category.category.id}}">{{par_category.category}}</a></li>-->
-<!--                                {% endfor %}-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; 二级分类 &ndash;&gt;-->
-<!--                        <div class="filter-item">-->
-<!--                            <ul class="filter-tag">-->
-<!--                                <span><i class="fa fa-long-arrow-right"></i> 更多：</span>-->
-<!--                                {% for sub_category in sub_categories %}-->
-<!--                                <li><a href="/article/category/{{sub_category.id}}">{{sub_category}}</a></li>-->
-<!--                                {% endfor %}-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; 排序 &ndash;&gt;-->
-<!--                        <div class="filter-item">-->
-<!--                            <ul class="filter-tag">-->
-<!--                                <span><i class="fa fa-sort-alpha-desc"></i> 排序：</span>-->
-<!--                                <li><a href="/article/category/{{category.id}}?q=time" class="">发布日期</a></li>-->
-<!--                                <li><a href="/article/category/{{category.id}}?q=hot" class="">热度</a></li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        &lt;!&ndash; .row end &ndash;&gt;-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; .form-box end &ndash;&gt;-->
-<!--                </form>-->
-<!--            </div>-->
+           <div class="filter&#45;&#45;content">
+                <form class="mb-0" method="get" action="#">
+                    <input type="hidden" name="s">
+                    <div class="form-box search-properties mb-0">
+                        <div class="filter-item">
+                            <ul class="filter-tag">
+                                <span><i class="fa fa-folder-open-o"></i> 标签：</span>
+                                {% for label in labels_and_count %}
+                                <li><a href="{% url 'article:label_article' label.label.id %}">{{label.label.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+           </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="content-area">
@@ -163,10 +143,8 @@
                             <div class="col-12 _404">
                                 <div class="_404-inner">
                                     <h1 class="entry-title">暂无内容</h1>
-                                    <div class="entry-content">
-                                        抱歉，没有找到您需要的文章，可以搜索看看
-                                    </div>
-                                    <form method="get" class="search-form inline" action="/article/search">
+                                    <div class="entry-content">抱歉，没有找到您需要的文章，可以搜索看看</div>
+                                    <form method="get" class="search-form inline" action="{% url 'article:search' %}">
                                         <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
                                         <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
                                     </form>
@@ -367,6 +345,7 @@ layui.use('laypage', function(){
 laypage.render({
   elem: 'test1'
     ,limit:12
+     ,theme:'#34495e'
   ,count: {{total_page}} //数据总数，从服务端得到
   ,jump: function(obj, first){
     //obj包含了当前分页的所有参数，比如：

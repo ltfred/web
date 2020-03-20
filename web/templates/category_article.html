@@ -35,10 +35,10 @@
                     <ul id="menu-menu-1" class="nav-list u-plain-list">
                         <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="/">首页</a></li>
                         {% for category in categories %}
-                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="/article/category/{{category.category.id}}">{{category.category.name}}</a>
+                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="{% url 'article:category_article' category.category.id %}">{{category.category.name}}</a>
                             <ul class="sub-menu">
                                 {% for sub_category in category.sub_categories%}
-                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="/article/category/{{sub_category.id}}">{{sub_category}}</a></li>
+                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="{% url 'article:category_article' sub_category.id %}">{{sub_category}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
@@ -46,7 +46,7 @@
                     </ul>
                 </nav>
                 <div class="main-search">
-                    <form method="get" class="search-form inline" action="/article/search">
+                    <form method="get" class="search-form inline" action="{% url 'article:search' %}">
                         <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
                         <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
                     </form>
@@ -160,10 +160,8 @@
                             <div class="col-12 _404">
                                 <div class="_404-inner">
                                     <h1 class="entry-title">暂无内容</h1>
-                                    <div class="entry-content">
-                                        抱歉，没有找到您需要的文章，可以搜索看看
-                                    </div>
-                                    <form method="get" class="search-form inline" action="/article/search">
+                                    <div class="entry-content">抱歉，没有找到您需要的文章，可以搜索看看</div>
+                                    <form method="get" class="search-form inline" action="{% url 'article:search' %}">
                                         <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
                                         <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
                                     </form>
@@ -364,6 +362,7 @@ layui.use('laypage', function(){
 laypage.render({
   elem: 'test1'
     ,limit:12
+     ,theme:'#34495e'
   ,count: {{total_page}} //数据总数，从服务端得到
   ,jump: function(obj, first){
     //obj包含了当前分页的所有参数，比如：

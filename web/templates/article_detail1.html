@@ -1,0 +1,287 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{article.title}}</title>
+{% endblock %}
+
+{% block begjs %}
+    <link rel='stylesheet' id='fancybox-css' href="{% static 'css/jquery.fancybox.min-4.9.css'%}" type='text/css' media='all'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/monokai.css' %}">
+    <script type='text/javascript' src="{% static 'js/jquery-2.2.4.min-2.2.4.js'%}"></script>
+    <script type='text/javascript' src="{% static 'js/axios-0.18.0.min.js'%}"></script>
+    <script type='text/javascript' src="{% static 'layui/layui.js'%}"></script>
+    <script src="{% static 'js/csrf.js' %}"></script>
+    <link rel='stylesheet' id='wbs-style-dwqr-css' href="{% static 'css/wbp_donate.css'%}" type='text/css' media='all'>
+{% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block des %}
+    <meta name="description" content="{{article.desc}}">
+{% endblock %}
+
+{% block content %}
+  <div class="site-content">
+        <div class="container">
+            <div class="row">
+                <div class="content-column col-lg-9">
+                    <div class="content-area">
+                        <main class="site-main">
+                            <article id="post-131" class="article-content">
+                                <div class="container">
+                                    <div id="crumbs">
+                                        首页 &raquo; <a href="{% url 'article:category_article' article.category1.id %}">{{article.category1.name}}</a>&raquo; <a href="{% url 'article:category_article' article.category2.id %}">{{article.category2.name}}</a> &raquo;<span>{{article.title}}</span>
+                                    </div>
+                                    <div class="cao_entry_header">
+                                        <header class="entry-header">
+                                            <h1 class="entry-title"><a href="" rel="bookmark">{{article.title}}</a></h1>
+                                        </header>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <div class="entry-wrapper">
+                                        <div class="entry-content u-text-format u-clearfix">
+                                            <div id="output_wrapper_id" class="output_wrapper" style="font-size: 16px; color: #3e3e3e; line-height: 1.6; word-spacing: 0px; letter-spacing: 0px; font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;">
+                                                <blockquote style="line-height: inherit; display: block; padding: 15px 15px 15px 1rem; font-size: 0.9em; margin: 1em 0px; color: #819198; border-left: 6px solid #dce6f0; background: #f2f7fb; overflow: auto; word-wrap: normal; word-break: normal;">
+                                                    <p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 0px; text-indent: 20px">
+                                                        {{article.des}}
+                                                    </p>
+                                                </blockquote>
+                                            </div>
+                                            <div>
+                                                {{article.content | safe}}
+                                            </div>
+                                            <div class="wbp-cbm">
+                                                <div class="ctrl-item">
+                                                    <a class="wb-btn wb-btn-ctrl wb-btn-outlined" id="J_ppoDonateBtn" data-ppo-name="#J_ppoDonate">
+                                                        <svg class="wb-icon wbsico-donate">
+                                                            <use xlink:href="#wbsico-donate"></use>
+                                                        </svg>
+                                                        <span>打赏</span></a>
+                                                    <a class="wb-btn wb-btn-ctrl wb-btn-outlined wb-btn-like" onclick="validate_is_like( '{% url 'article:article_star' article.id %}', {{ article.id }}, {{ article.digg_count }} )">
+                                                        <span id="likes_number">赞({{article.digg_count}})</span>
+                                                    </a>
+                                                    <div class="com-popover pst-c pst-fixed wb-dialog-df wb-ppo-donate" id="J_ppoDonate">
+                                                        <div class="bd" id="J_tabBoxDWQ">
+                                                            <div class="tab-navs">
+                                                                <div class="tab-nav-item item-weixin current">
+                                                                    <span>微信</span>
+                                                                </div>
+                                                                <div class="tab-nav-item item-alipay">
+                                                                    <span>支付宝</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-conts">
+                                                                <div class="tab-cont current">
+                                                                    <div class="pic">
+                                                                        <img src="/static/picture/536f868c09cfbc8.jpg" alt="微信二维码图片">
+                                                                    </div>
+                                                                    <p>
+                                                                        用<span class="hl">微信</span>扫描二维码打赏
+                                                                    </p>
+                                                                </div>
+                                                                <div class="tab-cont">
+                                                                    <div class="pic">
+                                                                        <img src="/static/picture/e35cf7b66449df5.jpg" alt="支付宝二维码图片">
+                                                                    </div>
+                                                                    <p>
+                                                                        用<span class="hl">支付宝</span>扫描二维码打赏
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a class="wb-ppo-close">
+                                                            <svg class="wb-icon wbsico-close">
+                                                                <use xlink:href="#wbsico-close"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="entry-tags">
+                                            {% for label in article.labels.all %}
+                                            <a href="../../../../Downloads/网站模板/aliwen/php.html" rel="tag">{{label.name}}</a>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="article-copyright">
+                                            Aliwen一个90后小青年，热爱生活和旅游，喜欢冒险。爱自己，你要活得无可替代并精彩绝伦，世界那么大不如去看看它，人活着不只有眼前的苟且，还有诗和远方，以爱与青春为名，陪你一路成长，不失初心，不忘初衷!
+                                            <br>
+                                            <a href="/">Aliwen小栈</a> &raquo;
+                                            <a href="">{{article.title}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <div class="bottom-area">
+                                <div id="comments" class="comments-area">
+                                    <link rel="stylesheet" href="//c.fansx.com/tc.css"/>
+                                    <div id="tc_s106p{{article.id}}">
+                                    </div>
+                                    <script src="//c.fansx.com/?m=c1&sid=106&pid={{article.id}}"></script>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+                <div class="sidebar-column col-lg-3">
+                    <aside class="widget-area">
+                        <div id="search-2" class="widget widget_search">
+                            <form method="get" class="search-form inline" action="{% url 'article:search' %}">
+                                <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
+                                <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
+                            </form>
+                        </div>
+                        <div id="media_image-2" class="widget widget_media_image">
+                            <h5 class="widget-title">关注我们</h5>
+                            <img width="747" height="1024" src="/static/picture/fde8a2f3eb87afa-747x1024.jpg" class="image wp-image-144 attachment-large size-large" alt="" style="max-width: 100%; height: auto;" srcset="/static/picture/fde8a2f3eb87afa-747x1024.jpg 747w, /static/picture/fde8a2f3eb87afa-219x300.jpg 219w, /static/picture/fde8a2f3eb87afa-768x1053.jpg 768w, /static/picture/fde8a2f3eb87afa.jpg 1080w" sizes="(max-width: 747px) 100vw, 747px">
+                        </div>
+                        {% if links %}
+                        <div id="linkcat-89" class="widget widget_links">
+                            <h5 class="widget-title">友情链接</h5>
+                            <ul class='xoxo blogroll'>
+                                {% for link in links %}
+                                <li><a href="{{link.url}}">{{link.name}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        <div id="tag_cloud-2" class="widget widget_tag_cloud">
+                            <h5 class="widget-title">标签云</h5>
+                            <div class="tagcloud">
+                                {% for label in labels_and_count %}
+                                <a href="{% url 'article:label_article' label.label.id %}" class="tag-cloud-link tag-link-106 tag-link-position-1" style="font-size: 8pt;" aria-label="JS (1个项目)">{{label.label.name}}<span class="tag-link-count"> ({{label.article_count}})</span></a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-area bgcolor-fff">
+            <div class="container medium">
+                <div class="related-posts">
+                    <h3 class="u-border-title">相关推荐</h3>
+                    <div class="row">
+                        {% for article in related_articles %}
+                        <div class="col-lg-6">
+                            <article class="post">
+                                <div class="entry-media">
+                                    <div class="placeholder" style="padding-bottom: 66.666666666667%;">
+                                        <a href="/article/detail/{{article.id}}">
+                                            <img class="lazyload" data-src="{{article.cover}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="entry-wrapper">
+                                    <header class="entry-header">
+                                        <div class="entry-meta">
+									<span class="meta-author">
+									<a href="#"><img alt='' data-src='{{article.author.avatar}}' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{article.author.nickname}}</a>
+									</span>
+                                        </div>
+                                        <h4 class="entry-title"><a href="/article/detail/{{article.id}}" rel="bookmark">{{article.title}}</a></h4>
+                                    </header>
+                                    <div class="entry-excerpt u-text-format">
+                                        <p>
+                                            {{article.des}}
+                                        </p>
+                                    </div>
+                                    <div class="entry-footer">
+                                        <a href="javascript:;"><time datetime="2019-07-12T14:12:46+08:00"><i class="fa fa-clock-o"></i>{{article.create_time | date:'Y年m月d日'}}</time></a>
+                                        <a href="javascript:;"><span><i class="fa fa-eye"></i>{{article.view_count}}</span></a>
+                                        <a href="javascript:;"><span><i class="fa fa-comments-o"></i>{{article.comment_count}}</span></a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                        {%  endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block themepark_advertisement %}
+{% endblock %}
+
+{% block endjs %}
+      <script>
+//一般直接写在一个js文件中
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+});
+</script>
+    <script>
+        // 点赞功能主函数
+        function validate_is_like(url, id, likes) {
+            // 取出 LocalStorage 中的数据
+            let storage = window.localStorage;
+            const storage_str_data = storage.getItem("my_blog_data");
+            let storage_json_data = JSON.parse(storage_str_data);
+            // 若数据不存在，则创建空字典
+            if (!storage_json_data) {
+                storage_json_data = {}
+            };
+            // 检查当前文章是否已点赞。是则 status = true
+            const status = check_status(storage_json_data, id);
+            if (status) {
+                layer.msg('已经点过赞了哟~');
+                // 点过赞则立即退出函数
+                return;
+            } else {
+                // 用 Jquery 找到点赞数量，并 +1
+                var starCount = likes + 1
+                $('span#likes_number').text('赞('+starCount+')');
+            }
+            // 用 ajax 向后端发送 post 请求
+            $.post(
+                url,
+                // post 只是为了做 csrf 校验，因此数据为空
+                {},
+                function(result) {
+                    if (result === 'success') {
+                        // 尝试修改点赞数据
+                        try {
+                            storage_json_data[id] = true;
+                        } catch (e) {
+                            window.localStorage.clear();
+                        };
+                        // 将字典转换为字符串，以便存储到 LocalStorage
+                        const d = JSON.stringify(storage_json_data);
+                        // 尝试存储点赞数据到 LocalStorage
+                        try {
+                            storage.setItem("my_blog_data", d);
+                        } catch (e) {
+                            // code 22 错误表示 LocalStorage 空间满了
+                            if (e.code === 22) {
+                                window.localStorage.clear();
+                                storage.setItem("my_blog_data", d);
+                            }
+                        };
+                    } else {
+                        layer.msg("与服务器通信失败..过一会儿再试试呗~");
+                    }
+                }
+            );
+        };
+        // 辅助点赞主函数，验证点赞状态
+        function check_status(data, id) {
+            // 尝试查询点赞状态
+            try {
+                if (id in data && data[id]) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (e) {
+                window.localStorage.clear();
+                return false;
+            };
+        };
+    </script>
+{% endblock %}

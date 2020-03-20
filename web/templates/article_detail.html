@@ -17,8 +17,8 @@
     <script type='text/javascript' src="{% static 'js/axios-0.18.0.min.js'%}"></script>
     <script type='text/javascript' src="{% static 'layui/layui.js'%}"></script>
     <script src="{% static 'js/csrf.js' %}"></script>
-    <meta name="description" content="{{article.desc}}">
     <link rel='stylesheet' id='wbs-style-dwqr-css' href="{% static 'css/wbp_donate.css'%}" type='text/css' media='all'>
+    <meta name="description" content="{{article.desc}}">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. --><!--[if lt IE 9]>
     <script src="{% static 'js/html5shiv.js'%}"></script>
     <![endif]-->
@@ -39,10 +39,10 @@
                     <ul id="menu-menu-1" class="nav-list u-plain-list">
                         <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-34"><a href="/">首页</a></li>
                         {% for category in categories %}
-                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="/article/category/{{category.category.id}}">{{category.category.name}}</a>
+                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="{% url 'article:category_article' category.category.id %}">{{category.category.name}}</a>
                             <ul class="sub-menu">
                                 {% for sub_category in category.sub_categories%}
-                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="/article/category/{{sub_category.id}}">{{sub_category}}</a></li>
+                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="{% url 'article:category_article' sub_category.id %}">{{sub_category}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
@@ -50,7 +50,7 @@
                     </ul>
                 </nav>
                 <div class="main-search">
-                    <form method="get" class="search-form inline" action="/article/search">
+                    <form method="get" class="search-form inline" action="{% url 'article:search' %}">
                         <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
                         <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
                     </form>
@@ -82,7 +82,7 @@
                             <article id="post-131" class="article-content">
                                 <div class="container">
                                     <div id="crumbs">
-                                        首页 &raquo; <a href="/article/category/{{article.category1.id}}">{{article.category1.name}}</a>&raquo; <a href="/article/category/{{article.category2.id}}">{{article.category2.name}}</a> &raquo;<span>{{article.title}}</span>
+                                        首页 &raquo; <a href="{% url 'article:category_article' article.category1.id %}">{{article.category1.name}}</a>&raquo; <a href="{% url 'article:category_article' article.category2.id %}">{{article.category2.name}}</a> &raquo;<span>{{article.title}}</span>
                                     </div>
                                     <div class="cao_entry_header">
                                         <header class="entry-header">
@@ -179,7 +179,7 @@
                 <div class="sidebar-column col-lg-3">
                     <aside class="widget-area">
                         <div id="search-2" class="widget widget_search">
-                            <form method="get" class="search-form inline" action="/article/search">
+                            <form method="get" class="search-form inline" action="{% url 'article:search' %}">
                                 <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
                                 <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
                             </form>
@@ -202,7 +202,7 @@
                             <h5 class="widget-title">标签云</h5>
                             <div class="tagcloud">
                                 {% for label in labels_and_count %}
-                                <a href="#" class="tag-cloud-link tag-link-106 tag-link-position-1" style="font-size: 8pt;" aria-label="JS (1个项目)">{{label.label_name}}<span class="tag-link-count"> ({{label.article_count}})</span></a>
+                                <a href="{% url 'article:label_article' label.label.id %}" class="tag-cloud-link tag-link-106 tag-link-position-1" style="font-size: 8pt;" aria-label="JS (1个项目)">{{label.label.name}}<span class="tag-link-count"> ({{label.article_count}})</span></a>
                                 {% endfor %}
                             </div>
                         </div>
@@ -260,7 +260,7 @@
             <h4 class="entry-title">
                 提供最优质的资源集合
             </h4>
-            <a class="button" href="../../../../Downloads/网站模板/aliwen/index1.html">立即查看</a>
+            <a class="button" href="/">立即查看</a>
             <a class="button transparent" href="javascript:;">联系作者</a>
         </div>
     </div>

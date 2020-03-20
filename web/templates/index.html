@@ -108,8 +108,8 @@
     <meta name="keywords" content="Aliwen,Aliwen小栈,小栈,aliwen.vip">
     <meta name="description" content="Aliwen小栈，她是一个服务于小众的聚集地，用最执着的文字， 说最不奢求完美的故事。">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. --><!--[if lt IE 9]>
-    <script src="static/js/html5shiv.js"></script>
-    <script src="static/js/respond.min.js"></script>
+    <script src="{% static 'js/html5shiv.js' %}"></script>
+    <script src="{% static 'js/respond.min.js' %}"></script>
     <![endif]--><!-- ww.aliwen.vip Baidu tongji analytics -->
 </head>
 <body class="home blog paged paged-2 hfeed modular-title-2 navbar-sticky_transparent navbar-slide sidebar-none pagination-infinite_button paged-previous">
@@ -128,10 +128,10 @@
                     <ul id="menu-menu-1" class="nav-list u-plain-list">
                         <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="/">首页</a></li>
                         {% for category in categories %}
-                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="/article/category/{{category.category.id}}">{{category.category.name}}</a>
+                        <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="{% url 'article:category_article' category.category.id %}">{{category.category.name}}</a>
                             <ul class="sub-menu">
                                 {% for sub_category in category.sub_categories%}
-                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="/article/category/{{sub_category.id}}">{{sub_category}}</a></li>
+                                <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="{% url 'article:category_article' sub_category.id %}">{{sub_category}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
@@ -139,7 +139,7 @@
                     </ul>
                 </nav>
                 <div class="main-search">
-                    <form method="get" class="search-form inline" action="/article/search">
+                    <form method="get" class="search-form inline" action="{% url 'article:search' %}">
                         <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
                         <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
                     </form>
