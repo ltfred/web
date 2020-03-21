@@ -17,6 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+import xadmin
 
 
 urlpatterns = [
@@ -25,4 +26,5 @@ urlpatterns = [
     path("article/", include('article.urls')),
     path('mdeditor/', include('mdeditor.urls')),
     path('link/', include('link.urls')),
+    path('xadmin/', xadmin.site.urls)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

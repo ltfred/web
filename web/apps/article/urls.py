@@ -9,5 +9,5 @@ urlpatterns = [
     path("star/<int:article_id>/", ArticleStarView.as_view(), name='article_star'),
     path("label/<int:label_id>/", LabelArticleView.as_view(), name='label_article'),
     # path('categories/', GetCategories.as_view()),
-    path('search', MySearchView())
+    path('search', MySearchView(), name='search')
 ]
