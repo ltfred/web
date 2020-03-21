@@ -85,7 +85,8 @@ class LabelArticleView(View):
             'label': label_obj,
             'categories': ArticleCategory.get_categories(),
             'label_articles': page_list,
-            'total_page': total_page
+            'total_page': total_page,
+            'labels_and_count': ArticleLabel.get_labels()
         }
         return render(request, 'label_article.html', context)
 

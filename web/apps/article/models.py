@@ -79,7 +79,7 @@ class ArticleLabel(BaseModel):
         for label in labels:
             count = label.labels.all().count()
             labels_and_count.append({
-                'label_name': label.name,
+                'label': label,
                 'article_count': count
             })
         return labels_and_count

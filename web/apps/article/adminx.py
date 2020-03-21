@@ -6,6 +6,13 @@ class ArticleXadmin(object):
     list_display = ['title', 'category1', 'category2']
     style_fields = {'labels': 'checkbox-inline', }
 
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        if db_field.name == 'category1':
+            kwargs['queryset'] = ArticleCategory.objects.filter(parent__isnull=True)
+        if db_field.name == 'category2':
+            kwargs['queryset'] = ArticleCategory.objects.filter(parent__isnull=False)
+        return super(ArticleXadmin, self).formfield_for_dbfield(db_field, **kwargs)
+
 
 class ArticleCategoryXadmin(object):
     list_display = ['name', 'parent']
