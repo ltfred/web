@@ -13,8 +13,7 @@
     <link rel='stylesheet' id='app-css' href="{% static 'css/app-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='diy-css' href="{% static 'css/diy-4.9.css' %}" type='text/css' media='all'>
     <script type='text/javascript' src="{% static 'js/jquery-2.2.4.min-2.2.4.js' %}"></script>
-    <meta name="keywords" content="Aliwen,Fred,小栈,aliwen.vip">
-    <meta name="description" content="Fred，她是一个服务于小众的聚集地，用最执着的文字， 说最不奢求完美的故事。">
+    <meta name="keywords" content="Fred，Fred的个人网站，个人博客，Fred的个人博客">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. --><!--[if lt IE 9]>
     <script src="{% static 'js/html5shiv.js' %}"></script>
     <script src="{% static 'js/respond.min.js' %}"></script>
@@ -249,8 +248,8 @@
                         <div class="row">
                             <div class="col-12 col-sm-6">
                                 <div class="uposts">
-                                    <div class="codesign-list lazyload visible" data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/07/20662b13cbaa324.jpg">
-                                        <h4 class="codeisgn-h4"><i class="fa fa-circle-o"></i><a href="design.html">技术分享&gt;</a></h4>
+                                    <div class="codesign-list lazyload visible" data-bg="{% static 'picture/tech.jpg' %}">
+                                        <h4 class="codeisgn-h4"><i class="fa fa-circle-o"></i><a href="#">技术分享&gt;</a></h4>
                                         <span class="codesign-esc">
 									<p>
 										好的东西值得描述内容
@@ -271,8 +270,8 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="uposts">
-                                    <div class="codesign-list lazyload visible" data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/07/ce08becc73195df.jpg">
-                                        <h4 class="codeisgn-h4"><i class="fa fa-circle-o"></i><a href="life-2.html">生活腔调
+                                    <div class="codesign-list lazyload visible" data-bg="{% static 'picture/life.jpg' %}">
+                                        <h4 class="codeisgn-h4"><i class="fa fa-circle-o"></i><a href="#">生活腔调
                                             &gt;
                                         </a></h4>
                                         <span class="codesign-esc">
@@ -299,7 +298,7 @@
                 <div class="section">
                     <div class="container">
                         <h3 class="section-title">
-                            <span><i class="fa fa-th"></i><a href="tech-2.html">技术分享</a></span>
+                            <span><i class="fa fa-th"></i><a href="#">技术分享</a></span>
                         </h3>
                         <div class="row cat-posts-wrapper">
                             {% for article in tech_new_articles %}
@@ -346,7 +345,7 @@
     </div>
     <!-- end sitecoent -->
     <div class="module parallax">
-        <img class="jarallax-img lazyload" data-srcset="static/picture/timg.jpg" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+        <img class="jarallax-img lazyload" data-srcset="{% static 'picture/timg.jpg' %}" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
         <div class="container">
             <h4 class="entry-title">
                 提供最优质的资源集合
@@ -362,10 +361,10 @@
                     <div class="col-xs-12 col-sm-6 col-md-3 widget--about">
                         <div class="widget--content">
                             <div class="footer--logo mb-20">
-                                <img class="tap-logo" src="/static/picture/logo.png" data-dark="" alt="Fred">
+                                <img class="tap-logo" src="{% static 'picture/logo.png' %}" data-dark="" alt="Fred">
                             </div>
                             <p class="mb-10">
-                                Aliwen一个90后小青年，热爱生活和旅游，喜欢冒险。爱自己，你要活得无可替代并精彩绝伦，世界那么大不如去看看它，人活着不只有眼前的苟且，还有诗和远方，以爱与青春为名，陪你一路成长，不失初心，不忘初衷!
+                                Fred一个90后小青年，热爱生活和旅游，喜欢冒险。爱自己，你要活得无可替代并精彩绝伦，世界那么大不如去看看它，人活着不只有眼前的苟且，还有诗和远方，以爱与青春为名，陪你一路成长，不失初心，不忘初衷!
                             </p>
                         </div>
                     </div>
@@ -401,7 +400,7 @@
                             <h5 style='text-align:center'>微信公众号</h5>
                         </div>
                         <div class="widget--content">
-                            <img src="static/picture/ca3af5e69a6da7d.jpg">
+                            <img src="/static/picture/ca3af5e69a6da7d.jpg">
                         </div>
                     </div>
                     <!-- .col-md-2 end -->
@@ -410,13 +409,13 @@
                             <h5 style='text-align:center'>博客小程序</h5>
                         </div>
                         <div class="widget--content">
-                            <img src="static/picture/44c6c370fd18593.jpg">
+                            <img src="/static/picture/44c6c370fd18593.jpg">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="site-info">
-                © Fred ww.aliwen.vip
+                © Fred ww.ltfred.top
             </div>
         </div>
     </footer>
@@ -433,7 +432,7 @@
         </div>
         <div class="logo-wrapper">
             <a href="/">
-                <img class="logo regular" src="/static/picture/logo.png" alt="Fred">
+                <img class="logo regular" src="{% static 'picture/logo.png' %}" alt="Fred">
             </a>
         </div>
         <div class="mobile-menu hidden-lg hidden-xl">
