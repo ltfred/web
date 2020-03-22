@@ -1,0 +1,103 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title %}
+    <title>{{query}}-Fred</title>
+{% endblock %}
+
+{% block content %}
+    <div class="term-bar lazyload visible" data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/07/20662b13cbaa324.jpg">
+        <h1 class="term-title">搜索：{{query}}</h1>
+    </div>
+    <div class="site-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="content-area">
+                        <main class="site-main">
+                            <div class="row posts-wrapper">
+                                {% for article in page %}
+                                    <div class="col-sm-6 col-md-4 col-lg-3">
+                                        <article id="post-118" class="post post-grid post-118 type-post status-publish format-standard has-post-thumbnail hentry category-ui category-adver category-design tag-ui tag-81">
+                                            <div class="entry-media">
+                                                <div class="placeholder" style="padding-bottom: 66.666666666667%;">
+                                                    <a href="/article/detail/{{article.object.id}}"><img src="{{article.object.cover}}" alt=""></a>
+                                                </div>
+                                            </div>
+                                            <div class="entry-wrapper">
+                                                <a class="grid_author_avt" href="/article/detail/{{article.object.id}}">
+                                                    <div class="grid_author_bggo avatar bg-cover" style="background-image: url(../../static/image/1.png);">
+                                                    </div>
+                                                </a>
+                                                <header class="entry-header">
+                                                    <div class="entry-meta">
+										                              <span class="meta-category">
+                                                    {% for label in article.object.labels.all %}
+                                                        <a href="/article/label/{{label.id}}" rel="category"><i class="dot"></i>{{ label.name }}</a>
+                                                    {% endfor %}
+										                              </span>
+                                                    </div>
+                                                    <h2 class="entry-title"><a href="118.html" rel="bookmark">{{article.object.title}}</a></h2>
+                                                </header>
+                                                <div class="entry-excerpt u-text-format">
+                                                    {{article.object.des}}
+                                                </div>
+                                                <div class="entry-footer">
+                                                    <a href="118.html"><time datetime="2019-06-25T13:20:10+08:00"><i class="fa fa-clock-o"></i> {{article.object.create_time| date:'Y年m月d日' }}</time></a>
+                                                    <a href="118.html"><span><i class="fa fa-eye"></i> {{article.object.view_count}}</span></a>
+                                                    <a href="118.html"><span><i class="fa fa-comments-o"></i> {{article.object.digg_count}}</span></a>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <!--                            分页-->
+                            {% if page %}
+                                <div id="test1" style="margin:0 auto;text-align: center"></div>
+                            {% endif %}
+                            {% if not page %}
+                                <div class="col-12 _404">
+                                    <div class="_404-inner">
+                                        <h1 class="entry-title">暂无内容</h1>
+                                        <div class="entry-content">抱歉，没有找到您需要的文章，可以搜索看看</div>
+                                        <form method="get" class="search-form inline" action="{% url 'article:search' %}">
+                                            <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
+                                            <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pagejs %}
+    <script>
+        layui.use('laypage', function(){
+            var laypage = layui.laypage;
+
+            laypage.render({
+                elem: 'test1'
+                ,limit:12
+                ,theme:'#34495e'
+                ,count: {{paginator.num_pages}} //数据总数，从服务端得到
+                ,jump: function(obj, first){
+                    //obj包含了当前分页的所有参数，比如：
+                    console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+                    console.log(obj.limit); //得到每页显示的条数
+                    //首次不执行
+                    if(!first){
+                        //do something
+                        current_page = obj.curr
+                        location.href = '/article/search?q={{ query }}&page=' + current_page
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}

@@ -114,11 +114,11 @@
                                             </a>
                                             <header class="entry-header">
                                                 <div class="entry-meta">
-										<span class="meta-category">
-										<a href="ui.html" rel="category"><i class="dot"></i>UI设计              </a>
-										<a href="adver.html" rel="category"><i class="dot"></i>广告设计              </a>
-										<a href="design.html" rel="category"><i class="dot"></i>我爱设计              </a>
-										</span>
+                                                    <span class="meta-category">
+                                                            {% for label in article.labels.all %}
+                                                                <a href="{% url 'article:label_article' label.id %}" rel="category"><i class="dot"></i>{{label.name}}</a>
+                                                            {% endfor %}
+							                        </span>
                                                 </div>
                                                 <h2 class="entry-title"><a href="118.html" rel="bookmark">{{article.title}}</a></h2>
                                             </header>

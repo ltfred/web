@@ -175,11 +175,11 @@
                                 <header class="entry-header white">
                                     <div class="entry-meta">
 							<span class="meta-author">
-							<a href="aliwen.html"><img alt='' data-src='static/picture/1.png' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{carousel.article.author.nickname}}</a>
+							<a href="/"><img alt='' data-src='{{ carousel.article.author.avatar }}' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{carousel.article.author.nickname}}</a>
 							</span>
                                         <span class="meta-category">
                                             {% for label in carousel.article.labels.all %}
-							<a href="des.html" rel="category"><i class="dot"></i>{{label.name}}</a>
+                                                <a href="{% url 'article:label_article' label.id %}" rel="category"><i class="dot"></i>{{label.name}}</a>
                                             {% endfor %}
 							</span>
                                     </div>
@@ -611,38 +611,6 @@
         <aside class="widget-area">
         </aside>
     </div>
-    <div class="themepark_advertisement">
-        <div id="themepark_advertisement_in" class="themepark_advertisement_in">
-            <div class="themepark_advertisement_close">
-                <div class="themepark_advertisement_close_in">
-                    X
-                </div>
-            </div>
-            <div id="themepark_advertisement_in_pc">
-                <p>
-                    <img class="aligncenter size-full wp-image-259" src="/static/picture/a9a36d027aef1da.jpg" alt="" width="655" height="750">
-                </p>
-            </div>
-            <div id="themepark_advertisement_in_mo" class="themepark_advertisement_in_mo">
-                <p>
-                    <img class="aligncenter size-full wp-image-259" src="/static/picture/a9a36d027aef1da.jpg" alt="" width="655" height="750">
-                </p>
-            </div>
-        </div>
-        <div id="themepark_advertisement_ba" class="themepark_advertisement_ba">
-        </div>
-    </div>
-    <script language="javascript" src="static/js/jquery.cookie.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".themepark_advertisement_in").click(function () {
-                $.cookie("themepark_advertisement", "donotopen");
-            });
-            $(".themepark_advertisement_close_in").click(function () {
-                $(".themepark_advertisement").fadeOut();
-            });
-        });
-    </script>
     <script type='text/javascript' src="{% static 'js/sweetalert2.min-4.9.js' %}"></script>
     <script type='text/javascript' src="{% static 'js/plugins-4.9.js' %}"></script>
     <script type='text/javascript' src="{% static 'js/app-4.9.js' %}"></script>

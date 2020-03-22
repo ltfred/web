@@ -60,7 +60,7 @@ class ArticleCategoryView(View):
             'total_page': total_page
         }
 
-        return render(request, 'category_article.html', context=context)
+        return render(request, 'category_article1.html', context=context)
 
 
 class ArticleStarView(View):
@@ -88,13 +88,13 @@ class LabelArticleView(View):
             'total_page': total_page,
             'labels_and_count': ArticleLabel.get_labels()
         }
-        return render(request, 'label_article.html', context)
+        return render(request, 'label_article1.html', context)
 
 
 
 class MySearchView(SearchView):
 
-    template = 'search.html'
+    template = 'search1.html'
 
     def extra_context(self):
         content = super(MySearchView, self).extra_context()
