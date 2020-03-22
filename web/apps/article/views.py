@@ -35,7 +35,7 @@ class ArticleDetailView(View):
             'links': Link.objects.all()
         }
 
-        return render(request, 'article_detail.html', context)
+        return render(request, 'article_detail1.html', context)
 
 
 class ArticleCategoryView(View):

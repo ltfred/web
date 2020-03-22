@@ -2,11 +2,14 @@
 {% load static %}
 
 {% block title %}
-    <title>{{query}}-Fred</title>
+    <title>Fred-{{query}}</title>
+{% endblock %}
+
+{% block script %}
 {% endblock %}
 
 {% block content %}
-    <div class="term-bar lazyload visible" data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/07/20662b13cbaa324.jpg">
+    <div class="term-bar lazyload visible" data-bg="{% static 'picture/123.jpg' %}">
         <h1 class="term-title">搜索：{{query}}</h1>
     </div>
     <div class="site-content">

@@ -26,5 +26,6 @@ urlpatterns = [
     path("article/", include('article.urls')),
     path('mdeditor/', include('mdeditor.urls')),
     path('link/', include('link.urls')),
+    path('user/', include('user.urls')),
     path('xadmin/', xadmin.site.urls)
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

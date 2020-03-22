@@ -1,0 +1,285 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}
+    <title>首页-只要还有明天，今天永远都是起跑线</title>
+{% endblock %}
+
+{% block content %}
+    <div class="site-content">
+        <div class="content-area">
+            <main class="site-main">
+                <div class="section bgcolor-fff pt-0">
+                    <div class="module slider center owl autoplay">
+                        {% for carousel in carousel_article%}
+                            <article class="post lazyload visible post-429 type-post status-publish format-standard has-post-thumbnail hentry category-des category-tool tag-ps tag-121 tag-81 tag-110" data-bg="{{carousel.article.cover}}">
+                                <div class="entry-wrapper">
+                                    <header class="entry-header white">
+                                        <div class="entry-meta">
+							<span class="meta-author">
+							<a href="/"><img alt='' data-src='{{ carousel.article.author.avatar }}' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{carousel.article.author.nickname}}</a>
+							</span>
+                                            <span class="meta-category">
+                                            {% for label in carousel.article.labels.all %}
+                                                <a href="{% url 'article:label_article' label.id %}" rel="category"><i class="dot"></i>{{label.name}}</a>
+                                            {% endfor %}
+							</span>
+                                        </div>
+                                        <h2 class="entry-title">{{carousel.article.title}}</h2>
+                                    </header>
+                                    <div class="entry-excerpt u-text-format">
+                                        {{carousel.article.des}}
+                                    </div>
+                                    <div class="entry-footer">
+                                        <a href=""><time datetime="2019-10-24T15:29:51+08:00"><i class="fa fa-clock-o"></i>{{carousel.article.create_time | date:'Y年m月d日'}}</time></a>
+                                        <a href=""><span><i class="fa fa-eye"></i>{{carousel.article.view_count}}</span></a>
+                                        <a href=""><span><i class="fa fa-star-o"></i>{{carousel.article.digg_count}}</span></a>
+                                    </div>
+                                </div>
+                                <a class="u-permalink" href="/article/detail/{{carousel.article.id}}"></a>
+                            </article>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="section text-center pb-0">
+                    <div class="alert alert-modern alert-dark">
+                        <span class="badge badge-warning badge-pill"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><i class="fa fa-bell-o"></i> 通知 </font></font></span>
+                        <span class="alert-content"><font style="vertical-align: inherit;">Fred，一个服务于小众的聚集地，你喜欢的样子，这里都会有！</font></span>
+                    </div>
+                </div>
+                <div class="section bgcolor-fff">
+                    <div class="container">
+                        <div class="module category-boxes owl">
+                            <div class="category-box">
+                                <div class="entry-thumbnails">
+                                    <div class="big thumbnail">
+                                        <h3 class="entry-title">诗与故事</h3>
+                                        <img class="lazyload" data-src="static/picture/35bac3d2cdc2258.jpg">
+                                    </div>
+                                    <div class="small">
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="static/picture/5d518828ff221e1.jpg">
+                                        </div>
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="static/picture/2e54cdc0dbc96b9.jpg">
+                                            <span>+6</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="u-permalink" href="work.html"></a>
+                            </div>
+                            <div class="category-box">
+                                <div class="entry-thumbnails">
+                                    <div class="big thumbnail">
+                                        <h3 class="entry-title">技术分享</h3>
+                                        <img class="lazyload" data-src="static/picture/20662b13cbaa324.jpg">
+                                    </div>
+                                    <div class="small">
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="static/picture/c1cd2837dfa5503.jpg">
+                                        </div>
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="static/picture/b7b69c2e8283e651.jpg">
+                                            <span>+0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="u-permalink" href="tech-2.html"></a>
+                            </div>
+                            <div class="category-box">
+                                <div class="entry-thumbnails">
+                                    <div class="big thumbnail">
+                                        <h3 class="entry-title">生活腔调</h3>
+                                        <img class="lazyload" data-src="static/picture/db7282901da891b.jpg">
+                                    </div>
+                                    <div class="small">
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="static/picture/2e8405cbe1c0b02.jpg">
+                                        </div>
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="static/picture/dc4070e3e9a27f5.jpg">
+                                            <span>+4</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="u-permalink" href="life-2.html"></a>
+                            </div>
+                            <div class="category-box">
+                                <div class="entry-thumbnails">
+                                    <div class="big thumbnail">
+                                        <h3 class="entry-title">软件工具</h3>
+                                        <img class="lazyload" data-src="static/picture/db7282901da891b.jpg">
+                                    </div>
+                                    <div class="small">
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="static/picture/2e8405cbe1c0b02.jpg">
+                                        </div>
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="static/picture/735572d3979764d.jpg">
+                                            <span>+0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="u-permalink" href="sygs.html"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="content-area">
+                                    <main class="site-main">
+                                        <!-- <h1 class="latest-title">最新文章</h1>
+                                         -->
+                                        <h3 class="section-title"><span><i class="fa fa-list-alt"></i> 最新文章</span></h3>
+                                        <div class="row posts-wrapper">
+                                            {% for article in new_articles %}
+                                                <div class="col-sm-6 col-md-4 col-lg-3">
+                                                    <article id="post-128" class="post post-grid post-128 type-post status-publish format-standard has-post-thumbnail hentry category-life tag-85 tag-84 tag-83">
+                                                        <div class="entry-media">
+                                                            <div class="placeholder" style="padding-bottom: 66.666666666667%;">
+                                                                <a href="/article/detail/{{article.id}}"><img src="{{article.cover}}" alt="">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="entry-wrapper">
+                                                            <a class="grid_author_avt" href="javascript:;">
+                                                                <div class="grid_author_bggo avatar bg-cover" style="background-image: url(../static/image/1.png);">
+                                                                </div>
+                                                            </a>
+                                                            <header class="entry-header">
+                                                                <div class="entry-meta">
+												                <span class="meta-category">
+                                                                    {% for label in article.labels.all %}
+                                                                        <a href="/article/label/{{label.id}}" rel="category"><i class="dot"></i>{{ label.name }}</a>
+                                                                    {% endfor %}
+												                </span>
+                                                                </div>
+                                                                <h2 class="entry-title"><a href="/article/detail/{{article.id}}" rel="bookmark">{{article.title}}</a></h2>
+                                                            </header>
+                                                            <div class="entry-excerpt u-text-format">
+                                                                {{article.des}}
+                                                            </div>
+                                                            <div class="entry-footer">
+                                                                <a href="javascript:;"><time datetime="2019-07-25T13:51:09+08:00"><i class="fa fa-clock-o"></i> {{article.create_time| date:'Y年m月d日' }}</time></a>
+                                                                <a href="javascript:;"><span><i class="fa fa-eye"></i> {{article.view_count}}</span></a>
+                                                                <a href="javascript:;"><span><i class="fa fa-star-o"></i>{{article.comment_count}}</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <div class="uposts">
+                                    <div class="codesign-list lazyload visible" data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/07/20662b13cbaa324.jpg">
+                                        <h4 class="codeisgn-h4"><i class="fa fa-circle-o"></i><a href="design.html">技术分享&gt;</a></h4>
+                                        <span class="codesign-esc">
+									<p>
+										好的东西值得描述内容
+									</p>
+									</span>
+                                        <div class="codesign-cover">
+                                        </div>
+                                    </div>
+                                    {% for article in tech_articles %}
+                                        <div class="hentry">
+                                            <h2 class="title"><span class="post-num num-1">{{forloop.counter}}</span><a href="/article/detail/{{article.id}}" title="【免费下载】手握手机PSD分成">{{article.title}}</a></h2>
+                                            <div class="meta">
+                                                <span>热度({{article.view_count}})</span>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="uposts">
+                                    <div class="codesign-list lazyload visible" data-bg="https://ww.aliwen.vip/wp-content/uploads/2019/07/ce08becc73195df.jpg">
+                                        <h4 class="codeisgn-h4"><i class="fa fa-circle-o"></i><a href="life-2.html">生活腔调
+                                            &gt;
+                                        </a></h4>
+                                        <span class="codesign-esc">
+									<p>
+										好的东西值得描述内容
+									</p>
+									</span>
+                                        <div class="codesign-cover">
+                                        </div>
+                                    </div>
+                                    {% for article in life_articles %}
+                                        <div class="hentry">
+                                            <h2 class="title"><span class="post-num num-1">1</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
+                                            <div class="meta">
+                                                <span>热度({{article.view_count}})</span>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="container">
+                        <h3 class="section-title">
+                            <span><i class="fa fa-th"></i><a href="tech-2.html">技术分享</a></span>
+                        </h3>
+                        <div class="row cat-posts-wrapper">
+                            {% for article in tech_new_articles %}
+                                <div class="col-lg-6">
+                                    <article id="post-263" class="post post-list post-263 type-post status-publish format-image has-post-thumbnail hentry category-ui category-adver category-design category-tech tag-ui tag-81 post_format-post-format-image">
+                                        <div class="entry-media">
+                                            <div class="placeholder" style="padding-bottom: 66.666666666667%;">
+                                                <a href="/article/detail/{{article.id}}">
+                                                    <img class="lazyload" data-src="{{article.cover}}" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="entry-wrapper">
+                                            <header class="entry-header">
+                                                <div class="entry-meta">
+									            <span class="meta-author">
+									                <a href="#"><img alt='' data-src='{{article.author.avatar}}' class='lazyload avatar avatar-40 photo ' height='40' width='40'>{{article.author.nickname}}</a>
+									            </span>
+                                                    <span class="meta-category">
+                                                    {% for label in article.labels.all %}
+                                                        <a href="/article/label/{{label.id}}" rel="category"><i class="dot"></i>{{ label.name }}</a>
+                                                    {% endfor %}
+												</span>
+                                                </div>
+                                                <h2 class="entry-title"><a href="/article/detail/{{article.id}}" rel="bookmark">{{article.title}}</a></h2>
+                                            </header>
+                                            <div class="entry-excerpt u-text-format">
+                                                {{article.des}}
+                                            </div>
+                                            <div class="entry-footer">
+                                                <a href="javascript:;"><time datetime="2019-07-25T13:51:09+08:00"><i class="fa fa-clock-o"></i> {{article.create_time| date:'Y年m月d日' }}</time></a>
+                                                <a href="javascript:;"><span><i class="fa fa-eye"></i> {{article.view_count}}</span></a>
+                                                <a href="javascript:;"><span><i class="fa fa-star-o"></i>{{article.comment_count}}</span></a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pagejs %}
+{% endblock %}

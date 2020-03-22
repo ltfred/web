@@ -5,106 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
-    <title>首页</title>
+    <link rel="shortcut icon" href="{% static 'image/favicon.ico' %}">
+    <title>首页-只要还有明天，今天永远都是起跑线</title>
     <link rel='stylesheet' id='caozhuti-style-css' href="{% static 'css/style-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='external-css' href="{% static 'css/external-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='sweetalert2-css' href="{% static 'css/sweetalert2.min-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='app-css' href="{% static 'css/app-4.9.css' %}" type='text/css' media='all'>
     <link rel='stylesheet' id='diy-css' href="{% static 'css/diy-4.9.css' %}" type='text/css' media='all'>
     <script type='text/javascript' src="{% static 'js/jquery-2.2.4.min-2.2.4.js' %}"></script>
-    <style>
-        .themepark_advertisement img {
-            max-width: 100%;
-            height: auto;
-        }
-        .themepark_advertisement .alignleft {
-            display: inline;
-            float: left;
-            margin-right: 0;
-        }
-        .themepark_advertisement .alignright {
-            display: inline;
-            float: right;
-            margin-left: 0;
-        }
-        .themepark_advertisement .aligncenter {
-            clear: both;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .themepark_advertisement {
-            width: 100%;
-            height: 1000px;
-            position: fixed;
-            overflow: hidden;
-            top: 0;
-            left: 0;
-            z-index: 100000;
-            text-align: center;
-        }
-        .themepark_advertisement_ba {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            overflow: hidden;
-            background: #000;
-            opacity: 0.5;
-            filter: Alpha(opacity=40);
-        }
-        .themepark_advertisement_in {
-            border-radius: 10px;
-            max-width: 90%;
-            width: auto;
-            height: auto;
-            background: #FFF;
-            padding: 0 10px 10px 10px;
-            position: relative;
-            margin-top: 65px;
-            box-shadow: 0 0 5px #000000;
-            display: inline-block;
-            z-index: 2;
-        }
-        .themepark_advertisement_in_mo {
-            display: none;
-        }
-        .themepark_advertisement_close {
-            width: 100%;
-            height: 30px;
-            position: relative;
-        }
-        .themepark_advertisement_close_in {
-            width: 30px;
-            height: 30px;
-            background: #4783f5;
-            position: absolute;
-            color: #FFF;
-            line-height: 30px;
-            text-align: center;
-            top: 10px;
-            right: 0px;
-            font-family: Arial, Helvetica, sans-serif;
-            cursor: pointer;
-            border-radius: 50px;
-        }
-        @media screen and (min-width: 200px) and (max-width: 700px) {
-            #themepark_advertisement_in_mo {
-                display: block;
-            }
-            #themepark_advertisement_in_pc {
-                display: none;
-            }
-            #themepark_advertisement_in {
-                width: auto;
-                height: auto;
-                margin-top: 55px;
-            }
-        }
-    </style>
     <meta name="keywords" content="Aliwen,Fred,小栈,aliwen.vip">
     <meta name="description" content="Fred，她是一个服务于小众的聚集地，用最执着的文字， 说最不奢求完美的故事。">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. --><!--[if lt IE 9]>
@@ -149,9 +57,9 @@
                 </div>
                 <div class="actions">
                     <!-- user -->
-                    <div class="login-btn navbar-button">
-                        <i class="mdi mdi-account"></i> 登录
-                    </div>
+{#                    <div class="login-btn navbar-button">#}
+{#                        <i class="mdi mdi-account"></i> 登录#}
+{#                    </div>#}
                     <!-- user end -->
                     <div class="search-open navbar-button">
                         <i class="mdi mdi-magnify"></i>
@@ -519,90 +427,12 @@
     </div>
     <div class="dimmer">
     </div>
-    <div id="popup-signup" class="popup-signup fade" style="display: none;">
-        <div class="register-login-modal" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#login" data-toggle="login">登录</a>
-                        </li>
-                        <li><a href="#signup" data-toggle="signup">注册</a>
-                        </li>
-                    </ul>
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div class="tab-pane fade in active" id="login">
-                            <div class="signup-form-container text-center">
-                                <form class="mb-0">
-                                    <div class="open-oauth text-center">
-                                        <a href="qq.html" class="btn btn-qq"><i class="fa fa-qq"></i></a><a href="weixin.html" class="btn btn-weixin"><i class="fa fa-weixin"></i></a><a href="weibo.html" class="btn btn-weibo"><i class="fa fa-weibo"></i></a>
-                                    </div>
-                                    <div class="or-text">
-                                        <span>or</span>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" name="username" placeholder="*用户名或邮箱">
-                                    </div>
-                                    <!-- .form-group end -->
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" name="password" placeholder="*密码">
-                                    </div>
-                                    <button type="button" class="go-login btn btn--primary btn--block">登录</button>
-                                    <a href="#" class="forget-password">忘记密码?</a>
-                                </form>
-                                <!-- form  end -->
-                            </div>
-                            <!-- .signup-form end -->
-                        </div>
-                        <div class="tab-pane fade in" id="signup">
-                            <form class="mb-0">
-                                <div class="open-oauth text-center">
-                                    <a href="qq.html" class="btn btn-qq"><i class="fa fa-qq"></i></a><a href="weixin.html" class="btn btn-weixin"><i class="fa fa-weixin"></i></a><a href="weibo.html" class="btn btn-weibo"><i class="fa fa-weibo"></i></a>
-                                </div>
-                                <div class="or-text">
-                                    <span>or</span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="user_name" placeholder="输入英文用户名">
-                                </div>
-                                <!-- .form-group end -->
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="user_email" placeholder="绑定邮箱">
-                                </div>
-                                <!-- .form-group end -->
-                                <div class="form-group">
-                                    <input type="password" class="form-control" name="user_pass" placeholder="密码最小长度为6">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" name="user_pass2" placeholder="再次输入密码">
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="captcha" placeholder="邮箱验证码">
-                                        <span class="input-group-btn">
-										<button class="go-captcha_email btn btn--secondary" type="button">发送验证码</button>
-										</span>
-                                    </div>
-                                </div>
-                                <button type="button" class="go-register btn btn--primary btn--block">立即注册</button>
-                            </form>
-                            <!-- form  end -->
-                        </div>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-    </div>
     <div class="off-canvas">
         <div class="canvas-close">
             <i class="mdi mdi-close"></i>
         </div>
         <div class="logo-wrapper">
-            <a href="index.html">
+            <a href="/">
                 <img class="logo regular" src="/static/picture/logo.png" alt="Fred">
             </a>
         </div>
