@@ -26,7 +26,7 @@
             <div class="navbar">
                 <div class="logo-wrapper">
                     <a href="/">
-                        <img class="logo regular tap-logo" src="/static/picture/logo.png" data-dark="" alt="Fred">
+                        <img class="logo regular tap-logo" src="{% static 'picture/logo.png' %}" data-dark="" alt="Fred">
                     </a>
                 </div>
                 <div class="sep">
@@ -55,11 +55,6 @@
                     </div>
                 </div>
                 <div class="actions">
-                    <!-- user -->
-{#                    <div class="login-btn navbar-button">#}
-{#                        <i class="mdi mdi-account"></i> 登录#}
-{#                    </div>#}
-                    <!-- user end -->
                     <div class="search-open navbar-button">
                         <i class="mdi mdi-magnify"></i>
                     </div>
@@ -119,73 +114,73 @@
                                 <div class="entry-thumbnails">
                                     <div class="big thumbnail">
                                         <h3 class="entry-title">诗与故事</h3>
-                                        <img class="lazyload" data-src="static/picture/35bac3d2cdc2258.jpg">
+                                        <img class="lazyload" data-src="{% static 'picture/shi1.jpg' %}">
                                     </div>
                                     <div class="small">
                                         <div class="thumbnail">
-                                            <img class="lazyload" data-src="static/picture/5d518828ff221e1.jpg">
+                                            <img class="lazyload" data-src="{% static 'picture/shi2.jpg' %}">
                                         </div>
                                         <div class="thumbnail">
-                                            <img class="lazyload" data-src="static/picture/2e54cdc0dbc96b9.jpg">
-                                            <span>+6</span>
+                                            <img class="lazyload" data-src="{% static 'picture/shi3.jpg' %}">
+                                            <span>+{{ shi_count }}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <a class="u-permalink" href="work.html"></a>
+                                <a class="u-permalink" href="{% url 'article:category_article' 1 %}"></a>
                             </div>
                             <div class="category-box">
                                 <div class="entry-thumbnails">
                                     <div class="big thumbnail">
                                         <h3 class="entry-title">技术分享</h3>
-                                        <img class="lazyload" data-src="static/picture/20662b13cbaa324.jpg">
+                                        <img class="lazyload" data-src="{% static 'picture/tech1.jpg' %}">
                                     </div>
                                     <div class="small">
                                         <div class="thumbnail">
-                                            <img class="lazyload" data-src="static/picture/c1cd2837dfa5503.jpg">
+                                            <img class="lazyload" data-src="{% static 'picture/tech3.jpg' %}">
                                         </div>
                                         <div class="thumbnail">
-                                            <img class="lazyload" data-src="static/picture/b7b69c2e8283e651.jpg">
-                                            <span>+0</span>
+                                            <img class="lazyload" data-src="{% static 'picture/tech2.jpg' %}">
+                                            <span>+{{ tech_count }}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <a class="u-permalink" href="tech-2.html"></a>
-                            </div>
-                            <div class="category-box">
-                                <div class="entry-thumbnails">
-                                    <div class="big thumbnail">
-                                        <h3 class="entry-title">生活腔调</h3>
-                                        <img class="lazyload" data-src="static/picture/db7282901da891b.jpg">
-                                    </div>
-                                    <div class="small">
-                                        <div class="thumbnail">
-                                            <img class="lazyload" data-src="static/picture/2e8405cbe1c0b02.jpg">
-                                        </div>
-                                        <div class="thumbnail">
-                                            <img class="lazyload" data-src="static/picture/dc4070e3e9a27f5.jpg">
-                                            <span>+4</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="u-permalink" href="life-2.html"></a>
+                                <a class="u-permalink" href="{% url 'article:category_article' 2 %}"></a>
                             </div>
                             <div class="category-box">
                                 <div class="entry-thumbnails">
                                     <div class="big thumbnail">
                                         <h3 class="entry-title">软件工具</h3>
-                                        <img class="lazyload" data-src="static/picture/db7282901da891b.jpg">
+                                        <img class="lazyload" data-src="{% static 'picture/tool1.jpg' %}">
                                     </div>
                                     <div class="small">
                                         <div class="thumbnail">
-                                            <img class="lazyload" data-src="static/picture/2e8405cbe1c0b02.jpg">
+                                            <img class="lazyload" data-src="{% static 'picture/tool2.jpg' %}">
                                         </div>
                                         <div class="thumbnail">
-                                            <img class="lazyload" data-src="static/picture/735572d3979764d.jpg">
-                                            <span>+0</span>
+                                            <img class="lazyload" data-src="{% static 'picture/ci1.jpg' %}">
+                                            <span>+{{ tool_count }}</span>
                                         </div>
                                     </div>
                                 </div>
-                                <a class="u-permalink" href="sygs.html"></a>
+                                <a class="u-permalink" href="{% url 'article:category_article' 3 %}"></a>
+                            </div>
+                            <div class="category-box">
+                                <div class="entry-thumbnails">
+                                    <div class="big thumbnail">
+                                        <h3 class="entry-title">优美诗词</h3>
+                                        <img class="lazyload" data-src="{% static 'picture/ci4.jpg' %}">
+                                    </div>
+                                    <div class="small">
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="{% static 'picture/ci2.jpg' %}">
+                                        </div>
+                                        <div class="thumbnail">
+                                            <img class="lazyload" data-src="{% static 'picture/ci3.jpg' %}">
+                                            <span>+{{ ci_count }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="u-permalink" href="{% url 'article:category_article' 6 %}"></a>
                             </div>
                         </div>
                     </div>
@@ -361,7 +356,7 @@
                     <div class="col-xs-12 col-sm-6 col-md-3 widget--about">
                         <div class="widget--content">
                             <div class="footer--logo mb-20">
-                                <img class="tap-logo" src="{% static 'picture/logo.png' %}" data-dark="" alt="Fred">
+                                <img class="tap-logo" src="{% static 'picture/logo.png' %}" data-dark="" alt="Fred" width="100px" height="50px">
                             </div>
                             <p class="mb-10">
                                 Fred一个90后小青年，热爱生活和旅游，喜欢冒险。爱自己，你要活得无可替代并精彩绝伦，世界那么大不如去看看它，人活着不只有眼前的苟且，还有诗和远方，以爱与青春为名，陪你一路成长，不失初心，不忘初衷!
@@ -397,21 +392,21 @@
                     <!-- .col-md-2 end -->
                     <div class="col-xs-12 col-sm-3 col-md-2 widget--links">
                         <div class="widget--title">
-                            <h5 style='text-align:center'>微信公众号</h5>
+                            <h5 style='text-align:center'>微信号</h5>
                         </div>
                         <div class="widget--content">
-                            <img src="/static/picture/ca3af5e69a6da7d.jpg">
+                            <img src="{% static 'image/weixin.jpeg' %}">
                         </div>
                     </div>
                     <!-- .col-md-2 end -->
-                    <div class="col-xs-12 col-sm-3 col-md-2 widget--links">
-                        <div class="widget--title">
-                            <h5 style='text-align:center'>博客小程序</h5>
-                        </div>
-                        <div class="widget--content">
-                            <img src="/static/picture/44c6c370fd18593.jpg">
-                        </div>
-                    </div>
+{#                    <div class="col-xs-12 col-sm-3 col-md-2 widget--links">#}
+{#                        <div class="widget--title">#}
+{#                            <h5 style='text-align:center'>博客小程序</h5>#}
+{#                        </div>#}
+{#                        <div class="widget--content">#}
+{#                            <img src="/static/picture/44c6c370fd18593.jpg">#}
+{#                        </div>#}
+{#                    </div>#}
                 </div>
             </div>
             <div class="site-info">
