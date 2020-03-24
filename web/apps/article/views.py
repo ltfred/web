@@ -49,7 +49,7 @@ class ArticleCategoryView(View):
             if q == 'time':
                 articles = articles.order_by('-create_time')
             elif q == 'hot':
-                articles = articles.order_by('-digg_count')
+                articles = articles.order_by('-view_count')
         page_list, total_page = paginator_func(articles, page_num)
         category = ArticleCategory.objects.get(id=category_id)
         context = {

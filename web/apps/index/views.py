@@ -17,12 +17,10 @@ class IndexView(View):
         tech_articles = ArticleDetail.objects.filter(category1_id=5).order_by('-view_count')[0:5]
         life_articles = ArticleDetail.objects.filter(category1_id=2).order_by('-view_count')[0:5]
         tech_new_articles = ArticleDetail.objects.filter(category1_id=5).order_by('-create_time')[0:8]
-        now_date = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
-        next_date = now_date + timedelta(days=1)
-        shi_count =ArticleDetail.objects.filter(category1_id=1, create_time__gte=now_date, create_time__lt=next_date).count()
-        tech_count =ArticleDetail.objects.filter(category1_id=2, create_time__gte=now_date, create_time__lt=next_date).count()
-        tool_count =ArticleDetail.objects.filter(category1_id=3, create_time__gte=now_date, create_time__lt=next_date).count()
-        ci_count =ArticleDetail.objects.filter(category1_id=6, create_time__gte=now_date, create_time__lt=next_date).count()
+        shi_count =ArticleDetail.objects.filter(category1_id=1).count()
+        tech_count =ArticleDetail.objects.filter(category1_id=2).count()
+        tool_count =ArticleDetail.objects.filter(category1_id=3).count()
+        ci_count =ArticleDetail.objects.filter(category1_id=6).count()
         data = {
             'new_articles': new_articles,
             'carousel_article': carousel_article,

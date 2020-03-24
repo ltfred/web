@@ -4,7 +4,6 @@ from article.models import ArticleDetail, ArticleCategory, ArticleLabel
 
 class ArticleXadmin(object):
     list_display = ['title', 'category1', 'category2']
-    style_fields = {'labels': 'checkbox-inline', }
 
     def formfield_for_dbfield(self, db_field, **kwargs):
         if db_field.name == 'category1':

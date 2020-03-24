@@ -132,6 +132,14 @@
                             <h5 class="widget-title">关注我们</h5>
                             <img width="747" height="1024" src="/static/picture/fde8a2f3eb87afa-747x1024.jpg" class="image wp-image-144 attachment-large size-large" alt="" style="max-width: 100%; height: auto;" srcset="/static/picture/fde8a2f3eb87afa-747x1024.jpg 747w, /static/picture/fde8a2f3eb87afa-219x300.jpg 219w, /static/picture/fde8a2f3eb87afa-768x1053.jpg 768w, /static/picture/fde8a2f3eb87afa.jpg 1080w" sizes="(max-width: 747px) 100vw, 747px">
                         </div>
+                        <div id="tag_cloud-2" class="widget widget_tag_cloud">
+                            <h5 class="widget-title">标签云</h5>
+                            <div class="tagcloud">
+                                {% for label in labels_and_count %}
+                                    <a href="{% url 'article:label_article' label.label.id %}" class="tag-cloud-link tag-link-106 tag-link-position-1" style="font-size: 8pt;" aria-label="JS (1个项目)">{{label.label.name}}<span class="tag-link-count"> ({{label.article_count}})</span></a>
+                                {% endfor %}
+                            </div>
+                        </div>
                         {% if links %}
                             <div id="linkcat-89" class="widget widget_links">
                                 <h5 class="widget-title">友情链接</h5>
@@ -142,14 +150,6 @@
                                 </ul>
                             </div>
                         {% endif %}
-                        <div id="tag_cloud-2" class="widget widget_tag_cloud">
-                            <h5 class="widget-title">标签云</h5>
-                            <div class="tagcloud">
-                                {% for label in labels_and_count %}
-                                    <a href="{% url 'article:label_article' label.label.id %}" class="tag-cloud-link tag-link-106 tag-link-position-1" style="font-size: 8pt;" aria-label="JS (1个项目)">{{label.label.name}}<span class="tag-link-count"> ({{label.article_count}})</span></a>
-                                {% endfor %}
-                            </div>
-                        </div>
                     </aside>
                 </div>
             </div>
