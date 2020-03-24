@@ -3,7 +3,7 @@ from article.models import ArticleDetail, ArticleCategory, ArticleLabel
 
 
 class ArticleXadmin(object):
-    list_display = ['title', 'category1', 'category2']
+    list_display = ['id', 'title', 'category1', 'category2']
 
     def formfield_for_dbfield(self, db_field, **kwargs):
         if db_field.name == 'category1':
@@ -14,11 +14,11 @@ class ArticleXadmin(object):
 
 
 class ArticleCategoryXadmin(object):
-    list_display = ['name', 'parent']
+    list_display = ['id', 'name', 'parent']
 
 
 class ArticleLabelXadmin(object):
-    pass
+    list_display = ['id', 'name']
 
 xadmin.site.register(ArticleDetail, ArticleXadmin)
 xadmin.site.register(ArticleCategory, ArticleCategoryXadmin)

@@ -4,12 +4,12 @@ from .models import *
 
 
 class CarouselXadmin(object):
-    list_display = ['article', 'is_active']
+    list_display = ['id', 'article', 'is_active']
 
 
 class GlobalSetting(object):
-    site_title = 'Fred'
-    site_footer  = 'Fred'
+    site_title = 'Fred的博客后台管理'
+    site_footer  = 'Fred的博客后台管理'
 
 
 xadmin.site.register(views.CommAdminView, GlobalSetting)

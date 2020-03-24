@@ -11,7 +11,7 @@ class IndexView(View):
 
     def get(self, request):
 
-        new_articles = ArticleDetail.objects.all()[0:8]
+        new_articles = ArticleDetail.objects.all()[0:12]
         carousel_article = Carousel.objects.filter(is_active=True)
         categories = ArticleCategory.get_categories()
         tech_articles = ArticleDetail.objects.filter(category1_id=5).order_by('-view_count')[0:5]
@@ -32,7 +32,5 @@ class IndexView(View):
             'tech_count': tech_count,
             'tool_count': tool_count,
             'ci_count': ci_count,
-
-
         }
         return render(request, 'index.html', context=data)
