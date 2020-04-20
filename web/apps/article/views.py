@@ -99,4 +99,5 @@ class MySearchView(SearchView):
     def extra_context(self):
         content = super(MySearchView, self).extra_context()
         content['categories'] = ArticleCategory.get_categories()
+        content['search_count'] = self.results.count()
         return content
