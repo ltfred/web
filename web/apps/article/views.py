@@ -101,3 +101,12 @@ class MySearchView(SearchView):
         content['categories'] = ArticleCategory.get_categories()
         content['search_count'] = self.results.count()
         return content
+
+
+class TimeLineView(View):
+
+    def get(self, request):
+
+        articles = ArticleDetail.objects.all().values('title', 'create_time')
+
+        return render(request, 'time_line.html', {'articles': articles})

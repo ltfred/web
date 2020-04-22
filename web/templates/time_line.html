@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Fred-文章归档</title>
+{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+{% block content %}
+    <div class="term-bar lazyload visible" data-bg="{% static 'picture/123.jpg' %}">
+        <h1 class="term-title">文章归档</h1>
+    </div>
+    <div class="site-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="content-area">
+                        <main class="site-main">
+                            <div class="row posts-wrapper">
+{#                                <div style="margin:0 auto;text-align: center">#}
+                                    <ul class="layui-timeline">
+                                        {% for article in articles %}
+                                    <a href="#">
+                                        <li class="layui-timeline-item">
+                                            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+                                            <div class="layui-timeline-content layui-text">
+                                                <h3 class="layui-timeline-title">{{article.create_time| date:'Y年m月d日' }}</h3>
+                                                <p>
+                                                <h4>layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。</h4>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </a>
+                                        {% endfor %}
+                                    </ul>
+{#                                </div>#}
+                            </div>
+                            <!--                            分页-->
+                            {% if articles %}
+                                <div id="test1" style="margin:0 auto;text-align: center"></div>
+                            {% endif %}
+                            {% if not articles %}
+                                <div class="col-12 _404">
+                                    <div class="_404-inner">
+                                        <h1 class="entry-title">暂无内容</h1>
+                                        <div class="entry-content">抱歉，没有找到您需要的文章，可以搜索看看</div>
+                                        <form method="get" class="search-form inline" action="{% url 'article:search' %}">
+                                            <input type="search" class="search-field inline-field" placeholder="输入关键词，回车..." autocomplete="off" value="" name="q" required="required">
+                                            <button type="submit" class="search-submit"><i class="mdi mdi-magnify"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block pagejs %}
+    <script>
+        layui.use('laypage', function(){
+            var laypage = layui.laypage;
+
+            laypage.render({
+                elem: 'test1'
+                ,limit:12
+                ,theme:'#34495e'
+                ,count: 11 //数据总数，从服务端得到
+                ,jump: function(obj, first){
+                    //obj包含了当前分页的所有参数，比如：
+                    console.log(obj.curr); //得到当前页，以便向服务端请求对应页的数据。
+                    console.log(obj.limit); //得到每页显示的条数
+                    //首次不执行
+                    if(!first){
+                        //do something
+                        current_page = obj.curr
+                        location.href = '/article/search?q={{ query }}&page=' + current_page
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}
