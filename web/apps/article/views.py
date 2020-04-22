@@ -107,6 +107,15 @@ class TimeLineView(View):
 
     def get(self, request):
 
+        page = request.GET.get('page', 1)
         articles = ArticleDetail.objects.all().values('title', 'create_time')
 
-        return render(request, 'time_line.html', {'articles': articles})
+        page_list, total_page = paginator_func(articles, page)
+
+        context = {
+            'articles': page_list,
+            'count': articles.count(),
+            'categories': ArticleCategory.get_categories()
+        }
+
+        return render(request, 'time_line.html', context=context)
