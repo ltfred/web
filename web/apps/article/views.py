@@ -108,7 +108,7 @@ class TimeLineView(View):
     def get(self, request):
 
         page = request.GET.get('page', 1)
-        articles = ArticleDetail.objects.all().values('title', 'create_time')
+        articles = ArticleDetail.objects.all().values('title', 'create_time', 'id')
 
         page_list, total_page = paginator_func(articles, page)
 
