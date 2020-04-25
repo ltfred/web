@@ -30,7 +30,7 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo-wrapper">
-                    <a href="index.html">
+                    <a href="/">
                         <img class="logo regular tap-logo" src="{% static 'picture/logo.png' %}" data-dark="" alt="Fred">
                     </a>
                 </div>
@@ -41,11 +41,13 @@
                         <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="/">首页</a></li>
                         {% for category in categories %}
                             <li id="menu-item-85" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-85"><a href="{% url 'article:category_article' category.category.id %}">{{category.category.name}}</a>
+                            {% if category.sub_categories %}
                                 <ul class="sub-menu">
                                     {% for sub_category in category.sub_categories%}
                                         <li id="menu-item-86" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-86"><a href="{% url 'article:category_article' sub_category.id %}">{{sub_category}}</a></li>
                                     {% endfor %}
                                 </ul>
+                            {% endif %}
                             </li>
                         {% endfor %}
                         <li id="menu-item-34" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-34"><a href="{% url 'article:time' %}">文章归档</a></li>

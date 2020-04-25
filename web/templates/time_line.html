@@ -19,7 +19,6 @@
                     <div class="content-area">
                         <main class="site-main">
                             <div class="row posts-wrapper">
-{#                                <div style="margin:0 auto;text-align: center">#}
                                     <ul class="layui-timeline">
                                         {% for article in articles %}
                                         <a href="{% url 'article:detail' article.id %}">
@@ -35,7 +34,6 @@
                                         </a>
                                         {% endfor %}
                                     </ul>
-{#                                </div>#}
                             </div>
                             <!--                            分页-->
                             {% if articles %}
