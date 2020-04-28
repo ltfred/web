@@ -5,7 +5,6 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views import View
 from haystack.views import SearchView
-
 from article.models import ArticleDetail, ArticleCategory, ArticleLabel
 from link.models import Link
 from web.utils.common import paginator_func
@@ -41,9 +40,8 @@ class ArticleDetailView(View):
 class ArticleCategoryView(View):
 
     def get(self, request, category_id):
-        page_num = request.GET.get('page')
-        page_num = page_num if page_num else 1
-        q = request.GET.get('q')
+        page_num = request.GET.get('page', 1)
+        q = request.GET.get('q', '')
         articles = ArticleDetail.objects.filter(Q(category1_id=category_id) | Q(category2_id=category_id))
         if q:
             if q == 'time':
