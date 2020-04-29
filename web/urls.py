@@ -18,6 +18,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 import xadmin
+from web import views
 
 
 urlpatterns = [
@@ -27,5 +28,9 @@ urlpatterns = [
     path('mdeditor/', include('mdeditor.urls')),
     path('link/', include('link.urls')),
     path('user/', include('user.urls')),
-    path('xadmin/', xadmin.site.urls)
+    path('xadmin/', xadmin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+handler404 = views.page_not_found
+# handler500 = views.server_error
