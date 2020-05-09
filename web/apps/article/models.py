@@ -30,6 +30,10 @@ class ArticleDetail(BaseModel):
     def __str__(self):
         return self.title
 
+    @classmethod
+    def get_article_obj(cls, id):
+        obj = cls.objects.get(id=id)
+        return obj
 
 class ArticleCategory(BaseModel):
     name = models.CharField(verbose_name='分类名', max_length=20, help_text='20字以内')

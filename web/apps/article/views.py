@@ -15,11 +15,11 @@ class ArticleDetailView(View):
     def get(self, request, article_id):
 
         try:
-            article = ArticleDetail.objects.get(id=article_id)
+            article = ArticleDetail.get_article_obj(id=article_id)
+            article.view_count += 1
+            article.save()
         except:
             raise
-        article.view_count += 1
-        article.save()
         article.content = markdown.markdown(article.content.replace("\r\n", '  \n'), extensions=[
             'markdown.extensions.extra',
             'markdown.extensions.codehilite',
@@ -65,7 +65,7 @@ class ArticleStarView(View):
 
     def post(self, request, article_id):
 
-        article_obj = ArticleDetail.objects.get(id=article_id)
+        article_obj = ArticleDetail.get_article_obj(id=article_id)
         article_obj.digg_count += 1
         article_obj.save()
         return HttpResponse('success')
