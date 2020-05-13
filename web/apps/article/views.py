@@ -1,5 +1,4 @@
 import markdown
-from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render

@@ -1,6 +1,5 @@
 from django import http
 from django.contrib.auth import login
-from django.shortcuts import render
 from django.views import View
 from user.models import Users
 
