@@ -1,6 +1,6 @@
 import markdown
 from django.db.models import Q
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from haystack.views import SearchView
@@ -32,7 +32,6 @@ class ArticleDetailView(View):
             'labels_and_count': ArticleLabel.get_labels(),
             'links': Link.objects.all()
         }
-
         return render(request, 'article_detail.html', context)
 
 
@@ -56,14 +55,12 @@ class ArticleCategoryView(View):
             'sub_categories': ArticleCategory.get_sub_categories(),
             'total_page': total_page
         }
-
         return render(request, 'category_article.html', context=context)
 
 
 class ArticleStarView(View):
 
     def post(self, request, article_id):
-
         article_obj = ArticleDetail.get_article_obj(id=article_id)
         article_obj.digg_count += 1
         article_obj.save()
@@ -88,7 +85,6 @@ class LabelArticleView(View):
         return render(request, 'label_article.html', context)
 
 
-
 class MySearchView(SearchView):
 
     template = 'search.html'
@@ -106,13 +102,10 @@ class TimeLineView(View):
 
         page = request.GET.get('page', 1)
         articles = ArticleDetail.objects.all().values('title', 'create_time', 'id')
-
         page_list, total_page = paginator_func(articles, page)
-
         context = {
             'articles': page_list,
             'count': articles.count(),
             'categories': ArticleCategory.get_categories()
         }
-
         return render(request, 'time_line.html', context=context)

@@ -4,7 +4,6 @@ from article.models import ArticleDetail, ArticleCategory
 from index.models import Carousel
 
 
-
 class IndexView(TemplateView):
     template_name = "index.html"
 
