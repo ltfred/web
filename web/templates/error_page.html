@@ -33,7 +33,7 @@
 		<div class="wrapper">
 			<div class="errors-16-top">
 				<div class="errors-16-info">
-					<h3>404 </h3>
+					<h3>{{ code }}</h3>
 					<p>Sorry! 页面找不到了</p>
 					<form action="{% url 'article:search' %}" method="get" class="d-flex error-page-form">
 						<input type="search" placeholder="搜一下就知道" required="required" name="q">
