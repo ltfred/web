@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 from mdeditor.fields import MDTextField
 
 from user.models import Users
@@ -20,7 +19,6 @@ class ArticleDetail(BaseModel):
     des = models.TextField(verbose_name='文章简介')
     labels = models.ManyToManyField('ArticleLabel', related_name='labels')
 
-
     class Meta:
         db_table = 'article_detail'
         verbose_name = '文章详情'
@@ -34,6 +32,7 @@ class ArticleDetail(BaseModel):
     def get_article_obj(cls, id):
         obj = cls.objects.get(id=id)
         return obj
+
 
 class ArticleCategory(BaseModel):
     name = models.CharField(verbose_name='分类名', max_length=20, help_text='20字以内')
@@ -53,10 +52,7 @@ class ArticleCategory(BaseModel):
         categories = []
         for category in parent_category:
             sub_categories = cls.objects.filter(parent=category)
-            categories.append({
-            'category': category,
-            'sub_categories': sub_categories
-            })
+            categories.append({'category': category,'sub_categories': sub_categories})
         return categories
 
     @classmethod

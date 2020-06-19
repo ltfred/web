@@ -9,7 +9,7 @@ class CarouselXadmin(object):
 
 class GlobalSetting(object):
     site_title = 'Fred的博客后台管理'
-    site_footer  = 'Fred的博客后台管理'
+    site_footer = 'Fred的博客后台管理'
 
 
 xadmin.site.register(views.CommAdminView, GlobalSetting)
