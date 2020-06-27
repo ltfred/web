@@ -1,4 +1,6 @@
 from django.urls import path
+
+from . import feed
 from .views import ArticleDetailView, ArticleCategoryView, ArticleStarView, LabelArticleView, MySearchView, TimeLineView
 
 app_name = 'article'
@@ -11,4 +13,6 @@ urlpatterns = [
     # path('categories/', GetCategories.as_view()),
     path('search', MySearchView(), name='search'),
     path('time', TimeLineView.as_view(), name='time'),
+    path('rss/', feed.BlogFeed(), name='rss'),
+
 ]
