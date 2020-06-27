@@ -128,7 +128,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a class="u-permalink" href="{% url 'article:category_article' 1 %}"></a>
+                                <a class="u-permalink" href="{% url 'article:category_article' 2 %}"></a>
                             </div>
                             <div class="category-box">
                                 <div class="entry-thumbnails">
@@ -146,7 +146,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a class="u-permalink" href="{% url 'article:category_article' 2 %}"></a>
+                                <a class="u-permalink" href="{% url 'article:category_article' 4 %}"></a>
                             </div>
                             <div class="category-box">
                                 <div class="entry-thumbnails">
@@ -164,7 +164,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a class="u-permalink" href="{% url 'article:category_article' 3 %}"></a>
+                                <a class="u-permalink" href="{% url 'article:category_article' 5 %}"></a>
                             </div>
                             <div class="category-box">
                                 <div class="entry-thumbnails">
@@ -182,7 +182,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a class="u-permalink" href="{% url 'article:category_article' 6 %}"></a>
+                                <a class="u-permalink" href="{% url 'article:category_article' 8 %}"></a>
                             </div>
                         </div>
                     </div>
@@ -256,12 +256,51 @@
                                         </div>
                                     </div>
                                     {% for article in tech_articles %}
+                                        {% if forloop.counter == 1 %}
                                     <div class="hentry">
-                                        <h2 class="title"><span class="post-num num-1">{{forloop.counter}}</span><a href="/article/detail/{{article.id}}" title="【免费下载】手握手机PSD分成">{{article.title}}</a></h2>
+                                        <h2 class="title"><span class="post-num num-1">1</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
                                         <div class="meta">
                                             <span>热度({{article.view_count}})</span>
                                         </div>
                                     </div>
+                                        {% endif %}
+
+                                        {% if forloop.counter == 2 %}
+                                    <div class="hentry">
+                                        <h2 class="title"><span class="post-num num-2">2</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
+                                        <div class="meta">
+                                            <span>热度({{article.view_count}})</span>
+                                        </div>
+                                    </div>
+                                        {% endif %}
+
+                                        {% if forloop.counter == 3 %}
+                                    <div class="hentry">
+                                        <h2 class="title"><span class="post-num num-3">3</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
+                                        <div class="meta">
+                                            <span>热度({{article.view_count}})</span>
+                                        </div>
+                                    </div>
+                                        {% endif %}
+
+                                        {% if forloop.counter == 4 %}
+                                    <div class="hentry">
+                                        <h2 class="title"><span class="post-num num-4">4</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
+                                        <div class="meta">
+                                            <span>热度({{article.view_count}})</span>
+                                        </div>
+                                    </div>
+                                        {% endif %}
+
+                                        {% if forloop.counter == 5 %}
+                                    <div class="hentry">
+                                        <h2 class="title"><span class="post-num num-5">5</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
+                                        <div class="meta">
+                                            <span>热度({{article.view_count}})</span>
+                                        </div>
+                                    </div>
+                                        {% endif %}
+
                                     {% endfor %}
                                 </div>
                             </div>
@@ -280,12 +319,52 @@
                                         </div>
                                     </div>
                                     {% for article in life_articles %}
+
+                                        {% if forloop.counter == 1 %}
                                     <div class="hentry">
                                         <h2 class="title"><span class="post-num num-1">1</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
                                         <div class="meta">
                                             <span>热度({{article.view_count}})</span>
                                         </div>
                                     </div>
+                                        {% endif %}
+
+                                        {% if forloop.counter == 2 %}
+                                    <div class="hentry">
+                                        <h2 class="title"><span class="post-num num-2">2</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
+                                        <div class="meta">
+                                            <span>热度({{article.view_count}})</span>
+                                        </div>
+                                    </div>
+                                        {% endif %}
+
+                                        {% if forloop.counter == 3 %}
+                                    <div class="hentry">
+                                        <h2 class="title"><span class="post-num num-3">3</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
+                                        <div class="meta">
+                                            <span>热度({{article.view_count}})</span>
+                                        </div>
+                                    </div>
+                                        {% endif %}
+
+                                        {% if forloop.counter == 4 %}
+                                    <div class="hentry">
+                                        <h2 class="title"><span class="post-num num-4">4</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
+                                        <div class="meta">
+                                            <span>热度({{article.view_count}})</span>
+                                        </div>
+                                    </div>
+                                        {% endif %}
+
+                                        {% if forloop.counter == 5 %}
+                                    <div class="hentry">
+                                        <h2 class="title"><span class="post-num num-5">5</span><a href="/article/detail/{{article.id}}" title="一个人，吃过很多苦，一开口便能看出来!">{{article.title}}</a></h2>
+                                        <div class="meta">
+                                            <span>热度({{article.view_count}})</span>
+                                        </div>
+                                    </div>
+                                        {% endif %}
+
                                     {% endfor %}
                                 </div>
                             </div>
