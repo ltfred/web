@@ -5,9 +5,9 @@ from .models import ArticleDetail
 
 class BlogFeed(Feed):
     # 标题
-    title = 'jiangxfone的个人博客'
+    title = 'Fred的个人博客'
     # 描述
-    description = '一个用来练习Django的个人博客'
+    description = '分享自己的一知识'
     # 链接
     link = "/"
 
