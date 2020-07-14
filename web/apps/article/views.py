@@ -24,7 +24,7 @@ class ArticleDetailView(View):
             'markdown.extensions.codehilite',
             'markdown.extensions.toc'
         ])
-        related_articles = ArticleDetail.objects.filter(category2=article.category2)[0:4]
+        related_articles = ArticleDetail.objects.filter(category2=article.category2).exclude(id=article.id).order_by("-digg_count")[0:4]
         context = {
             "article": article,
             'categories': ArticleCategory.get_categories(),
