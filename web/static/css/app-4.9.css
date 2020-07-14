@@ -5280,7 +5280,7 @@ body:not(.canvas-visible) .off-canvas {
     border-radius: 3px;
     color: #555;
     display: flex;
-    font-size: 10px !important;
+    font-size: 11px !important;
     font-weight: 500;
     line-height: 1;
     margin: 0 6px 6px 0;
