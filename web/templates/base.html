@@ -184,6 +184,30 @@
     <link rel="stylesheet" type="text/css" rel="external nofollow" target="_blank" href="{% static 'css/sweetalert.min.css' %}">
     <script src="{% static 'js/sweetalert.min.js' %}"></script>
     <script src="{% static 'js/mouse.js' %}"></script>
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+    <script>
+        L2Dwidget.init({
+            "model": {
+                jsonPath: "https://unpkg.com/live2d-widget-model-miku@1.0.5/assets/miku.model.json",
+                "scale": 1
+            },
+            "display": {
+                "position": "right",
+                "width": 80,
+                "height": 160,
+                "hOffset": 0,
+                "vOffset": -20
+            },
+            "mobile": {
+                "show": true,
+                "scale": 0.5
+            },
+            "react": {
+                "opacityDefault": 0.3,
+                "opacityOnHover": 0.2
+            }
+        });
+    </script>
 {% block pagejs %}
 {% endblock %}
 </div>
