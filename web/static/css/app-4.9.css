@@ -4514,10 +4514,10 @@ body:not(.canvas-visible) .off-canvas {
     margin: 20px 0;
     padding: 10px 20px;
     border: none;
-    background: #03152a;
+    background: #f2f2f2;
     color: #b3b3b3;
-    font: 13px/22px 'courier new';
-    /*font: 13px/22px 'Monaco';*/
+    /*font: 13px/22px 'courier new';*/
+    font: 13px/22px 'Monaco';
     border-radius: 4px;
 }
 
