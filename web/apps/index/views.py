@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView
 from article.models import ArticleDetail, ArticleCategory
 from index.models import Carousel

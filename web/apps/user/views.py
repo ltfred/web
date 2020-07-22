@@ -4,7 +4,6 @@ from django.views import View
 from user.models import Users
 
 
-
 class LoginView(View):
 
     def post(self, request):

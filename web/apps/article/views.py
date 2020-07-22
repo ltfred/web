@@ -1,7 +1,7 @@
 import markdown
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.views import View
 from haystack.views import SearchView
 from article.models import ArticleDetail, ArticleCategory, ArticleLabel
